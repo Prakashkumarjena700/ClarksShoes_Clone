@@ -1,0 +1,367 @@
+.wholeNavbar {
+    position: fixed;
+    width: 100%;
+}
+
+.navbarTopSection {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    color: #333333;
+    background-color: #f3f3f3;
+    padding: 10px;
+}
+
+.navbarTopSection p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333333;
+}
+
+.navbarContainer {
+    /* border: 1px solid blue; */
+    display: flex;
+    background-color: white;
+    padding: 5px 0px;
+    padding-left: 30px;
+}
+
+.navbar {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.twoBtn {
+    /* border: 1px solid salmon; */
+    display: flex;
+    font-size: 100%;
+    font-size: 28px;
+    gap: 30px;
+    color: #666666;
+    position: absolute;
+    right: 30px;
+    top: 67px;
+}
+
+.searchBar {
+    height: 60px;
+}
+
+.searchBar input {
+    height: 100%;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 0px;
+}
+
+.navbar div {
+    top: 90px;
+}
+
+.heading {
+    border-bottom: 1.5px solid #6666668b;
+    font-weight: 700;
+    padding-bottom: 20px;
+    color: #454545;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.normal {
+    color: #454545;
+}
+
+#subheading {
+    font-weight: 700;
+    color: #454545;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#womenSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #f3f3f3;
+    column-gap: 20px;
+    text-align: left;
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    padding: 30px 40px 100px 40px;
+    font-size: 15px;
+}
+
+#womenSubmenue p:hover {
+    text-decoration: underline;
+}
+
+.womennavbarpic {
+    position: absolute;
+    right: 60px;
+    width: 260px;
+    color: white;
+    text-align: center;
+}
+
+.womennavbarpic img {
+    margin-top: 30px;
+    top: 200px;
+}
+
+.womennavbarpic p {
+    padding: 17px;
+    background-color: #333333;
+}
+
+#menSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    padding: 30px 40px 100px 40px;
+    font-size: 15px;
+    column-gap: 20px;
+}
+
+.mennavbarpic {
+    position: absolute;
+    right: 60px;
+    width: 260px;
+    color: white;
+    text-align: center;
+}
+
+#menSubmenue p:hover {
+    text-decoration: underline;
+}
+
+.mennavbarpic img {
+    margin-top: 30px;
+}
+
+.mennavbarpic p {
+    padding: 7px;
+    background-color: #333333;
+}
+
+#kidsSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    padding: 30px 40px;
+    font-size: 15px;
+    column-gap: 20px;
+    border-bottom: 3px solid #0669b5bc;
+}
+
+#kidsSubmenue p:hover {
+    text-decoration: underline;
+}
+
+#originalsSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    padding: 30px 40px 100px 40px;
+    font-size: 15px;
+    column-gap: 20px;
+    border-bottom: 3px solid #0669b5bc;
+}
+
+#originalsSubmenue p:hover {
+    text-decoration: underline;
+}
+
+#accessoriesSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0;
+    font-size: 15px;
+    column-gap: 20px;
+    border-bottom: 3px solid #0669b5bc;
+    padding: 30px 40px;
+    width: 100%;
+    padding-right: 50%;
+
+}
+
+#accessoriesSubmenue p:hover {
+    text-decoration: underline;
+}
+
+#saleSubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0;
+    font-size: 15px;
+    column-gap: 20px;
+    border-bottom: 3px solid #0669b5bc;
+    padding: 30px 40px;
+    width: 100%;
+    padding-right: 25%;
+}
+
+#saleSubmenue p:hover {
+    text-decoration: underline;
+}
+
+#sustainabilitySubmenue {
+    border-top: 20px solid white;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    position: absolute;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 1;
+    left: 0;
+    font-size: 15px;
+    column-gap: 20px;
+    border-bottom: 3px solid #0669b5bc;
+    padding: 30px 40px;
+    width: 100%;
+    padding-right: 75%;
+}
+
+#sustainabilitySubmenue p:hover {
+    text-decoration: underline;
+}
+
+.hamburgerMenu {
+    display: none;
+}
+
+.hamburgerlogo {
+    color: #333333;
+    position: fixed;
+    top: 65px;
+    left: 14px;
+    font-size: 32px;
+}
+
+.hanmburgerBody img {
+    width: 100px;
+    margin: 30px auto;
+}
+
+.searchResult {
+    border: 1px solid red;
+    display: flex;
+}
+
+.hanmburgerBody {
+    background-color: #333333;
+}
+
+.hanmburgerBody Select {
+    background-color: #333333;
+    border: none;
+    border-bottom: 0.5px solid rgba(245, 245, 245, 0.345);
+    border-radius: 0px;
+    height: 60px;
+    font-size: 20px;
+    padding-left: 0px;
+}
+
+.hanmburgerBody Select option {
+    background-color: #333333;
+    border-radius: 0px;
+}
+
+.hanmburgerBody p:nth-child(2) {
+    border: 1px solid rgba(255, 255, 255, 0.208);
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 0px;
+    margin: 30px 0px 20px 0px;
+}
+
+.hanmburgerBody p {
+    color: white;
+    font-size: 20px;
+    padding: 15px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.208);
+}
+
+.hamburgerSocialMedia {
+    /* border: 1px solid white; */
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin: 30px 0px;
+    margin-top: 40px;
+}
+
+.hanmburgerBody p:nth-child(16) {
+    font-size: 14px;
+    border: none;
+    margin-top: 20px;
+}
+
+.hanmburgerBody p:nth-child(17) {
+    font-size: 14px;
+    border: none;
+}
+
+.hamburgerCardContainer {
+    /* border: 1px solid white; */
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.hamburgerCardContainer img {
+    width: 30px;
+    margin: 0px;
+}
+
+@media(max-width:1000px) {
+    .navbar {
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: flex;
+    }
+}
+@media (max-width:800px) {
+    .navbarTopSection span{
+        display: none;
+    }
+}
