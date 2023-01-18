@@ -1,0 +1,21 @@
+.normalFooter {
+    border: 1px solid red;
+}
+.normalFooterTop{
+    border: 1PX solid rgb(0, 255, 17);
+}
+
+.midAndSmallFooter {
+    border: 1px solid blue;
+    display: none;
+}
+
+@media(max-width:1000px) {
+    .normalFooter {
+        display: none;
+    }
+
+    .midAndSmallFooter {
+        display: flex;
+    }
+}

@@ -18,7 +18,6 @@
 .winter-clearnce {
     margin: 10px 0px;
     /* border: 1px solid red; */
-    height: 446px;
 }
 
 .winter-clearnce img {
@@ -89,6 +88,231 @@
     border-radius: 3px;
 }
 
+.winterRebootimg {
+    /* border: 1px solid red; */
+    height: 420px;
+    margin-top: 20px;
+    background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22WOriannaMidDarkSandSuedeOnsiteBannerDesktop1500x500?fmt=webp&wid=1500');
+    background-size: cover;
+}
+
+.winterRebootContainer {
+    /* border: 1px solid green; */
+    text-align: center;
+    padding: 30px 0px;
+    padding-bottom: 40px;
+    background-color: #f3f3f3;
+}
+
+.winterRebootContainer h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.winterRebootContainer p {
+    width: 600px;
+    margin: auto;
+}
+
+.winterRebootContainer div {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin-top: 20px;
+}
+
+.winterRebootContainer button {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 30px;
+    background-color: white;
+}
+
+.homepageTwoContainer {
+    /* border: 1px solid green; */
+    display: flex;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.homepageTwoContainer img {
+    height: 300px;
+    margin: auto;
+    width: 100%;
+}
+
+.homepageTwoContainer>div {
+    /* border: 1px solid royalblue; */
+    padding: 20px;
+}
+
+.homepageTwoContainer>div h2 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 20px 0px;
+}
+
+.homepageTwoContainer>div>div {
+    /* border: 1px solid orange; */
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.homepageTwoContainer>div>div button {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 3px;
+    width: 80%;
+    margin: auto;
+    padding: 5px 0px;
+}
+
+.homepageTwoContainer>div>div button:hover {
+    background-color: black;
+    color: white;
+    transition: all 900ms;
+}
+
+.eighthStreet {
+    height: 410px;
+    background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner8thSt1500x500?fmt=webp&wid=1500');
+    background-size: cover;
+}
+
+.eighthStreetContainer {
+    /* border: 1px solid gold; */
+    background-color: #d0c9b9;
+    text-align: center;
+    padding: 20px;
+    margin-top: -3px;
+}
+
+.eighthStreetContainer h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    width: 600px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.eighthStreetContainer p {
+    width: 545px;
+    margin: auto;
+}
+
+.eighthStreetContainer button {
+    border: 1px solid black;
+    background-color: white;
+    padding: 5px 30px;
+    margin: 20px 5px;
+    border-radius: 3px;
+
+}
+
+.seftyRecall {
+    border: 1px solid black;
+    background-color: #045c9e;
+    color: white;
+    padding: 6px;
+    margin: 30px 0px;
+}
+
+.seftyRecall>div {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border: 1px solid white;
+    padding: 10px 0px;
+}
+
+.seftyRecall>div p:last-child {
+    text-decoration: underline;
+
+}
+
+.seftyRecall>div p:last-child:hover {
+    text-decoration: none;
+
+}
+
+.homeFourGrid {
+    /* border: 1px solid blueviolet; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.homeFourGrid p{
+    /* border: 1px solid rosybrown; */
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    bottom: 50%;
+
+}
+
+.homeFourGrid p:hover {
+    text-decoration: underline;
+}
+.klarnaDiv{
+    border: 1px solid pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    background-color: #fcb3c7;
+    padding: 10px 0px;
+}
+.klarnaDiv div:nth-child(1){
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+.klarnaDiv div:last-child{
+    text-decoration: underline;
+}
+.klarnaDiv div:last-child:hover{
+    text-decoration: none;
+}
+.scrollTopContainer{
+    border: 1px solid rgba(0, 0, 0, 0.429);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 20px;
+   
+}
+.scrollTopContainer div:first-child{
+    display: flex;
+    gap: 15px;
+}
+
+.scrollTopContainer div:last-child input{
+    border: 1px solid black;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.scrollTopContainer div:last-child{
+    color: #676666;
+}
+.scrollTopContainer div:last-child button:last-child{
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #f3f3f3;
+}
 @media screen and (max-width:1200px) {
     .winter-clearnce .container {
         width: 80%;
@@ -115,25 +339,119 @@
     .homeFirstDiv p:nth-child(2) {
         display: none;
     }
-    .winter-clearnce .container{
+
+    .winter-clearnce .container {
         width: 100%;
+    }
+
+    .winterRebootimg {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22WOriannaMidDarkSandSuedeOnsiteBannerTablet705x397?fmt=webp&wid=768');
+    }
+
+    .homepageTwoContainer {
+        flex-direction: column;
+    }
+
+    .homepageTwoContainer>div>div {
+        flex-direction: row;
+    }
+
+    .eighthStreet {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner8thSt705x397?fmt=webp&wid=768');
+    }
+
+    .seftyRecall>div {
+        flex-direction: column;
+        gap: 0px;
+        text-align: center;
+    }
+    .scrollTopContainer{
+       display: none;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .homeFourGrid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-@media screen and (max-width:660px){
-    .winter-clearnce .container>p:nth-child(4){
+
+@media screen and (max-width:660px) {
+    .winter-clearnce .container>p:nth-child(4) {
         width: 100%;
     }
-    .winter-clearnce .container{
+
+    .winter-clearnce .container {
         height: auto;
         margin-bottom: 10px;
     }
-    .winter-clearnce .container>div{
-       flex-direction: column;
-       gap: 10px;
+
+    .winter-clearnce .container>div {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .winterRebootContainer p {
+        width: 90%;
+    }
+
+    .winterRebootContainer div {
+        border: 1px solid blueviolet;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .winterRebootContainer button {
+        width: 90%;
+
+    }
+
+    .homepageTwoContainer>div>div {
+        flex-direction: column;
+    }
+
+    .eighthStreetContainer h1 {
+        width: 100%;
+    }
+
+    .eighthStreetContainer p {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .eighthStreetContainer button {
+        margin: 5px 0px;
+        width: 90%;
+    }
+    .klarnaDiv{
+        flex-direction: column;
     }
 }
+
 @media screen and (max-width:400px) {
     .homeFirstDiv {
         font-size: 12px;
+    }
+
+    .winterRebootimg {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22WOriannaMidDarSandSuedeOnsiteBannerMobile705x705?fmt=webp&wid=426');
+    }
+
+    .homepageTwoContainer>div>div {
+        padding: 15px 0px;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .eighthStreet {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner8thSt705x705?fmt=webp&wid=426');
+    }
+    .klarnaDiv div:first-child p{
+        font-size: 15px;
+    }
+    .klarnaDiv div:first-child img{
+        width: 70px;
     }
 }
