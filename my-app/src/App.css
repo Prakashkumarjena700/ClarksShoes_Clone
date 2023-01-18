@@ -1,5 +1,10 @@
 .App {
-  font-family:Century Gothic;
+  font-family: 'Oswald', sans-serif;
   margin: 0px;
   padding: 0px;
+  font-weight: 100;
+}
+.speacer{
+  height: 100px;
+  margin-bottom: 12px;
 }

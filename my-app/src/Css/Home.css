@@ -1,3 +1,139 @@
-.homeFirstDiv{
-    border: 1px solid red;
+.homeFirstDiv {
+    background-color: #dcdcdc;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+}
+
+.homeFirstDiv span {
+    text-decoration: underline;
+}
+
+.homeFirstDiv span:hover {
+    text-decoration: none;
+}
+
+.winter-clearnce {
+    margin: 10px 0px;
+    /* border: 1px solid red; */
+    height: 446px;
+}
+
+.winter-clearnce img {
+    position: absolute;
+    z-index: -1;
+    height: 446px;
+}
+
+.winter-clearnce .container {
+    background-color: #fbc2bf;
+    /* border: 1px solid blue; */
+    width: 61%;
+    margin: auto;
+    height: 100%;
+    padding: 30px;
+    text-align: center;
+    color: black;
+}
+
+.winter-clearnce .container>p:nth-child(1) {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.winter-clearnce .container>p:nth-child(2) {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.winter-clearnce .container>p:nth-child(3) {
+    font-size: 100px;
+    font-weight: 700;
+    margin: -20px 0px;
+}
+
+.winter-clearnce .container>p:nth-child(4) {
+    font-size: 25px;
+    background-color: black;
+    font-weight: 800;
+    color: white;
+    width: 90%;
+    margin: auto;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.winter-clearnce .container>p:nth-child(5) {
+    font-size: 17px;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.winter-clearnce .container>div {
+    display: flex;
+    /* border: 1px solid rebeccapurple; */
+    width: 90%;
+    justify-content: space-between;
+    margin: 20px 0px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.winter-clearnce .container>div p {
+    color: white;
+    background-color: black;
+    padding: 5px 30px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width:1200px) {
+    .winter-clearnce .container {
+        width: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .winter-clearnce .container {
+        width: 90%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .homeFirstDiv {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .homeFirstDiv p:nth-child(2) {
+        display: none;
+    }
+    .winter-clearnce .container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:660px){
+    .winter-clearnce .container>p:nth-child(4){
+        width: 100%;
+    }
+    .winter-clearnce .container{
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .winter-clearnce .container>div{
+       flex-direction: column;
+       gap: 10px;
+    }
+}
+@media screen and (max-width:400px) {
+    .homeFirstDiv {
+        font-size: 12px;
+    }
 }
