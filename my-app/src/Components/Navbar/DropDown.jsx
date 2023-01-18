@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 export const WomenDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='womenSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div  id='womenSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Women.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}>{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
@@ -19,7 +19,7 @@ export const WomenDropDown = () => {
 export const MenDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='menSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='menSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Men.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  > {ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
@@ -33,7 +33,7 @@ export const MenDropDown = () => {
 export const KidsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='kidsSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='kidsSubmenue'  onClick={() => setDropdown(!dropDown)} >
             {
                 Kids.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
@@ -43,7 +43,7 @@ export const KidsDropDown = () => {
 export const OriginalsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='originalsSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='originalsSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Originals.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />} {ele.title}</p>)
             }
@@ -57,7 +57,7 @@ export const OriginalsDropDown = () => {
 export const AccessoriesDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='accessoriesSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='accessoriesSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Accessories.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
@@ -67,7 +67,7 @@ export const AccessoriesDropDown = () => {
 export const SaleDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='saleSubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='saleSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Sale.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
@@ -77,7 +77,7 @@ export const SaleDropDown = () => {
 export const SustainabilityDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
     return (
-        <div id='sustainabilitySubmenue' className={dropDown ? 'jobs-submenue clicked' : 'jobs-submenue'} onClick={() => setDropdown(!dropDown)} >
+        <div id='sustainabilitySubmenue' onClick={() => setDropdown(!dropDown)} >
             {
                 Sustainability.map((ele) => <p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.title}</p>)
             }

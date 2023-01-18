@@ -26,7 +26,89 @@ export default function Home() {
           <p>For more details see the terms & conditions</p>
         </div>
       </div>
-      
+      <div className='winterRebootimg' >
+      </div>
+      <div className='winterRebootContainer' >
+        <h2>WINTER REBOOT</h2>
+        <p>Reworking a staple shoe in iconic style, meet our Orianna Mid boot. Crafted in responsibly sourced dark sand suede for a premium look, its chunky profile ticks the box for on-trend, while snug faux shearling linings keeps toes toasty when braving cooler climes. Clarks’ stitching detail nods to our heritage, making every tread timeless, too.</p>
+        <div>
+          <button>Shop Women's Boots</button>
+          <button>Shope Men's Boots</button>
+        </div>
+      </div>
+      <div className='homepageTwoContainer' >
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51OpalZipPeppleSuedeTabletBanner705x395px?fmt=webp&wid=705" alt="" />
+          <h2> COMFORTABLY WARM  </h2>
+          <p>Keep warm, and look cool in Opal Sky, our Chelsea-inspired suede upper boot.  Step out in feel-good style every time with our Ultimate Comfort footbed and slip-resistant sole.  </p>
+          <div>
+            <button>Shop Opal Sky on Sale</button>
+            <button>Shop Women's Warm Boots</button>
+          </div>
+        </div>
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/AW22CostonWallyWPDarkSandWLinedOnsiteBannerTablet705x397?fmt=webp&wid=705" alt="" />
+          <h2>WEATHER READY WITH A TWIST</h2>
+          <p>A fresh take on the iconic Wallabee profile, our Corston Wally WP boot melds heritage style with a winter-ready twist. With a fully waterproof finish and snug faux fur linings – the weather’s not dampening our plans!</p>
+          <div>
+            <button>Shope Corston Wally on Sale</button>
+            <button>Shop Men's Waterproof Boots</button>
+          </div>
+        </div>
+      </div>
+      <div className='eighthStreet' >
+      </div>
+      <div className='eighthStreetContainer' >
+        <h1>8TH STREET BY RONNIE FIEG FOR CLARKS ORIGINALS</h1>
+        <p>With nearly three decades of footwear industry expertise to his name, American designer and founder of Kith Ronnie Fieg is a bona fide classic kicks aficionado- making him the perfect partner for a Clarks Originals collab.</p>
+        <button>Shop the 8th Street Collection</button>
+        <button>See The Feature</button>
+      </div>
+      <div className='seftyRecall' >
+        <div>
+          <p>SAFETY RECALL OF FIVE STYLES OF CLARKS WOMEN'S SHOES </p>
+          <p>Click here for more information</p>
+        </div>
+      </div>
+      <div className='homeFourGrid' >
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/MagnoliaZipBlackLeather852x852px?&fmt=png-alpha" alt="" />
+          <p >Shop Womens</p>
+        </div>
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/MNature5TieBeeswaxLeather852x852px?&fmt=png-alpha" alt="" />
+          <p>Shop Mens</p>
+        </div>
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/WebBannersDualGenderSashikoOriginalsHomepage852x852px?&fmt=png-alpha" alt="" />
+          <p>Shop Originals</p>
+        </div>
+        <div>
+          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/KWallabeeBootNavyCombi852x852px?&fmt=png-alpha" alt="" />
+          <p>Shop Kids</p>
+        </div>
+      </div>
+      <div className='klarnaDiv' >
+        <div>
+          <p>Buy now. Pay Later. With</p>
+          <img width='100px' src="https://clarks.scene7.com/is/content/Pangaea2Build/IC_klarnaLogo" alt="" />
+        </div>
+        <div>
+          <p>Find out more</p>
+        </div>
+      </div>
+      <div className='scrollTopContainer' >
+        <div>
+          <button>SCROLL TO TOP</button>
+          <button>|</button>
+          <button>CONTACT US</button>
+        </div>
+        <div>
+          <button>CLARKS NEWSLETTER</button>
+          <input type="text" placeholder='Enter email address' />
+          <button>{'>'}</button>
+        </div>
+      </div>
     </div>
   )
 }
