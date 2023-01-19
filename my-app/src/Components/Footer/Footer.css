@@ -1,13 +1,64 @@
 .normalFooter {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    background-color: #f3f3f3;
 }
-.normalFooterTop{
-    border: 1PX solid rgb(0, 255, 17);
+
+.normalFooterTop {
+    padding: 10px;
+}
+
+.normalFooterTop>div:first-child {
+    border-bottom: 1px solid #d6d6d6;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 20px 0px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.normalFooterTop>div:first-child p:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.normalFooterTop>div:last-child p:hover {
+    color: #045c9e;
+    cursor: pointer;
+}
+
+.normalFooterTop>div:last-child {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    color: #666666;
+    padding-bottom: 40px;
+
 }
 
 .midAndSmallFooter {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: none;
+}
+
+.normalFooterBtm {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    background-color: #333333;
+    color: white;
+    padding: 20px 10px 80px 10px;
+    font-size: 12px;
+}
+
+.normalFooterBtm img {
+    width: 87px;
+    height: 47px;
+}
+
+.normalFooterBtm div:last-child div {
+    display: flex;
+    justify-content: flex-end;
 }
 
 @media(max-width:1000px) {
@@ -17,5 +68,45 @@
 
     .midAndSmallFooter {
         display: flex;
+        flex-direction: column;
+    }
+
+    .midAndSmallFooter>div:first-child {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: 30px;
+        color: #666666;
+        background-color: #f3f3f3;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        margin-top: 20px;
+    }
+
+    .midAndSmallFooter>div:first-child p:first-child {
+        font-weight: 700;
+    }
+
+    .midAndSmallFooter>div:last-child {
+        padding: 20px;
+        background-color: #333333;
+        color: white;
+        font-size: 12px;
+    }
+
+    .midAndSmallFooter>div:last-child div {
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+
+    .midAndSmallFooter img {
+        height: 70px;
+        width: 90px;
+    }
+}
+@media (max-width:550px) {
+    .midAndSmallFooter>div:first-child{
+        gap: 20px;
+        grid-template-columns: repeat(1,1fr);
     }
 }

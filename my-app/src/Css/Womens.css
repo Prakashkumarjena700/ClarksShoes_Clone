@@ -1,0 +1,320 @@
+.womensPageAllOptions {
+    /* border: 1px solid magenta; */
+    color: #333333;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    width: 70%;
+    margin: 30px auto;
+}
+
+.womensPageAllOptionsSelect {
+    display: none;
+}
+
+.womensPageAllOptions p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.beatTheChillimg {
+    height: 420px;
+    margin-top: 20px;
+    background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22BarleighPullNavyOnsiteBannerDesktop1500x500?fmt=webp&wid=1500');
+    background-size: cover;
+}
+
+.beatTheChillContainer {
+    /* border: 1px solid red; */
+    text-align: center;
+    background-color: #e2e2e2;
+    padding: 20px 0px 50px 0px;
+}
+
+.beatTheChillContainer h1 {
+    width: 600px;
+    font-size: 45px;
+    font-weight: 700;
+    margin: auto;
+}
+
+.beatTheChillContainer p {
+    width: 600px;
+    margin: 10px auto;
+}
+
+.beatTheChillContainer div {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin-top: 20px;
+}
+
+.beatTheChillContainer button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 5px 30px;
+    border-radius: 3px;
+}
+
+.beatTheChillContainer button:hover {
+    transition: all 900ms;
+    background-color: white;
+    color: black;
+}
+
+.womenspageTwoContainer {
+    /* border: 1px solid green; */
+    display: flex;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.womenspageTwoContainer img {
+    height: 300px;
+    margin: auto;
+    width: 100%;
+}
+
+.womenspageTwoContainer>div {
+    /* border: 1px solid royalblue; */
+    padding: 20px;
+}
+
+.womenspageTwoContainer>div h2 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 20px 0px;
+}
+
+.womenspageTwoContainer>div {
+    width: 50%;
+}
+
+.womenspageTwoContainer>div>div {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.womenspageTwoContainer>div>div button {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 3px;
+    width: 80%;
+    margin: auto;
+    padding: 5px 0px;
+}
+
+.womenspageTwoContainer>div>div button:hover {
+    transition: all 900ms;
+    background-color: black;
+    color: white;
+}
+
+.theWinterRebootWomen {
+    background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51BootsSaleDesktopBanner1000x500px?fmt=webp&wid=1500');
+    height: 400px;
+    background-size: cover;
+}
+
+.theWinterRebootWomenContainer {
+    background-color: black;
+    color: white;
+    padding: 40px 0px;
+}
+
+.theWinterRebootWomenContainer h1 {
+    font-size: 44px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.theWinterRebootWomenContainer p {
+    width: 590px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 15px;
+}
+
+.theWinterRebootWomenContainer div {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+
+.theWinterRebootWomenContainer button {
+    background-color: white;
+    color: black;
+    padding: 5px 30px;
+    border-radius: 3px;
+}
+
+.fourGrideWomenPage {
+    /* border: 1px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    gap: 2%;
+    padding: 2%;
+    background-color: #f7f7f7;
+    color: #333333;
+    margin-top: 100px;
+    padding-bottom: 60px;
+    margin-bottom: -30px;
+}
+
+.fourGrideWomenPage div {
+    border: 2px solid #f7f7f7;
+}
+
+.fourGrideWomenPage div:active {
+    border: 2px solid #045c9e;
+}
+
+.fourGrideWomenPage h2 {
+    padding: 20px 0px;
+}
+
+.fourGrideWomenPage button {
+    border: 1px solid black;
+    width: 95%;
+    padding: 4px 0px;
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.fourGrideWomenPage button:hover {
+    background-color: black;
+    color: white;
+    transition: all 900ms;
+}
+
+@media (max-width:1000px) {
+    .fourGrideWomenPage {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .womensPageAllOptions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:800px) {
+    .beatTheChillimg {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22WBarleighPullNavyOnsiteBannerTablet705x397?fmt=webp&wid=768');
+    }
+
+    .womenspageTwoContainer {
+        flex-direction: column;
+    }
+
+    .womenspageTwoContainer>div {
+        width: 100%;
+    }
+
+    .womenspageTwoContainer>div>div {
+        flex-direction: row;
+    }
+
+    .theWinterRebootWomen {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/BANWKSwomens50and51BootsSaleTabletBanner705x397px?fmt=webp&wid=768');
+    }
+}
+
+@media (max-width:660px) {
+    .beatTheChillContainer h1 {
+        width: 90%;
+    }
+
+    .beatTheChillContainer p {
+        width: 90%;
+    }
+
+    .beatTheChillContainer div {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0px 20px;
+    }
+
+    .theWinterRebootWomenContainer p {
+        width: 80%;
+    }
+
+    .theWinterRebootWomenContainer h1 {
+        width: 100%;
+    }
+
+    .womenspageTwoContainer>div>div {
+        flex-direction: column;
+    }
+
+    .theWinterRebootWomen {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/BANWKSW50and5WBootsSaleMobileBanner705x705px?fmt=webp&wid=426');
+    }
+
+    .fourGrideWomenPage {
+        grid-template-columns: repeat(1, 1fr);
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-bottom: 100px;
+        padding-bottom: 170px;
+
+    }
+
+    .theWinterRebootWomenContainer div {
+        flex-direction: column;
+        gap: 10px;
+        padding: 3%;
+    }
+
+}
+
+@media (max-width:500px) {
+    .womensPageAllOptions {
+        display: none;
+    }
+
+    .womensPageAllOptionsSelectbox {
+        display: flex;
+        border: 1px solid #dcdcdc;
+        margin-top: 2;
+    }
+
+    .womensPageAllOptionsSelect {
+        display: flex;
+        border: 1px solid #dcdcdc;
+        color: #333333;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .womensPageAllOptionsSelect summary{
+        background-color: #f3f3f3;
+        padding: 10px;
+        list-style:none;
+    }
+    .womensPageAllOptionsSelect p {
+        border: 1px solid #dcdcdc;
+        padding: 7px;
+    }
+}
+
+@media (max-width:400px) {
+    .beatTheChillimg {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22WBarleighPullNavyMobile705x705?fmt=webp&wid=426');
+    }
+
+    .fourGrideWomenPage {
+        padding-bottom: 130px;
+    }
+}
