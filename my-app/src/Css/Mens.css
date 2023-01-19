@@ -1,0 +1,50 @@
+.theWinterRebootMen {
+    height: 400px;
+    background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22CorstonWallyWPDarkSandWLineOnsiteBannerDesktop1500x500?fmt=webp&wid=1500');
+    background-size: cover;
+}
+
+#theWinterRebootMenContainer {
+    background-color: #f3f3f3;
+    color: black;
+}
+
+#theWinterRebootMenContainer>div>button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+#theWinterRebootMenContainer>div>button:hover {
+    transition: all 900ms;
+    background-color: white;
+    color: black;
+}
+
+#winterBootSaleMen {
+    background-color: #f3f3f3;
+    color: black;
+}
+
+#winterBootSaleMen>div>button {
+    border: 1px solid black;
+}
+#winterBootSaleMen>div>button:hover{
+    transition: all 900ms;
+   background-color: black;
+   color: white;
+}
+#fourGridMenPage{
+    margin-top: 20px;
+}
+@media (max-width:600px) {
+    #fourGridMenPage{
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width:400px) {
+    .theWinterRebootMen {
+        background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/AW22CorstonWallyWPDarkSandWLinedOnsiteBannerMobile705x705?fmt=webp&wid=426');
+    }
+}

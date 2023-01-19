@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Css/Home.css'
 
+import { Link } from 'react-router-dom'
+
 export default function Home() {
   return (
     <div>
@@ -72,20 +74,20 @@ export default function Home() {
       </div>
       <div className='homeFourGrid' >
         <div>
-          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/MagnoliaZipBlackLeather852x852px?&fmt=png-alpha" alt="" />
-          <p >Shop Womens</p>
+          <Link to='/womenspage' ><img src="https://clarks.scene7.com/is/image/Pangaea2Build/MagnoliaZipBlackLeather852x852px?&fmt=png-alpha" alt="" /></Link>
+          <p><Link to='/womenspage'> Shop Womens</Link></p>
         </div>
         <div>
-          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/MNature5TieBeeswaxLeather852x852px?&fmt=png-alpha" alt="" />
-          <p>Shop Mens</p>
+          <Link to='/menspage' ><img src="https://clarks.scene7.com/is/image/Pangaea2Build/MNature5TieBeeswaxLeather852x852px?&fmt=png-alpha" alt="" /></Link>
+          <Link to='/menspage' ><p>Shop Mens</p></Link>
         </div>
         <div>
-          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/WebBannersDualGenderSashikoOriginalsHomepage852x852px?&fmt=png-alpha" alt="" />
-          <p>Shop Originals</p>
+          <Link to='/originals' ><img src="https://clarks.scene7.com/is/image/Pangaea2Build/WebBannersDualGenderSashikoOriginalsHomepage852x852px?&fmt=png-alpha" alt="" /></Link>
+          <Link to='/originals'><p>Shop Originals</p></Link>
         </div>
         <div>
-          <img src="https://clarks.scene7.com/is/image/Pangaea2Build/KWallabeeBootNavyCombi852x852px?&fmt=png-alpha" alt="" />
-          <p>Shop Kids</p>
+          <Link to='/kidspage' ><img src="https://clarks.scene7.com/is/image/Pangaea2Build/KWallabeeBootNavyCombi852x852px?&fmt=png-alpha" alt="" /></Link>
+          <Link to='/kidspage'><p>Shop Kids</p></Link>
         </div>
       </div>
       <div className='klarnaDiv' >

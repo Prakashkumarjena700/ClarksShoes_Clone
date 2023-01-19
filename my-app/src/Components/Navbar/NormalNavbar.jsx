@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 import { BsTruck } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
@@ -6,9 +7,6 @@ import { HiOutlineUserCircle } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
 import { SlHandbag } from 'react-icons/sl'
 import { RxCross1 } from 'react-icons/rx'
-
-
-
 
 
 import './Navbar.css'
@@ -29,7 +27,6 @@ export default function NormalNavbar() {
 
     const [showSearchBtn, setShowSearchBtn] = useState(false)
     const [showSearchbar, setShowSearchbar] = useState(false)
-    const [showSearchResult, setShowSearchResult] = useState([])
 
     const showSearch = () => {
         setShowSearchBtn(!showSearchBtn)
@@ -44,7 +41,7 @@ export default function NormalNavbar() {
                 <p><HiOutlineUserCircle color='#666666' /><span>Log in</span><span>/</span><span>Register</span></p>
             </div>
             <div className='navbarContainer' >
-                <img width='170px' src={logo} alt="" />
+                <Link to='/' ><img width='170px' src={logo} alt="" /></Link>
                 <div className='navbar' >
                     {
                         mainItem.map((ele) => {

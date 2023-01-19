@@ -1,0 +1,164 @@
+.originalMainContainer {
+    color: #333333;
+    padding: 20px 40px;
+}
+
+.originalsFirstDiv {
+    color: white;
+    background-color: black;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 32px 0px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.originalsFirstDiv h2 {
+    font-size: 30px;
+}
+
+.originalsFirstDiv p {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.originalsHeading {
+    font-size: 23px;
+    font-weight: 700;
+    padding: 5px 0px;
+}
+
+.originals8thSt {
+    /* border: 1px solid blue; */
+    color: #333333;
+    background-color: #cfc9b9;
+    margin-bottom: 30px;
+}
+
+.originals8thSt h1 {
+    margin: 10px 10px 0px 20px;
+}
+
+.originals8thSt p {
+    margin: 10px 10px 0px 20px;
+}
+
+.originals8thSt button {
+    background-color: #333333;
+    color: white;
+    margin-left: 20px;
+    padding: 4px 30px;
+    border-radius: 3px;
+    margin: 30px 0px 30px 20px;
+}
+
+.colorChanginfBtn {
+    border: 1px solid #333333;
+    padding: 3px 30px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.colorChanginfBtn:hover {
+    background-color: #333333;
+    color: white;
+    transition: all 900ms;
+}
+
+.shopnowOriginals {
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 2%;
+    margin: 80px 0px;
+}
+
+.shopnowOriginals p {
+    font-size: 18px;
+}
+
+.shopnowOriginals p:hover {
+    text-decoration: underline;
+}
+
+.shopnowOriginals h1 {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.newArrivalOriginals {
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    gap: 2%;
+    margin-bottom: 40px;
+}
+
+.newArrivalOriginals div {
+    width: 50%;
+}
+
+.originalFourGrid {
+    /* border: 1px solid hotpink; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1%;
+}
+
+@media (max-width:800px) {
+    .originalFourGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:600px) {
+    .originals8thSt button {
+        margin: 0px;
+        margin: 7px 20px;
+    }
+
+    .originals8thSt {
+        padding-bottom: 10px;
+    }
+
+    .originalMainContainer {
+        padding: 20px;
+    }
+
+    .shopnowOriginals {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .newArrivalOriginals {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .newArrivalOriginals div {
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width:500px) {
+    .originalFourGrid {
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 27%;
+    }
+
+    .originalFourGrid img {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:400px) {
+    .originals8thSt button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+
+}
