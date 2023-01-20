@@ -1,0 +1,27 @@
+.sixtypersentoffSale{
+    border: 1px solid red;
+    text-align: center;
+    padding: 30px 0px;
+}
+.sixtypersentoffSale h1{
+    font-size: 27px;
+    letter-spacing: 1.5px;
+    color: #333333;
+}
+.sixtypersentoffSale p{
+    color: #666666;
+    font-size: large;
+    margin: 10px 0px;
+}
+.sixtypersentoffSale button{
+    border: 1px solid #666666;
+    color: #333333;
+    padding: 7px 20px;
+    margin: 10px;
+    border-radius: 3px;
+}
+.sixtypersentoffSale button:hover{
+    transition: all 900ms;
+    color: white;
+    background-color:#333333;
+}

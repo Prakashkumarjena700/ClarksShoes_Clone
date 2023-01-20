@@ -7,6 +7,7 @@ import MensPage from '../Pages/MensPage'
 import Originals from '../Pages/Originals'
 import Register from '../Pages/Register'
 import WomensPage from '../Pages/WomensPage'
+import WomensSearch from '../Pages/WomensSearch'
 
 export default function AllRoutes() {
     return (
@@ -18,6 +19,7 @@ export default function AllRoutes() {
             <Route path='/menspage' element={<MensPage/>} ></Route>
             <Route path='/originals' element={<Originals/>} ></Route>
             <Route path='/kidspage' element={<KindPage/>} ></Route>
+            <Route path='/womenssearch' element={<WomensSearch/>} ></Route>
         </Routes>
     )
 }
