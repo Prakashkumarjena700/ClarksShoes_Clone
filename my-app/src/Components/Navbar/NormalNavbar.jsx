@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { BsTruck } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
@@ -33,12 +34,15 @@ export default function NormalNavbar() {
         setShowSearchbar(!showSearchbar)
     }
 
+
+    const Logger = useSelector((store) => store.logger.logger)
+
     return (
         <div className='wholeNavbar' >
             <div className='navbarTopSection' >
                 <p><BsTruck color='#666666' />Track Order</p>
                 <p><CiLocationOn color='#666666' /><span>Store Locator</span></p>
-                <p><HiOutlineUserCircle color='#666666' /><span>Log in</span><span>/</span><span>Register</span></p>
+                <p><HiOutlineUserCircle color='#666666' /><Link to='/login'>Log in / Register</Link></p>
             </div>
             <div className='navbarContainer' >
                 <Link to='/' ><img width='170px' src={logo} alt="" /></Link>

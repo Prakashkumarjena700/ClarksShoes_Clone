@@ -1,5 +1,5 @@
 .sixtypersentoffSale{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: center;
     padding: 30px 0px;
 }
@@ -24,4 +24,21 @@
     transition: all 900ms;
     color: white;
     background-color:#333333;
+}
+
+@media (max-width:800px) {
+    .sixtypersentoffSale button{
+        display: none;
+    }
+    .sixtypersentoffSale h1{
+        font-size: 23px;
+    }
+    .sixtypersentoffSale p{
+        font-size: 17px;
+    }
+
+    .sixtypersentoffSale {
+        padding: 20px;
+        
+    }
 }

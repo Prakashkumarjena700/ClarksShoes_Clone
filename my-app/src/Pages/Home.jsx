@@ -20,9 +20,9 @@ export default function Home() {
           <p>TAKE AN EXTRA 30% OFF MARKDOWNS</p>
           <p>USE CODE: EXTRA</p>
           <div>
-            <p><Link to='womenssearch' >Shop Womens</Link></p>
-            <p>Shop Mens</p>
-            <p>Shop Kids</p>
+            <p><Link to='/womenssearch' >Shop Womens</Link></p>
+            <p><Link to='/menssearch'>Shop Mens</Link></p>
+            <p><Link to='/kidssearch' >Shop Kids</Link></p>
             <p>Shop All</p>
           </div>
           <p>For more details see the terms & conditions</p>

@@ -6,6 +6,7 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import { FaFacebookF } from 'react-icons/fa'
 import { ImInstagram } from 'react-icons/im'
 import { TfiYoutube } from 'react-icons/tfi'
+import { Link } from 'react-router-dom'
 
 export default function HamburgerNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -29,7 +30,7 @@ export default function HamburgerNavbar() {
           <DrawerCloseButton color='white' />
           <DrawerBody className='hanmburgerBody' >
             <img src={logo} alt="" />
-            <p>LONG IN / REGISTER</p>
+            <p onClick={onClose} ><Link to='/login' >LONG IN / REGISTER</Link></p>
             <Select color='white' >
               <option>WOMEN</option>
               <option >Shop Women's</option>
