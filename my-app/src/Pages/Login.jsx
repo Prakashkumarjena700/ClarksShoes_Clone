@@ -25,7 +25,7 @@ export default function Login() {
       })
         .then((res) => res.json())
         .then((res) => {
-          alert(res.msg)
+          alert(`${res.msg}${" "}${res.name}`)
           localStorage.setItem("token", res.token)
           localStorage.setItem("logger", res.name)
           localStorage.setItem("logger", res.type)
@@ -47,7 +47,7 @@ export default function Login() {
           <label >Email address</label>
           <input type="text" onChange={(e) => setEmail(e.target.value)} />
           <label>Password</label>
-          <input type="text" onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" onChange={(e) => setPassword(e.target.value)} />
           <span>Forgot your password?</span>
           <div><input type="checkbox" /><p>Remember Me</p></div>
           <button onClick={handelLogin} >LOG IN</button>

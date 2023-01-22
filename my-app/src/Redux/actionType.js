@@ -1,4 +1,3 @@
-export const CHECK_LOGGER='check/logger'
-export const CHANGE_LOGGRE='change/logger'
-export const CHECK_LOGGERTYPE='check/loggertype'
-
+export const ADD_PRODUCT = 'add/product'
+export const REMOVE_PRODUCT = 'remove/product'
+export const CHECKOUT_PRODUCTS='checkout/product'

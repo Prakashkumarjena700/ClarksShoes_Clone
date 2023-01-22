@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import CartPage from '../Pages/CartPage'
 import Home from '../Pages/Home'
 import KidsSearch from '../Pages/KidsSearch'
 import KindPage from '../Pages/KindPage'
@@ -9,6 +10,7 @@ import MensSearchPage from '../Pages/MensSearchPage'
 import Originals from '../Pages/Originals'
 import Register from '../Pages/Register'
 import SeeDetails60Persent from '../Pages/SeeDetails60Persent'
+import SignleMenPage from '../Pages/SignleMenPage'
 import WomensPage from '../Pages/WomensPage'
 import WomensSearch from '../Pages/WomensSearch'
 
@@ -24,8 +26,10 @@ export default function AllRoutes() {
             <Route path='/kidspage' element={<KindPage />} ></Route>
             <Route path='/womenssearch' element={<WomensSearch />} ></Route>
             <Route path='/menssearch' element={<MensSearchPage />} ></Route>
+            <Route path='/menssearch/:id' element={<SignleMenPage />} ></Route>
             <Route path='/kidssearch' element={<KidsSearch />} ></Route>
             <Route path='/seedetails60' element={<SeeDetails60Persent />} ></Route>
+            <Route path='/cart' element={<CartPage/>} ></Route>
         </Routes>
     )
 }

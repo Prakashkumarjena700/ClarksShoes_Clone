@@ -1,0 +1,115 @@
+.SearchPageContainer {
+    border-top: 30px solid #f3f3f3;
+    display: flex;
+    padding: 10px;
+    gap: 2%;
+}
+
+.filterContainer {
+    /* border: 1px solid yellow; */
+    width: 18%;
+}
+
+.filterContainer summary {
+    list-style: none;
+    border-bottom: 1px solid #cccccc;
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    padding-right: 20px;
+}
+
+.filterContainer label {
+    /* border: 1px solid rebeccapurple; */
+    display: block;
+    font-size: 14px;
+    margin: 5px 0px;
+}
+
+.filterContainer input[type=checkbox] {
+    margin-right: 5px;
+}
+
+.filterContainer button {
+    border: 1px solid #727272;
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 20px;
+    border-radius: 3px;
+    color: #727272;
+}
+
+.resultContainer {
+    /* border: 1px solid orange; */
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.searchCard {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 20px;
+}
+
+.searchCard img:nth-child(1) {
+    /* border: 1px solid darkcyan; */
+    margin-left: 78%;
+    height: 60px;
+
+}
+
+.searchCard img:nth-child(2) {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    /* border: 1px solid darkblue; */
+}
+
+.searchCard img:nth-child(3) {
+    /* border: 1px solid firebrick; */
+    width: 70px;
+    position: relative;
+    bottom: 10px;
+}
+
+.searchCard>div {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid darkblue; */
+    color: #727272;
+    line-height: 16px;
+    margin-top: 10px;
+}
+
+.searchCard div:first-child p:first-child {
+    /* font-weight: 600; */
+    font-size: large;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.searchCard div p:first-child {
+    color: red;
+    font-size: 20px;
+}
+
+.searchCard div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 20px;
+}
+
+.searchCard div:nth-child(2) p:last-child {
+    text-decoration: line-through;
+}
+
+.loadingContainer {
+    /* border: 1px solid hotpink; */
+    width: 80%;
+    position: absolute;
+    right: 0;
+}

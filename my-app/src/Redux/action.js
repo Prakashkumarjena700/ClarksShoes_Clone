@@ -1,10 +1,14 @@
-import { CHANGE_LOGGRE, GET_LOGGER } from './actionType'
+import { ADD_PRODUCT, REMOVE_PRODUCT, CHECKOUT_PRODUCTS } from './actionType'
 
 
-export const getLogger = () => ({
-    type: GET_LOGGER
+export const addProduct = (value) => ({
+    type: ADD_PRODUCT, payload: value
 })
 
-export const changeLogger = () => ({
-    type: CHANGE_LOGGRE
+export const removeProducet = (id) => ({
+    type: REMOVE_PRODUCT, payload: id
+})
+
+export const checkOut = () => ({
+    type: CHECKOUT_PRODUCTS
 })

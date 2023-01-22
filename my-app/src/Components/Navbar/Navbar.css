@@ -350,6 +350,12 @@
     width: 30px;
     margin: 0px;
 }
+.twoBtn #cartValue{
+    font-size: 11px;
+    right: 11px;
+    position: absolute;
+    top: 10px;
+}
 
 @media(max-width:1000px) {
     .navbar {

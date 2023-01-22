@@ -1,9 +1,9 @@
 import { legacy_createStore, combineReducers, compose } from 'redux'
 
-import { loggerReducer } from './redux'
+import { cartReducer } from './redux'
 
 const rootReducer = combineReducers({
-    logger: loggerReducer
+    cart: cartReducer
 })
 
 const composer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

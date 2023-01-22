@@ -1,15 +1,31 @@
-import { CHECK_LOGGER } from './actionType'
+import { ADD_PRODUCT, REMOVE_PRODUCT, CHECKOUT_PRODUCTS } from './actionType'
 
 const initialState = {
-    logger: 'Hello'
+    cart: []
 }
 
-export const loggerReducer = (state = initialState, { type }) => {
+export const cartReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case CHECK_LOGGER: {
-            return{
+        case ADD_PRODUCT: {
+            return {
                 ...state,
-                logger:"Hi"
+                cart: [...state.cart, payload]
+            }
+        }
+        case REMOVE_PRODUCT: {
+            let ans = state.cart.filter((ele) => {
+                return ele.id !== payload
+            })
+
+            return {
+                ...state,
+                cart: ans
+            }
+        }
+        case CHECKOUT_PRODUCTS: {
+            return {
+                ...state,
+                cart: []
             }
         }
         default: {

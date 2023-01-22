@@ -1,7 +1,11 @@
 import React from 'react'
 import '../Css/Mens.css'
 
+
+
 export default function MensPage() {
+
+
     return (
         <div>
             <div className='homeFirstDiv' >

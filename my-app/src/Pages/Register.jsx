@@ -1,7 +1,7 @@
 import React from 'react'
 import "../Css/LoginAndSignup.css"
 
-import { Link ,useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function Register() {
@@ -33,9 +33,8 @@ export default function Register() {
         }
       })
         .then((res) => res.json())
-        .then((res) => console.log(res))
         .catch((err) => console.log(err))
-      alert("Register Sucessfully")
+      alert(`Register Sucessful${' '} ${firstName}`)
       Navigate('/login')
     }
 
@@ -56,7 +55,7 @@ export default function Register() {
           <label >Last Name</label>
           <input type="text" onChange={(e) => setLastName(e.target.value)} />
           <label >Create Your Password </label>
-          <input type="text" onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" onChange={(e) => setPassword(e.target.value)} />
           <select onChange={(e) => setType(e.target.value)} >
             <option value="">Register as</option>
             <option value="user">User</option>

@@ -1,0 +1,140 @@
+.browsing {
+    background-color: #f3f3f3;
+    color: #333333;
+    display: block;
+    padding: 25px 20px;
+    margin-top: 10px;
+}
+
+.myshopingBag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.215);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.myshopingBag h1 {
+    font-size: 40px;
+}
+
+.myshopingBag p {
+    letter-spacing: 1px;
+}
+
+.myshopingBag div:last-child {
+    text-align: right;
+}
+
+.myshopingBag button {
+    background-color: #0579d0;
+    color: white;
+    padding: 7px 120px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.myshopingBag button:hover{
+    background-color: #6e6771;
+    transition: all 700ms;
+}
+.freeShipping {
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cartPageContainer {
+    /* border: 1px solid blue; */
+    display: flex;
+    gap: 3%;
+    padding: 10px;
+    margin: 30px 0px;
+}
+
+.cartList {
+    /* border: 1px solid khaki; */
+    width: 70%;
+
+}
+
+.cartListCard {
+    border-bottom: 1px solid gray;
+    display: flex;
+    padding: 10px;
+}
+
+.cartListCard img {
+    width: 100%;
+
+}
+
+.cartListCard div {
+    /* border: 1px solid firebrick; */
+    width: 50%;
+}
+
+.cartListCard div p:nth-child(1) {
+    font-weight: 700;
+    margin-top: 20%;
+}
+
+.quentityBtns button {
+    border: 1px solid black;
+    padding: 10px 18px;
+    margin: 5px;
+}
+
+.checkoutContainer {
+    /* border: 1px solid seagreen; */
+    width: 30%;
+    color: #6e6771;
+    height: 500px;
+    position: sticky;
+    top: 150px;
+}
+
+.checkoutContainer>p {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+    padding: 10px;
+}
+.checkoutContainer>h3{
+    margin: 30px 0px;
+}
+.checkoutContainer button{
+    color: white;
+    background-color: #0579d0;
+    width: 100%;
+    padding: 5px 0px;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+.checkoutContainer button:hover{
+    transition: all 900ms;
+    background-color: gray;
+}
+.acptPtm{
+    position: relative;
+    top: 16px;
+    background-color: white;
+    display: inline-block;
+    left: 80px;
+}
+.checkoutContainer div{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+.checkoutContainer img{
+    width: 50px;
+
+}
+#verifyId{
+    width: 50%;
+    margin: auto;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+
 import { BsTruck } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { HiOutlineUserCircle } from 'react-icons/hi'
@@ -26,6 +27,9 @@ export default function NormalNavbar() {
     const [saleDropDown, setSaleDropDown] = useState(false)
     const [sustainabilityDropDown, setSustainabilityDropDown] = useState(false)
 
+    const cartValue = useSelector((store) => store.cart.cart.length)
+
+
     const [showSearchBtn, setShowSearchBtn] = useState(false)
     const [showSearchbar, setShowSearchbar] = useState(false)
 
@@ -33,9 +37,6 @@ export default function NormalNavbar() {
         setShowSearchBtn(!showSearchBtn)
         setShowSearchbar(!showSearchbar)
     }
-
-
-    const Logger = useSelector((store) => store.logger.logger)
 
     return (
         <div className='wholeNavbar' >
@@ -134,7 +135,8 @@ export default function NormalNavbar() {
                 </div>
                 <div className='twoBtn' >
                     <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
-                    <button><SlHandbag /></button>
+                    <button><Link to='/cart'><SlHandbag  /></Link> </button>
+                    <p id='cartValue' >{cartValue}</p>
                 </div>
             </div>
             {showSearchbar && <div className='searchBar' >
