@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import SixtyPersentSale from '../Components/SixtyPersentSale'
+import React from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
     Drawer,
@@ -10,27 +10,31 @@ import {
     DrawerContent,
     DrawerCloseButton,
     useDisclosure
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react'
 
-import "../Css/WomenSearch.css"
+import SixtyPersentSale from '../Components/SixtyPersentSale'
 
+import "../Css/Mens.css"
+import "../Css/SearchPage.css"
 import axios from 'axios'
 import { useState } from 'react'
 import LoadingContainer from '../Components/LoadingContainer'
+
+
+
 
 const getData = (url) => {
     return axios.get(url)
 }
 
-
-export default function WomensSearch() {
+export default function MenAccessories() {
     const [loading, setLoading] = useState(false)
     const [menArr, setMenArr] = useState([])
     const [query, setQuery] = useState('')
 
     useEffect(() => {
         setLoading(true)
-        getData(`https://prakash-vercel-database.vercel.app/clarkshoeWomen?q=${query}`)
+        getData(`https://prakash-vercel-database.vercel.app/clarksMenAccerssories?q=${query}`)
             .then((res) => {
                 setMenArr(res.data)
                 setLoading(false)
@@ -39,19 +43,14 @@ export default function WomensSearch() {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-  
+
     const filterdrowser = () => {
-      onClose()
-      setQuery("")
+        onClose()
+        setQuery("")
     }
 
     return (
         <div>
-            <div className='homeFirstDiv' >
-                <p><span>FREE SHIPPINGON</span> ORDERS OVER $50</p>
-                <p>|</p>
-                <p><span>FREE RETURNS</span> EVERYDAY</p>
-            </div>
             <SixtyPersentSale />
             <div className='filterAndSort' >
                 <div onClick={onOpen} >
@@ -229,18 +228,17 @@ export default function WomensSearch() {
                     <button onClick={() => setQuery("")} >RESET FILTER</button>
                 </div>
                 {
-                    loading ? <LoadingContainer className='loadingContainer' /> : <div className='resultContainer' >
+                    loading ? <LoadingContainer /> : <div className='resultContainer' >
                         {
                             menArr && menArr.map((ele) =>
-                                <Link to={`/womenssearch/${ele.id}`} className='searchCard' >
+                                <Link to={`/manaccessories/${ele.id}`} className='searchCard' >
                                     <img src="https://s7g10.scene7.com/is/image/Pangaea2Build/AW22_285_E%201_12ClearancePhase3_Badge_V2?fmt=jpg&wid=90&hei=90" alt="" />
                                     <img src={ele.img1} alt="" />
                                     <img src={ele.img5} alt="" />
                                     <div>
                                         <div>
                                             <p>{ele.name}</p>
-                                            <p>{ele.whom}</p>
-                                            <p>{ele.dis}</p>
+                                            <p>{ele.color}</p>
                                         </div>
                                         <div>
                                             <p>${ele.saleprice}</p>

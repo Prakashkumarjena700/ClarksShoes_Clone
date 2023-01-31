@@ -23,7 +23,7 @@ export default function Home() {
             <p><Link to='/womenssearch' >Shop Womens</Link></p>
             <p><Link to='/menssearch'>Shop Mens</Link></p>
             <p><Link to='/kidssearch' >Shop Kids</Link></p>
-            <p>Shop All</p>
+            <p><Link to='/shopall' >Shop All</Link></p>
           </div>
           <p>For more details see the terms & conditions</p>
         </div>

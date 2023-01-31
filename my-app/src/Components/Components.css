@@ -1,7 +1,7 @@
 .sixtypersentoffSale {
     /* border: 1px solid red; */
     text-align: center;
-    padding: 30px 0px;
+    padding-top: 30px;
 }
 
 .sixtypersentoffSale h1 {
@@ -37,7 +37,8 @@
     margin-left: 30px;
     height: 500px;
 }
-.firstSlider img{
+
+.firstSlider img {
     height: 500px;
     margin: auto;
 }
@@ -63,6 +64,22 @@
     height: 100px;
 }
 
+.seeDeailsContainer {
+    text-align: center;
+    color: #333333;
+    padding: 20px;
+}
+
+.seeDeailsContainer h1 {
+    font-size: 45px;
+    margin: 100px 0px 80px 0px;
+
+}
+
+.seeDeailsContainer p {
+    margin-bottom: 100px;
+}
+
 @media (max-width:800px) {
     .sixtypersentoffSale button {
         display: none;
@@ -79,5 +96,19 @@
     .sixtypersentoffSale {
         padding: 20px;
 
+    }
+    .seeDeailsContainer p{
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width:400px) {
+    .seeDeailsContainer h1 {
+        font-size: 30px;
+        margin: 60px 0px 40px 0px;
+
+    }
+    .seeDeailsContainer p{
+        margin-bottom: 10px;
     }
 }

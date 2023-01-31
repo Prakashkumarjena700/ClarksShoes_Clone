@@ -47,6 +47,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    margin-top: 70px;
 }
 
 .searchCard {
@@ -113,3 +114,125 @@
     position: absolute;
     right: 0;
 }
+
+.filterAndSort {
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: flex-end;
+    position: relative;
+    top: 85px;
+    padding: 0px 10px;
+}
+
+.filterAndSort>div:nth-child(1) {
+    display: none;
+}
+
+.filterAndSort div {
+    border: 1px solid black;
+    display: flex;
+    width: 30%;
+    border-radius: 3px;
+}
+
+.filterAndSort div:nth-child(2) select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.drawerBody {
+    color: #666666;
+}
+
+.drawerBody summary {
+    list-style: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.272);
+    padding: 15px 0px;
+}
+
+.drawerBody details label {
+    display: block;
+    padding: 1.5px 0px;
+    display: flex;
+    gap: 5px;
+}
+
+.draeerFooter {
+    display: flex;
+    flex-direction: column;
+}
+
+.draeerFooter button:first-child {
+    background-color: #0579d0;
+    color: white;
+    width: 100%;
+    padding: 5px 0px;
+    border-radius: 3px;
+}
+
+.draeerFooter button:last-child {
+    border: 1px solid #666666;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px 0px;
+    border-radius: 3px;
+}
+
+@media (max-width:900px) {
+    .resultContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:800px) {
+    .filterContainer {
+        display: none;
+    }
+
+    .resultContainer {
+        width: 100%;
+    }
+
+    .resultContainer {
+        margin-top: 0px;
+    }
+
+    .SearchPageContainer {
+        border-top: 1px solid white;
+    }
+
+    .filterAndSort {
+        justify-content: space-between;
+        gap: 2%;
+        position: sticky;
+        top: 110px;
+        z-index: 5;
+        background-color: white;
+        padding: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .filterAndSort div {
+        width: 50%;
+    }
+
+    .filterAndSort>div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loadingContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width:500px) {
+    .resultContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/* .searchCard img:nth-child(1) */

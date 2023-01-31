@@ -14,14 +14,14 @@ const getData = (url) => {
     return axios.get(url)
 }
 
-export default function SignleMenPage() {
+export default function SignleKidPage() {
     const { id } = useParams()
     const [menobj, setMenObj] = useState({})
     const dispatch = useDispatch()
 
 
     useEffect(() => {
-        getData(`https://prakash-vercel-database.vercel.app/clarkshoeMen/${id}`)
+        getData(`https://prakash-vercel-database.vercel.app/clarkshoeKid/${id}`)
             .then((res) => setMenObj(res.data))
     }, [id])
 
@@ -44,7 +44,7 @@ export default function SignleMenPage() {
                 <div className='productDetailsContainer' >
                     <h2>{menobj && menobj.name} {menobj && menobj.dis}</h2>
                     <p>{menobj && menobj.prePrice1}</p>
-                    <p>SALE PRICE: ${menobj && menobj.saleprice}</p>
+                    <p>SALE PRICE: {menobj && menobj.saleprice}</p>
                     <p>WITH CODE: EXTRA40</p>
                     <p><MdStar color='#0579d0' fontSize='20px' /><MdStar color='#0579d0' fontSize='20px' /><MdStar color='#0579d0' fontSize='20px' /><MdStar color='#0579d0' fontSize='20px' /><MdStar color='#0579d0' fontSize='20px' /></p>
                     <p>COLOR {menobj && menobj.color}</p>

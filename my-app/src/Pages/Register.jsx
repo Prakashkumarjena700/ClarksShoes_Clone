@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Css/LoginAndSignup.css"
-
+// import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -9,34 +9,29 @@ export default function Register() {
   const Navigate = useNavigate()
 
   const [email, setEmail] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [firstname, setFirstName] = useState("")
+  const [lastname, setLastName] = useState("")
   const [password, setPassword] = useState("")
   const [type, setType] = useState("")
 
   const handelregister = () => {
     const payload = {
       email,
-      firstname: firstName,
-      lastname: lastName,
+      firstname,
+      lastname,
       password,
       type
     }
-    if (payload.email === "" || payload.firstname === "" || payload.lastname === "" || payload.password === "" || payload.type === "") {
-      alert("Please Enter all the details")
-    } else {
-      fetch("https://worrisome-leggings-goat.cyclic.app/users/register", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-type": "application/json"
-        }
-      })
-        .then((res) => res.json())
-        .catch((err) => console.log(err))
-      alert(`Register Sucessful${' '} ${firstName}`)
-      Navigate('/login')
-    }
+    fetch("https://worrisome-leggings-goat.cyclic.app/users/register", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
 
   }
 

@@ -21,7 +21,7 @@ export default function SignleMenPage() {
 
 
     useEffect(() => {
-        getData(`https://prakash-vercel-database.vercel.app/clarkshoeMen/${id}`)
+        getData(`https://prakash-vercel-database.vercel.app/clarksAll/${id}`)
             .then((res) => setMenObj(res.data))
     }, [id])
 

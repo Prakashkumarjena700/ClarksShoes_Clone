@@ -13,7 +13,7 @@ export default function SixtyPersentSale() {
                 <button><Link to='/womenssearch' >Shop Womens</Link></button>
                 <button><Link to='/menssearch'>Shop Mens</Link></button>
                 <button><Link to='/kidssearch' >Shop Kids</Link></button>
-                <button>See Details</button>
+                <button><Link to='/seedetails' >See Details</Link></button>
             </div>
         </div>
     )

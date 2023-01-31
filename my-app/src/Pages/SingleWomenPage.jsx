@@ -14,14 +14,14 @@ const getData = (url) => {
     return axios.get(url)
 }
 
-export default function SignleMenPage() {
+export default function SignleWomenPage() {
     const { id } = useParams()
     const [menobj, setMenObj] = useState({})
     const dispatch = useDispatch()
 
 
     useEffect(() => {
-        getData(`https://prakash-vercel-database.vercel.app/clarkshoeMen/${id}`)
+        getData(`https://prakash-vercel-database.vercel.app/clarkshoeWomen/${id}`)
             .then((res) => setMenObj(res.data))
     }, [id])
 

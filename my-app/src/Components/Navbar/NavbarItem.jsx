@@ -8,8 +8,6 @@ export const mainItem = [
     { id: 7, title: 'Sustainability', path: '#' }
 ]
 
-
-
 export const Women = [
     { id: 2, title: `SHOP ALL WOMEN'S`, path: '#' },
     { id: 2, title: 'NEW ARRIVALS', path: '#' },
@@ -230,20 +228,20 @@ export const Originals = [
 export const Accessories = [
     { id: 2, title: 'SHOP ACCESSORIES', path: '#' },
     { id: 2, title: 'SHOP SALE', path: '#' },
-    { id: 3, title: 'WOMENS', path: '#' },
-    { id: 3, title: 'MENS', path: '#' },
-    { id: 1, title: 'All Accessories', path: '#' },
-    { id: 1, title: 'All Accessories', path: '#' },
-    { id: 1, title: 'Slippers', path: '#' },
-    { id: 1, title: 'Belts', path: '#' },
-    { id: 1, title: 'Socks', path: '#' },
-    { id: 1, title: 'Slippers', path: '#' },
-    { id: 1, title: 'Shoe Care', path: '#' },
-    { id: 1, title: 'Socks', path: '#' },
-    { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Shoe Care', path: '#' },
-    { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Wallets', path: '#' }
+    { id: 3, title: 'WOMENS', path: '/womensaccessories' },
+    { id: 3, title: 'MENS', path: '/menaccessories' },
+    { id: 1, title: 'All Accessories', path: '/womensaccessories' },
+    { id: 1, title: 'All Accessories', path: '/menaccessories' },
+    { id: 1, title: 'Slippers', path: '/womensaccessories' },
+    { id: 1, title: 'Belts', path: '/menaccessories' },
+    { id: 1, title: 'Socks', path: '/womensaccessories' },
+    { id: 1, title: 'Slippers', path: '/menaccessories' },
+    { id: 1, title: 'Shoe Care', path: '/womensaccessories' },
+    { id: 1, title: 'Socks', path: '/menaccessories' },
+    { id: 1, title: '', path: '/' },
+    { id: 1, title: 'Shoe Care', path: '/menaccessories' },
+    { id: 1, title: '', path: '/' },
+    { id: 1, title: 'Wallets', path: '/menaccessories' }
 ]
 
 export const Sale = [
@@ -251,44 +249,37 @@ export const Sale = [
     { id: 2, title: 'ORIGINALS SALE', path: '#' },
     { id: 2, title: 'SHOP MARKDOWNS', path: '#' },
     { id: 3, title: 'FEATURED', path: '#' },
-    { id: 3, title: 'WOMENS', path: '#' },
-    { id: 3, title: 'MENS', path: '#' },
-    { id: 1, title: 'Mens New Markdowns', path: '#' },
-    { id: 1, title: 'All Sale', path: '#' },
-    { id: 1, title: 'All Sale', path: '#' },
-    { id: 1, title: 'Womens New Markdowns', path: '#' },
-    { id: 1, title: 'Boots', path: '#' },
-    { id: 1, title: 'Boots', path: '#' },
+    { id: 3, title: 'WOMENS', path: '/womenssearch' },
+    { id: 3, title: 'MENS', path: '/menssearch' },
+    { id: 1, title: 'Mens New Markdowns', path: '/menssearch' },
+    { id: 1, title: 'All Sale', path: '/womenssearch' },
+    { id: 1, title: 'All Sale', path: '/menssearch' },
+    { id: 1, title: 'Womens New Markdowns', path: '/womenssearch' },
+    { id: 1, title: 'Boots', path: '/womenssearch' },
+    { id: 1, title: 'Boots', path: '/menssearch' },
     { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Sandals', path: '#' },
-    { id: 1, title: 'Casual Shoes', path: '#' },
+    { id: 1, title: 'Sandals', path: '/womenssearch' },
+    { id: 1, title: 'Casual Shoes', path: '/menssearch' },
     { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Casual Shoes', path: '#' },
-    { id: 1, title: 'Dress Shoes', path: '#' },
+    { id: 1, title: 'Casual Shoes', path: '/womenssearch' },
+    { id: 1, title: 'Dress Shoes', path: '/menssearch' },
     { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Dress Shoes', path: '#' },
-    { id: 1, title: 'Accessories', path: '#' },
+    { id: 1, title: 'Dress Shoes', path: '/womenssearch' },
+    { id: 1, title: 'Accessories', path: '/menssearch' },
     { id: 1, title: '', path: '#' },
-    { id: 1, title: 'Accessories', path: '#' },
+    { id: 1, title: 'Accessories', path: '/womenssearch' },
 ]
 
 export const Sustainability = [
     { id: 2, title: '', path: '#' },
-    { id: 3, title: 'EVERY MOVE MATTERS', path: '#' },
-    { id: 1, title: 'Earth Day', path: '#' },
-    { id: 1, title: 'Origin', path: '#' },
-    { id: 1, title: 'Leather Work', path: '#' },
-    { id: 1, title: 'Originals', path: '#' },
-    { id: 1, title: 'Originals Sevens', path: '#' },
-    { id: 1, title: 'Tri Native', path: '#' }
+    { id: 3, title: 'EVERY MOVE MATTERS', path: '/everyMovematters' },
+    { id: 1, title: 'Earth Day', path: '/earthday' },
+    { id: 1, title: 'Origin', path: '/origin' },
+    { id: 1, title: 'Leather Work', path: '/leatherwork' },
+    { id: 1, title: 'Originals', path: '/original' },
+    { id: 1, title: 'Originals Sevens', path: '/originalsseven' },
+    { id: 1, title: 'Tri Native', path: '/trinativ' }
 ]
-
-
-
-
-
-
-
 
 
 

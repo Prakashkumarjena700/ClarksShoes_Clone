@@ -1,0 +1,422 @@
+.EMMtitle {
+    /* border: 1px solid khaki; */
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.EMMtitle h1 {
+    font-weight: 700;
+    font-size: 26px;
+    margin: 10px 0px;
+    line-height: 22px;
+}
+
+.EMMtitle p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 18px;
+}
+
+.EMMFLogo {
+    border: 1px solid blue;
+    padding: 30px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.EMMDetails {
+    background-color: #ffe300;
+    text-align: center;
+    padding: 40px;
+}
+
+.EMMDetails p {
+    margin: 20px 0px;
+}
+
+.EMMthreeGrid {
+    display: flex;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 60px 0px;
+    gap: 3%;
+    margin: 20px 0px;
+}
+
+.EMMthreeGrid h2 {
+    color: #3fddba;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 40px 0px 10px 0px;
+}
+
+.EMMthreeGrid p {
+    margin: 0px 15px;
+}
+
+.EMMthreeGrid img {
+    height: 350px;
+}
+
+.EMMsecondText {
+    background-color: #ffe300;
+    text-align: center;
+    font-weight: 700;
+    line-height: 29px;
+    font-size: 24px;
+    padding: 50px 30px;
+}
+
+.EMMeightgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    gap: 1%;
+    color: #333333;
+    padding: 20px;
+    padding-bottom: 200px;
+}
+
+.EMMeightgrid h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px 0px;
+    line-height: 30px;
+}
+
+.EMMeightgrid span {
+    text-decoration: underline;
+    color: #4394d0;
+
+}
+
+.EMMeightgrid div p:last-child {
+    text-align: right;
+}
+
+
+.IntroContainer {
+    text-align: center;
+    padding: 60px 10px 30px 10px;
+    letter-spacing: 2px;
+}
+
+.IntroContainer h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.EDDiscription {
+    margin: 30px 0px;
+}
+
+.EDDiscription h3 {
+    width: 80%;
+    margin: auto;
+    font-weight: bold;
+}
+
+.EDDiscription p {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.EDDiscription p:last-child {
+    text-decoration: underline;
+    color: #4394d0;
+    cursor: pointer;
+}
+
+.ED2Flex {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f7f7f7;
+    padding: 30px 0px;
+    color: #333333;
+}
+
+.ED2Flex div {
+    width: 35%;
+    text-align: center;
+}
+
+.ED2Flex h2 {
+    font-size: 20px;
+    margin: 20px 0px;
+    font-weight: 700;
+}
+
+.ED2Flex span {
+    text-decoration: underline;
+    color: #4394d0;
+}
+
+.originIntro {
+    /* border: 1px solid green; */
+    text-align: center;
+    padding: 20px;
+}
+
+.originIntro p:nth-child(1) {
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.originIntro h1 {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 43px;
+}
+
+.originIntro span {
+    color: #268384;
+}
+
+.originIntro p:nth-child(3) {
+    width: 700px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.originIntro p:nth-child(4) {
+    font-weight: bold;
+}
+
+.OG2Flex {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.OG2Flex h2 {
+    font-weight: bold;
+    margin: 25px 0px 0px 0px;
+}
+
+.OGBbtn {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 17px;
+}
+
+.OGBbtn button {
+    border: 1px solid #333333;
+    border-radius: 3px;
+    padding: 10px 40px;
+}
+
+.OGBbtn button:hover {
+    transition: all 900ms;
+    background-color: #333333;
+    color: white;
+}
+
+.OGVideo {
+    /* border: 1px solid firebrick; */
+    margin: auto;
+    width: 890px;
+    height: 500px;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 80px;
+
+}
+
+.ODFourGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 50px 150px;
+    gap: 10px;
+}
+
+.ODFourGrid h3 {
+    font-weight: bold;
+}
+
+.IntroP {
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.OGThreeflex {
+    /* border: 1px solid hotpink; */
+    display: flex;
+    margin: 80px 0px 50px 0px;
+}
+
+.OGThreeflex img {
+    width: 33.33%;
+}
+
+.medalLikeLeather {
+    /* border: 1px solid red; */
+    width: 950px;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.medalLikeLeather img {
+    width: 200px;
+    margin: 50px auto;
+}
+
+.medalLikeLeather span {
+    font-weight: bold;
+}
+
+.medalLikeLeather p {
+    margin: 15px 0px;
+}
+
+@media (max-width:1100px) {
+    .EMMthreeGrid img {
+        width: 60%;
+        height: auto;
+    }
+
+    .EMMthreeGrid h2 {
+        font-size: 20px;
+    }
+
+    .EMMthreeGrid p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width:1000px) {
+    .ODFourGrid {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width:900px) {
+    .OGVideo {
+        width: 600px;
+        height: 338px;
+    }
+
+    .IntroP {
+        width: 90%;
+    }
+    .medalLikeLeather{
+        width: 100%;
+    }
+}
+
+@media (max-width:800px) {
+    .EMMthreeGrid {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .EMMthreeGrid img {
+        width: 60%;
+        margin: auto;
+    }
+
+    .EMMthreeGrid h2 {
+        font-size: 30px;
+    }
+
+    .EMMthreeGrid p {
+        margin: 0px 20%;
+    }
+
+    .EMMeightgrid {
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 700px;
+    }
+
+    .EDDiscription h3 {
+        width: 90%;
+    }
+
+    .EDDiscription p {
+        width: 90%;
+    }
+
+    .ODFourGrid {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 50px 80px;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width:700px) {
+    .originIntro p:nth-child(3) {
+        width: auto;
+    }
+
+    .originIntro h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width:600px) {
+    .EMMFLogo {
+        margin-bottom: 0px;
+    }
+
+    .EMMthreeGrid img {
+        width: 80%;
+        margin: auto;
+    }
+
+    .EMMthreeGrid p {
+        margin: 0px 20px;
+    }
+
+    .ED2Flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .ED2Flex div {
+        width: 80%;
+        margin: auto;
+    }
+
+    .OG2Flex {
+        flex-direction: column;
+    }
+
+    .OG2Flex img {
+        margin: auto;
+    }
+
+    .OGBbtn {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0px 20px;
+    }
+
+    .OGVideo {
+        width: 500px;
+        height: 285px;
+    }
+
+}
+
+@media (max-width:500px) {
+    .OGVideo {
+        width: 350px;
+        height: 198px;
+    }
+
+    .ODFourGrid {
+
+        padding: 50px 40px;
+    }
+}
