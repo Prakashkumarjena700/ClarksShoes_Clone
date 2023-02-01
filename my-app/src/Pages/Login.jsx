@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useToast } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { LoggerContext } from '../Context/LoggerContextProvider'
 
 
 export default function Login() {
@@ -13,6 +15,9 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
+
+
+  const { setUser, setUserType } = useContext(LoggerContext)
 
   const handelLogin = () => {
     const payload = { email, password }
@@ -48,6 +53,10 @@ export default function Login() {
             duration: 5000,
             isClosable: true
           })
+          setUser(res.name)
+          setUserType(res.type)
+          localStorage.setItem("user",res.name)
+          localStorage.setItem("userType",res.type)
           Navigate('/')
         })
         .catch((err) => {

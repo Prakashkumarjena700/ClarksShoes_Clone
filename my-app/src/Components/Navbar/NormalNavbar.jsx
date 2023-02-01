@@ -9,6 +9,9 @@ import { HiOutlineUserCircle } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
 import { SlHandbag } from 'react-icons/sl'
 import { RxCross1 } from 'react-icons/rx'
+import { GoDiffAdded } from 'react-icons/go'
+
+
 
 
 import './Navbar.css'
@@ -16,6 +19,8 @@ import { WomenDropDown, MenDropDown, KidsDropDown, OriginalsDropDown, Accessorie
 import { mainItem } from "./NavbarItem"
 import logo from "../Photos/logo.png"
 import { Input } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { LoggerContext } from '../../Context/LoggerContextProvider';
 
 
 export default function NormalNavbar() {
@@ -27,8 +32,9 @@ export default function NormalNavbar() {
     const [saleDropDown, setSaleDropDown] = useState(false)
     const [sustainabilityDropDown, setSustainabilityDropDown] = useState(false)
 
-    const cartValue = useSelector((store) => store.cart.cart.length)
+    const [showLogout, setShowLogout] = useState(false)
 
+    const cartValue = useSelector((store) => store.cart.cart.length)
 
     const [showSearchBtn, setShowSearchBtn] = useState(false)
     const [showSearchbar, setShowSearchbar] = useState(false)
@@ -38,12 +44,23 @@ export default function NormalNavbar() {
         setShowSearchbar(!showSearchbar)
     }
 
+    const { userType, user, setUser, setUserType } = useContext(LoggerContext)
+
+    const logoutFn = () => {
+        localStorage.removeItem('user')
+        localStorage.removeItem('userType')
+        setShowLogout(false)
+        setUser('')
+        setUserType('')
+    }
+
     return (
         <div className='wholeNavbar' >
             <div className='navbarTopSection' >
                 <p><BsTruck color='#666666' />Track Order</p>
                 <p><CiLocationOn color='#666666' /><span>Store Locator</span></p>
-                <p><HiOutlineUserCircle color='#666666' /><Link to='/login'>Log in / Register</Link></p>
+                <p><HiOutlineUserCircle color='#666666' />{user === '' ? <Link to='/login'>Log in / Register</Link> : <p onClick={() => setShowLogout(!showLogout)} >{user}</p>}</p>
+                {showLogout && <p onClick={logoutFn} className='logoutBtn' >Logout</p>}
             </div>
             <div className='navbarContainer' >
                 <Link to='/' ><img width='170px' src={logo} alt="" /></Link>
@@ -134,9 +151,10 @@ export default function NormalNavbar() {
                     }
                 </div>
                 <div className='twoBtn' >
+                    <button><Link to='/addproduct' >{userType === 'admin' && <GoDiffAdded />}</Link></button>
                     <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
-                    <button><Link to='/cart'><SlHandbag  /></Link> </button>
-                    <p id='cartValue' >{cartValue}</p>
+                    <button><Link to='/cart'><SlHandbag /></Link> </button>
+                    <p id='cartValue' > <Link to='/cart' >{cartValue}</Link> </p>
                 </div>
             </div>
             {showSearchbar && <div className='searchBar' >

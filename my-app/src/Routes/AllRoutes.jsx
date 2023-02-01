@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import AddProduct from '../Pages/AddProduct'
 import CartPage from '../Pages/CartPage'
 import EarthDay from '../Pages/EarthDay'
 import EveryMoveMatters from '../Pages/EveryMoveMatters'
@@ -62,6 +63,7 @@ export default function AllRoutes() {
             <Route path='/original' element={<Original/>} ></Route>
             <Route path='/originalsseven' element={<OriginalsSeven/>} ></Route>
             <Route path='/trinativ' element={<TriNativ/>} ></Route>
+            <Route path='/addproduct' element={<AddProduct/>} ></Route>
         </Routes>
     )
 }

@@ -7,7 +7,11 @@
 .wholeNavbar p{
     cursor: pointer;
 }
-
+.logoutBtn{
+    position: absolute;
+    top: 43px;
+    /* border: 1px solid red; */
+}
 .navbarTopSection {
     /* border: 1px solid green; */
     display: flex;
