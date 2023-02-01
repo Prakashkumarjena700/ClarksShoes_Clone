@@ -4,15 +4,19 @@ import "../Css/LoginAndSignup.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
+import { useToast } from '@chakra-ui/react'
+
 export default function Register() {
 
   const Navigate = useNavigate()
+  const toast = useToast()
 
   const [email, setEmail] = useState("")
   const [firstname, setFirstName] = useState("")
   const [lastname, setLastName] = useState("")
   const [password, setPassword] = useState("")
   const [type, setType] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handelregister = () => {
     const payload = {
@@ -22,22 +26,56 @@ export default function Register() {
       password,
       type
     }
-    fetch("https://worrisome-leggings-goat.cyclic.app/users/register", {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-type": "application/json"
+
+    if (email === "" || firstname === "" || lastname === "" || password === "" || type === "") {
+      toast({
+        position: 'top',
+        variant: 'top-accent',
+        title: 'Missing information',
+        description: `Please enter all mandatory fields`,
+        status: 'warning',
+        duration: 5000,
+        isClosable: true
+      })
+    } else {
+      try {
+        setLoading(true)
+        fetch(`https://worrisome-leggings-goat.cyclic.app/users/register`, {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-type": "application/json"
+          }
+        }).then((res) => res.json())
+        toast({
+          position: 'top',
+          variant: 'top-accent',
+          title: 'Register successful',
+          description: `Your account has been created ${firstname}`,
+          status: 'success',
+          duration: 5000,
+          isClosable: true
+        })
+        Navigate('/login')
+        setLoading(false)
+      } catch (err) {
+        console.log(err)
+        setLoading(false)
+        toast({
+          position: 'top',
+          variant: 'top-accent',
+          title: 'Error',
+          description: 'Something went wrong please try again',
+          status: 'error',
+          duration: 5000,
+          isClosable: true
+        })
       }
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+    }
 
   }
 
-
-
-
+  console.log(loading)
   return (
     <div  >
       <div className='formContainer' >
@@ -58,7 +96,7 @@ export default function Register() {
           </select>
           <div>
             <input type="checkbox" /> <p>Remember Me</p></div>
-          <button onClick={handelregister} >CREATE ACCOUNT</button>
+          <button className={loading && 'fetchinginProcess'} onClick={handelregister} >CREATE ACCOUNT</button>
           <p>By creating this account you agree to our <span>Terms & Conditions.</span></p>
           <p>Already have a Clarks Account? <span><Link to='/login' >Log In</Link></span></p>
         </div>

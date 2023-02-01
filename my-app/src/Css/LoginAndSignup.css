@@ -25,18 +25,21 @@
     border-radius: 3px;
     margin-bottom: 20px;
 }
-.formDiv div{
+
+.formDiv div {
     display: flex;
-gap: 10px;
-margin: 20px 0px;
+    gap: 10px;
+    margin: 20px 0px;
 }
-.formDiv select{
+
+.formDiv select {
     width: 100%;
     height: 40px;
     border: 1px solid #333333;
     margin-top: 10px;
     border-radius: 3px;
 }
+
 .formDiv button {
     width: 100%;
     border: 1px solid #666666;
@@ -46,10 +49,12 @@ margin: 20px 0px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.formContainer p{
+
+.formContainer p {
     margin: 10px 0px;
 }
-.formContainer span{
+
+.formContainer span {
     color: #0570c1;
     text-decoration: underline;
     cursor: pointer;
@@ -58,4 +63,17 @@ margin: 20px 0px;
 .formDiv input[type=checkbox] {
     width: 20px;
     margin-bottom: 0px;
+}
+
+.fetchinginProcess {
+    cursor:progress;
+}
+
+@media (max-width:400px) {
+    .formDiv{
+        width: 80%;
+    }
+    .formContainer h1{
+        padding: 10px;
+    }
 }

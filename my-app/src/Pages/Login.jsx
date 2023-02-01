@@ -3,19 +3,32 @@ import { useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 
+import { useToast } from '@chakra-ui/react'
+
+
 export default function Login() {
 
   const Navigate = useNavigate()
-
+  const toast = useToast()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handelLogin = () => {
     const payload = { email, password }
 
     if (email === "" || password === "") {
-      alert("Please enter all the details")
+      toast({
+        position: 'top',
+        variant: 'top-accent',
+        title: 'Missing information',
+        description: `Please enter all mandatory fields`,
+        status: 'warning',
+        duration: 5000,
+        isClosable: true
+      })
     } else {
+      setLoading(true)
       fetch("https://worrisome-leggings-goat.cyclic.app/users/login", {
         method: "POST",
         body: JSON.stringify(payload),
@@ -25,19 +38,34 @@ export default function Login() {
       })
         .then((res) => res.json())
         .then((res) => {
-          alert(`${res.msg}${" "}${res.name}`)
-          localStorage.setItem("token", res.token)
-          localStorage.setItem("logger", res.name)
-          localStorage.setItem("logger", res.type)
+          setLoading(false)
+          toast({
+            position: 'top',
+            variant: 'top-accent',
+            title: 'Login successful',
+            description: `Thank you ${res.name}`,
+            status: 'success',
+            duration: 5000,
+            isClosable: true
+          })
           Navigate('/')
         })
-        .catch((err) =>
-          alert("Wrong Credential")
-
-        )
-
+        .catch((err) => {
+          setLoading(false)
+          toast({
+            position: 'top',
+            variant: 'top-accent',
+            title: 'Wrong credential',
+            description: `Please enter correct information`,
+            status: 'error',
+            duration: 5000,
+            isClosable: true
+          })
+        })
     }
+
   }
+
 
   return (
     <div >
@@ -50,7 +78,7 @@ export default function Login() {
           <input type="password" onChange={(e) => setPassword(e.target.value)} />
           <span>Forgot your password?</span>
           <div><input type="checkbox" /><p>Remember Me</p></div>
-          <button onClick={handelLogin} >LOG IN</button>
+          <button className={loading && 'fetchinginProcess'} onClick={handelLogin} >LOG IN</button>
           <p>Don't have a Clarks account?  <span><Link to='/register' >CREATE AN ACCOUNT</Link></span></p>
         </div>
       </div>
