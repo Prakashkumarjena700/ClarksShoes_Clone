@@ -1,7 +1,7 @@
 # ClarksShoes_Clone
 Clarks is a reputable brand of shoes that is known for being affordable, comfortable, and durable enough for everyday wear.
 
-<img src="https://1000logos.net/wp-content/uploads/2021/05/Clarks-logo.png" alt="clarksusa.com" />
+<img src="https://stfrancishouse.org/wp-content/uploads/2016/09/Clarks_shoemakers_logo_K-1024x307.jpg" alt="clarksusa.com" />
 <br/>
 <h2>Tech Stacks</h2>
 <p><img src="https://cdn.iconscout.com/icon/free/png-256/html-2752158-2284975.png?w=256&f=avif" width='100' alt="HTML" /> 
