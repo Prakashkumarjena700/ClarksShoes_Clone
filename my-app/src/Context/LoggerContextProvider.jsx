@@ -8,6 +8,7 @@ export default function LoggerContextProvider({ children }) {
     const userFromLS = localStorage.getItem('user')
     const usertypeFromLS = localStorage.getItem('userType')
 
+   
     const [user, setUser] = useState(userFromLS || '')
     const [userType, setUserType] = useState(usertypeFromLS || '')
 
