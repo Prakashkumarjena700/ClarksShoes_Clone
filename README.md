@@ -18,7 +18,7 @@ Clarks is a reputable brand of shoes that is known for being affordable, comfort
 </p>
 <h2>Deployment</h2>
 <p>
-<img src="https://miro.medium.com/max/1400/1*Rv6kW7EnWmShq7DKEb9-_A@2x.jpeg" width='100' alt="Vercel"/>
-<img src="https://media.licdn.com/dms/image/C4D0BAQFBESIaXqZ9sg/company-logo_200_200/0/1631285887620?e=2147483647&v=beta&t=7U1O5C3TnMlpihufNmmRMaiMawMAwt0ZXE_87JRFFJ4" width='80' alt="Cyclic"/>
+<img src="https://www.cyclic.sh/og/summary_large_image.png" width='100' alt="Cyclic"/>
+<img src="https://miro.medium.com/max/1400/1*Rv6kW7EnWmShq7DKEb9-_A@2x.jpeg" width='150' alt="Vercel"/>
 </p>
 
