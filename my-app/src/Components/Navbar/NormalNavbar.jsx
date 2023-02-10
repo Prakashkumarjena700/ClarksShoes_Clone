@@ -9,7 +9,7 @@ import { HiOutlineUserCircle } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
 import { SlHandbag } from 'react-icons/sl'
 import { RxCross1 } from 'react-icons/rx'
-import { GoDiffAdded } from 'react-icons/go'
+import { FcMultipleInputs } from 'react-icons/fc'
 
 
 
@@ -151,7 +151,7 @@ export default function NormalNavbar() {
                     }
                 </div>
                 <div className='twoBtn' >
-                    <button><Link to='/addproduct' >{userType === 'admin' && <GoDiffAdded />}</Link></button>
+                    <button><Link to='/admin' >{userType === 'admin' && <FcMultipleInputs />}</Link></button>
                     <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
                     <button><Link to='/cart'><SlHandbag /></Link> </button>
                     <p id='cartValue' > <Link to='/cart' >{cartValue}</Link> </p>

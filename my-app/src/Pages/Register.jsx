@@ -75,7 +75,6 @@ export default function Register() {
 
   }
 
-  console.log(loading)
   return (
     <div  >
       <div className='formContainer' >
