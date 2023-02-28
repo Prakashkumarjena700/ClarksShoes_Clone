@@ -44,14 +44,16 @@ export default function NormalNavbar() {
         setShowSearchbar(!showSearchbar)
     }
 
-    const { userType, user, setUser, setUserType } = useContext(LoggerContext)
+    const { userType, user, setUser, setUserType, setIsAuth } = useContext(LoggerContext)
 
     const logoutFn = () => {
         localStorage.removeItem('user')
         localStorage.removeItem('userType')
+        localStorage.removeItem('isAuth')
         setShowLogout(false)
         setUser('')
-        setUserType('')
+        setIsAuth(false)
+        setUserType('user')
     }
 
     return (
@@ -151,7 +153,7 @@ export default function NormalNavbar() {
                     }
                 </div>
                 <div className='twoBtn' >
-                    <button><Link to='/admin' >{userType === 'admin' && <FcMultipleInputs />}</Link></button>
+                    <button><Link to='/admindashboard' >{userType === 'admin' && <FcMultipleInputs />}</Link></button>
                     <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
                     <button><Link to='/cart'><SlHandbag /></Link> </button>
                     <p id='cartValue' > <Link to='/cart' >{cartValue}</Link> </p>

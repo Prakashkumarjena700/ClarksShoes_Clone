@@ -1,6 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import AddProduct from '../Pages/AddProduct'
+import AdminDashboard from '../Pages/AdminDashboard'
+import AdminRegister from '../Pages/AdminRegister'
 import CartPage from '../Pages/CartPage'
 import EarthDay from '../Pages/EarthDay'
 import EditProduct from '../Pages/EditProduct'
@@ -32,6 +34,8 @@ import WomensAccessories from '../Pages/WomensAccessories'
 import WomensPage from '../Pages/WomensPage'
 import WomensSearch from '../Pages/WomensSearch'
 
+import PrivateRoute from "./PrivateRoute"
+
 export default function AllRoutes() {
     return (
         <Routes>
@@ -52,20 +56,21 @@ export default function AllRoutes() {
             <Route path='/cart' element={<CartPage />} ></Route>
             <Route path='/shopall' element={<ShopAllPage />} ></Route>
             <Route path='/shopall/:id' element={<SignleShopAllPage />} ></Route>
-            <Route path='/seedetails' element={<SeeDetails/>} ></Route>
-            <Route path='menaccessories' element={<MenAccessories/>} ></Route>
-            <Route path='/manaccessories/:id' element={<SingleMenAccessories/>} ></Route>
-            <Route path='/womensaccessories' element={<WomensAccessories/>}></Route>
-            <Route path='/womensaccessories/:id' element={<SingleWomenAccessories/>} ></Route>
-            <Route path='/everyMovematters' element={<EveryMoveMatters/> } ></Route>
-            <Route  path='/earthday' element={<EarthDay/>} ></Route>
-            <Route path='/origin' element={<Origin/>} ></Route>
-            <Route path='/leatherwork' element={<LeatherWork/>} ></Route>
-            <Route path='/original' element={<Original/>} ></Route>
-            <Route path='/originalsseven' element={<OriginalsSeven/>} ></Route>
-            <Route path='/trinativ' element={<TriNativ/>} ></Route>
-            <Route path='/addproduct' element={<AddProduct/>} ></Route>
-            <Route path='/editproduct' element={<EditProduct/>} ></Route>
+            <Route path='/seedetails' element={<SeeDetails />} ></Route>
+            <Route path='menaccessories' element={<MenAccessories />} ></Route>
+            <Route path='/manaccessories/:id' element={<SingleMenAccessories />} ></Route>
+            <Route path='/womensaccessories' element={<WomensAccessories />}></Route>
+            <Route path='/womensaccessories/:id' element={<SingleWomenAccessories />} ></Route>
+            <Route path='/everyMovematters' element={<EveryMoveMatters />} ></Route>
+            <Route path='/earthday' element={<EarthDay />} ></Route>
+            <Route path='/origin' element={<Origin />} ></Route>
+            <Route path='/leatherwork' element={<LeatherWork />} ></Route>
+            <Route path='/original' element={<Original />} ></Route>
+            <Route path='/originalsseven' element={<OriginalsSeven />} ></Route>
+            <Route path='/trinativ' element={<TriNativ />} ></Route>
+            <Route path='/admindashboard' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} ></Route>
+            <Route path='/addproduct' element={<AddProduct />} ></Route>
+            <Route path='/editproduct' element={<EditProduct />} ></Route>
         </Routes>
     )
 }

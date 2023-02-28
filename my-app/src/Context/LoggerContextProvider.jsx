@@ -7,12 +7,14 @@ export const LoggerContext = createContext()
 export default function LoggerContextProvider({ children }) {
     const userFromLS = localStorage.getItem('user')
     const usertypeFromLS = localStorage.getItem('userType')
+    const loginStatus = localStorage.getItem("isAuth")
 
-   
     const [user, setUser] = useState(userFromLS || '')
-    const [userType, setUserType] = useState(usertypeFromLS || '')
+    const [userType, setUserType] = useState(usertypeFromLS || 'user')
+    const [isAuth, setIsAuth] = useState(loginStatus || false)
+
 
     return (
-        <LoggerContext.Provider value={{ userType, user, setUser, setUserType }} >{children}</LoggerContext.Provider>
+        <LoggerContext.Provider value={{ userType, user, setUser, setUserType, isAuth, setIsAuth }} >{children}</LoggerContext.Provider>
     )
 }

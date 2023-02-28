@@ -1,7 +1,8 @@
 import { ADD_PRODUCT, REMOVE_PRODUCT, CHECKOUT_PRODUCTS } from './actionType'
 
 const initialState = {
-    cart: []
+    cart: [],
+    login: false
 }
 
 export const cartReducer = (state = initialState, { type, payload }) => {
