@@ -1,6 +1,5 @@
 .homeFirstDiv {
-    /* background-color: #dcdcdc; */
-    background-color: red;
+    background-color: #dcdcdc;
     color: #333333;
     display: flex;
     justify-content: center;

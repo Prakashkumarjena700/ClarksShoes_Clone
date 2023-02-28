@@ -21,57 +21,58 @@ export default function Login() {
 
   const handelLogin = () => {
     const payload = { email, password }
+    console.log(payload)
 
-    if (email === "" || password === "") {
-      toast({
-        position: 'top',
-        variant: 'top-accent',
-        title: 'Missing information',
-        description: `Please enter all mandatory fields`,
-        status: 'warning',
-        duration: 5000,
-        isClosable: true
-      })
-    } else {
-      setLoading(true)
-      fetch("https://worrisome-leggings-goat.cyclic.app/users/login", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-type": "application/json"
-        }
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          setLoading(false)
-          toast({
-            position: 'top',
-            variant: 'top-accent',
-            title: 'Login successful',
-            description: `Thank you ${res.name}`,
-            status: 'success',
-            duration: 5000,
-            isClosable: true
-          })
-          setUser(res.name)
-          setUserType(res.type)
-          localStorage.setItem("user",res.name)
-          localStorage.setItem("userType",res.type)
-          Navigate('/')
-        })
-        .catch((err) => {
-          setLoading(false)
-          toast({
-            position: 'top',
-            variant: 'top-accent',
-            title: 'Wrong credential',
-            description: `Please enter correct information`,
-            status: 'error',
-            duration: 5000,
-            isClosable: true
-          })
-        })
-    }
+    // if (email === "" || password === "") {
+    //   toast({
+    //     position: 'top',
+    //     variant: 'top-accent',
+    //     title: 'Missing information',
+    //     description: `Please enter all mandatory fields`,
+    //     status: 'warning',
+    //     duration: 5000,
+    //     isClosable: true
+    //   })
+    // } else {
+    //   setLoading(true)
+    //   fetch("https://worrisome-leggings-goat.cyclic.app/users/login", {
+    //     method: "POST",
+    //     body: JSON.stringify(payload),
+    //     headers: {
+    //       "Content-type": "application/json"
+    //     }
+    //   })
+    //     .then((res) => res.json())
+    //     .then((res) => {
+    //       setLoading(false)
+    //       toast({
+    //         position: 'top',
+    //         variant: 'top-accent',
+    //         title: 'Login successful',
+    //         description: `Thank you ${res.name}`,
+    //         status: 'success',
+    //         duration: 5000,
+    //         isClosable: true
+    //       })
+    //       setUser(res.name)
+    //       setUserType(res.type)
+    //       localStorage.setItem("user",res.name)
+    //       localStorage.setItem("userType",res.type)
+    //       Navigate('/')
+    //     })
+    //     .catch((err) => {
+    //       setLoading(false)
+    //       toast({
+    //         position: 'top',
+    //         variant: 'top-accent',
+    //         title: 'Wrong credential',
+    //         description: `Please enter correct information`,
+    //         status: 'error',
+    //         duration: 5000,
+    //         isClosable: true
+    //       })
+    //     })
+    // }
 
   }
 

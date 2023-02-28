@@ -27,51 +27,53 @@ export default function Register() {
       type
     }
 
-    if (email === "" || firstname === "" || lastname === "" || password === "" || type === "") {
-      toast({
-        position: 'top',
-        variant: 'top-accent',
-        title: 'Missing information',
-        description: `Please enter all mandatory fields`,
-        status: 'warning',
-        duration: 5000,
-        isClosable: true
-      })
-    } else {
-      try {
-        setLoading(true)
-        fetch(`https://worrisome-leggings-goat.cyclic.app/users/register`, {
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-type": "application/json"
-          }
-        }).then((res) => res.json())
-        toast({
-          position: 'top',
-          variant: 'top-accent',
-          title: 'Register successful',
-          description: `Your account has been created ${firstname}`,
-          status: 'success',
-          duration: 5000,
-          isClosable: true
-        })
-        Navigate('/login')
-        setLoading(false)
-      } catch (err) {
-        console.log(err)
-        setLoading(false)
-        toast({
-          position: 'top',
-          variant: 'top-accent',
-          title: 'Error',
-          description: 'Something went wrong please try again',
-          status: 'error',
-          duration: 5000,
-          isClosable: true
-        })
-      }
-    }
+    console.log(payload)
+
+    // if (email === "" || firstname === "" || lastname === "" || password === "" || type === "") {
+    //   toast({
+    //     position: 'top',
+    //     variant: 'top-accent',
+    //     title: 'Missing information',
+    //     description: `Please enter all mandatory fields`,
+    //     status: 'warning',
+    //     duration: 5000,
+    //     isClosable: true
+    //   })
+    // } else {
+    //   try {
+    //     setLoading(true)
+    //     fetch(`https://worrisome-leggings-goat.cyclic.app/users/register`, {
+    //       method: "POST",
+    //       body: JSON.stringify(payload),
+    //       headers: {
+    //         "Content-type": "application/json"
+    //       }
+    //     }).then((res) => res.json())
+    //     toast({
+    //       position: 'top',
+    //       variant: 'top-accent',
+    //       title: 'Register successful',
+    //       description: `Your account has been created ${firstname}`,
+    //       status: 'success',
+    //       duration: 5000,
+    //       isClosable: true
+    //     })
+    //     Navigate('/login')
+    //     setLoading(false)
+    //   } catch (err) {
+    //     console.log(err)
+    //     setLoading(false)
+    //     toast({
+    //       position: 'top',
+    //       variant: 'top-accent',
+    //       title: 'Error',
+    //       description: 'Something went wrong please try again',
+    //       status: 'error',
+    //       duration: 5000,
+    //       isClosable: true
+    //     })
+    //   }
+    // }
 
   }
 

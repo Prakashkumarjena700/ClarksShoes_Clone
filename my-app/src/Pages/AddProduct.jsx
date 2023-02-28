@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
-import { Container, cookieStorageManager, useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 
 export default function AddProduct() {
   const [name, setName] = useState('')
   const [catagory, setCatagory] = useState('')
+  const [type, setType] = useState('')
   const [dis, setDis] = useState('')
   const [prePrice1, setPrePrice1] = useState('')
   const [saleprice, setSaleprice] = useState('')
@@ -21,6 +22,7 @@ export default function AddProduct() {
     const payload = {
       name,
       catagory,
+      type,
       dis,
       prePrice1: '$' + prePrice1,
       saleprice: Number(saleprice),
@@ -71,6 +73,7 @@ export default function AddProduct() {
         setImg3('')
         setImg4('')
         setImg5('')
+        setType('')
       } catch (err) {
         console.log(err)
       }
@@ -97,16 +100,26 @@ export default function AddProduct() {
             <option value="women accessories">Women Accessories</option>
           </select>
           <br />
+          <label >Type</label>
+          <br />
+          <select value={type} onChange={(e) => setType(e.target.value)} >
+            <option value="">Select</option>
+            <option value="Sandel">Sandel</option>
+            <option value="Boot">Boot</option>
+            <option value="Shoe">Shoe</option>
+            <option value="Slipper">Slipper</option>
+          </select>
+          <br />
           <label >Description</label>
           <input value={dis} type="text" onChange={(e) => setDis(e.target.value)} />
           <label >Original Price</label>
           <input value={prePrice1} type="text" onChange={(e) => setPrePrice1(e.target.value)} />
           <label >Sale Price</label>
           <input value={saleprice} type='Number' onChange={(e) => setSaleprice(e.target.value)} />
-          <label >Color</label>
-          <input value={color} type="text" onChange={(e) => setColor(e.target.value)} />
         </div>
         <div>
+          <label >Color</label>
+          <input value={color} type="text" onChange={(e) => setColor(e.target.value)} />
           <label >Image 1</label>
           <input value={img1} type="text" onChange={(e) => setImg1(e.target.value)} />
           <label >Image 2</label>
@@ -117,9 +130,9 @@ export default function AddProduct() {
           <input value={img4} type="text" onChange={(e) => setImg4(e.target.value)} />
           <label >Image 5</label>
           <input value={img5} type="text" onChange={(e) => setImg5(e.target.value)} />
-          <button onClick={addProduct} className='addbtn' >Add Product</button>
         </div>
       </div>
+      <button onClick={addProduct} className='addbtn' >Add Product</button>
     </div>
   )
 }

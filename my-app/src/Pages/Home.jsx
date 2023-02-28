@@ -12,7 +12,7 @@ export default function Home() {
         <p><span>FREE RETURNS</span> EVERYDAY</p>
       </div>
       <div className='winter-clearnce' >
-        <img src="https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51MBootsSaleDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />
+        <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51MBootsSaleDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />
         <div className='container' >
           <p>WINTER CLEARANCE</p>
           <p>SAVE UP TO</p>
