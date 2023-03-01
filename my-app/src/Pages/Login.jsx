@@ -9,7 +9,7 @@ import { LoggerContext } from '../Context/LoggerContextProvider'
 
 
 export default function Login() {
-  const { userType, user, setUser, setUserType, isAuth, setIsAuth } = useContext(LoggerContext)
+  const { userType, user, setUser, setUserType, isAuth, setIsAuth, usermail, setusermail, userImg, setuserImg } = useContext(LoggerContext)
 
 
 
@@ -35,8 +35,30 @@ export default function Login() {
         }
       })
         .then((res) => res.json())
-        .then((res) => {
-          if (res.msg == "Wrong crediential") {
+        .then(res => {
+          setLoading(false)
+          if (res.msg == "Login sucessful") {
+            localStorage.setItem("userType", "user")
+            localStorage.setItem("isAuth", true)
+            localStorage.setItem("user", res.firstname)
+            localStorage.setItem('usermail', res.email)
+            localStorage.setItem('userImg', '')
+            setIsAuth(true)
+            setUser(res.firstname)
+            setUserType('user')
+            setusermail(res.email)
+            setuserImg("")
+            toast({
+              position: 'top',
+              variant: 'top-accent',
+              title: 'Login successful',
+              description: `${res.firstname}`,
+              status: 'success',
+              duration: 5000,
+              isClosable: true
+            })
+            Navigate("/")
+          } else {
             setLoading(false)
             toast({
               position: 'top',
@@ -47,40 +69,9 @@ export default function Login() {
               duration: 5000,
               isClosable: true
             })
-          } else {
-            setLoading(false)
-            toast({
-              position: 'top',
-              variant: 'top-accent',
-              title: 'Login successful',
-              description: `${res.firstname}`,
-              status: 'success',
-              duration: 5000,
-              isClosable: true
-            })
-            setUser(res.firstname)
-            setUserType('user')
-            setIsAuth(true)
-            localStorage.setItem("user", res.firstname)
-            localStorage.setItem("userType", 'user')
-            localStorage.setItem("isAuth", true)
-            localStorage.setItem("token", res.token)
-            Navigate('/')
           }
         })
-        .then(res => console.log(res))
-        .catch((err) => {
-          setLoading(false)
-          toast({
-            position: 'top',
-            variant: 'top-accent',
-            title: 'Wrong credential',
-            description: `Please enter correct information`,
-            status: 'error',
-            duration: 5000,
-            isClosable: true
-          })
-        })
+
     }
 
   }
@@ -112,9 +103,13 @@ export default function Login() {
             localStorage.setItem("userType", "admin")
             localStorage.setItem("isAuth", true)
             localStorage.setItem("user", res.fullname)
+            localStorage.setItem('usermail', res.email)
+            localStorage.setItem('userImg', res.image)
             setIsAuth(true)
             setUser(res.fullname)
             setUserType('admin')
+            setusermail(res.email)
+            setuserImg(res.image)
             toast({
               position: 'top',
               variant: 'top-accent',
@@ -154,16 +149,6 @@ export default function Login() {
 
 
   }
-
-  // toast({
-  //   position: 'top',
-  //   variant: 'top-accent',
-  //   title: 'Missing information',
-  //   description: `Please enter all mandatory fields`,
-  //   status: 'warning',
-  //   duration: 5000,
-  //   isClosable: true
-  // })
 
   return (
     <div >

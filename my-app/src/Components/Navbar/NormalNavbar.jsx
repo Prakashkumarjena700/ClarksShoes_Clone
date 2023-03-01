@@ -1,6 +1,18 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+    Button,
+    Avatar
+} from '@chakra-ui/react'
 
 
 import { BsTruck } from 'react-icons/bs';
@@ -44,7 +56,9 @@ export default function NormalNavbar() {
         setShowSearchbar(!showSearchbar)
     }
 
-    const { userType, user, setUser, setUserType, setIsAuth } = useContext(LoggerContext)
+    const Navigate = useNavigate()
+
+    const { userType, user, setUser, setUserType, setIsAuth, usermail, userImg } = useContext(LoggerContext)
 
     const logoutFn = () => {
         localStorage.removeItem('user')
@@ -61,8 +75,21 @@ export default function NormalNavbar() {
             <div className='navbarTopSection' >
                 <p><BsTruck color='#666666' />Track Order</p>
                 <p><CiLocationOn color='#666666' /><span>Store Locator</span></p>
-                <p><HiOutlineUserCircle color='#666666' />{user === '' ? <Link to='/login'>Log in / Register</Link> : <p onClick={() => setShowLogout(!showLogout)} >{user}</p>}</p>
-                {showLogout && <p onClick={logoutFn} className='logoutBtn' >Logout</p>}
+                {/* <p><HiOutlineUserCircle color='#666666' />{user === '' ? <Link to='/login'>Log in / Register</Link> : <p onClick={() => setShowLogout(!showLogout)} >{user}</p>}</p>
+                {showLogout && <p onClick={logoutFn} className='logoutBtn' >Logout</p>} */}
+                <Menu  >
+                    <MenuButton as={Button} size="sm" >
+                        <p><HiOutlineUserCircle color='#666666' />{user === '' ? 'Login' : <p  >{user}</p>}</p>
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem> <Avatar size='2xl' m="auto" src={userImg} />{' '}</MenuItem>
+                        <MenuItem>{usermail}</MenuItem>
+                        <MenuItem></MenuItem>
+                        <MenuItem>Delete</MenuItem>
+                        <MenuItem onClick={logoutFn} >Logout</MenuItem>
+                        <MenuItem onClick={() => Navigate("/login")} >Login</MenuItem>
+                    </MenuList>
+                </Menu>
             </div>
             <div className='navbarContainer' >
                 <Link to='/' ><img width='170px' src={logo} alt="" /></Link>
