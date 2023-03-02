@@ -74,25 +74,26 @@ export default function AddProduct() {
               isClosable: true
             })
           }
+          setName("")
+          setDis("")
+          setPrice("")
+          setDiscount("")
+          setRating("")
+          setColor("")
+          setGender("")
+          setType("")
+          setimg1("")
+          setimg2("")
+          setimg3("")
+          setimg4("")
+          setimg5("")
         })
         .catch(err => console.log(err))
     } catch (err) {
       console.log(err)
       setloading(false)
     }
-    setName("")
-    setDis("")
-    setPrice("")
-    setDiscount("")
-    setRating("")
-    setColor("")
-    setGender("")
-    setType("")
-    setimg1("")
-    setimg2("")
-    setimg3("")
-    setimg4("")
-    setimg5("")
+
   }
 
   return (
@@ -114,6 +115,12 @@ export default function AddProduct() {
             <PopoverArrow />
             <PopoverCloseButton />
             <PopoverBody className='sizeContainer' >
+              <label >1<input type="checkbox" value="1" checked={checkedItems.includes("1")} onChange={handleCheckboxChange} /></label>
+              <label >1.5<input type="checkbox" value="1.5" checked={checkedItems.includes("1.5")} onChange={handleCheckboxChange} /></label>
+              <label >2<input type="checkbox" value="2" checked={checkedItems.includes("2")} onChange={handleCheckboxChange} /></label>
+              <label >2.5<input type="checkbox" value="2.5" checked={checkedItems.includes("2.5")} onChange={handleCheckboxChange} /></label>
+              <label >3<input type="checkbox" value="3" checked={checkedItems.includes("3")} onChange={handleCheckboxChange} /></label>
+              <label >3.5<input type="checkbox" value="3.5" checked={checkedItems.includes("3.5")} onChange={handleCheckboxChange} /></label>
               <label >4<input type="checkbox" value="4" checked={checkedItems.includes("4")} onChange={handleCheckboxChange} /></label>
               <label >4.5<input type="checkbox" value="4.5" checked={checkedItems.includes("4.5")} onChange={handleCheckboxChange} /></label>
               <label>5<input type="checkbox" value="5" checked={checkedItems.includes("5")} onChange={handleCheckboxChange} /></label>
@@ -141,8 +148,8 @@ export default function AddProduct() {
           <option value="">Select</option>
           <option value="Boy">Boy</option>
           <option value="Girl">Girl</option>
-          <option value="Male">Male</option>
-          <option value="Femail">Femail</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
           <option value="Unisex">Unisex</option>
         </select>
 
@@ -156,6 +163,7 @@ export default function AddProduct() {
           <option value="Flat Sandals">Flat Sandals</option>
           <option value="Ankle Boot">Ankle Boot</option>
           <option value="Sandal">Sandal</option>
+          <option value="Belt">Belt</option>
         </select>
         <input type="url" placeholder='Image1' value={img1} onChange={(e) => setimg1(e.target.value)} />
         <input type="url" placeholder='Image2' value={img2} onChange={(e) => setimg2(e.target.value)} />
@@ -168,20 +176,3 @@ export default function AddProduct() {
     </div>
   )
 }
-
-
-// name: String,
-//   dis: String,
-//     price: Number,
-//       discount: String,
-//         rating: Number,
-//           color: String,
-//             size: Array,
-//               gender: String,
-//                 type: String,
-//                   quentity: Number,
-//                     img1: String,
-//                       img2: String,
-//                         img3: String,
-//                           img4: String,
-//                             img5: String

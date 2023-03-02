@@ -36,6 +36,7 @@ export default function Origin() {
         whileInView={{ scale: [0.5, 1.0] }}
         transition={{ duration: 1 }}
         title='ODvideo' src="https://clarks.scene7.com/is/content/Pangaea2Build/TransactionalSites/Videos/ss21/ClarksOriginNoIntroSqshd.mp4"
+        allow="autoplay"
         className="OGVideo"
       />
       <motion.img whileInView={{ scale: [0.5, 1.0] }}
