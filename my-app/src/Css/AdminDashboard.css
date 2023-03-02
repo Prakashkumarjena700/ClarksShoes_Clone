@@ -1,0 +1,275 @@
+.ADdashboard {
+    /* border: 1px solid blue; */
+    display: flex;
+    
+}
+
+.ADoptions {
+    /* border: 1px solid green; */
+    padding: 2% 0px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #DCDCDC;
+}
+
+.ADoptions button {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    gap: 20px;
+    font-size: 17px;
+    padding: 15px;
+    padding-left: 30px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+}
+
+.showActiv {
+    background-color: white;
+}
+
+.ADresult {
+    width: 80%;
+    /* border: 1px solid red; */
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.detailsOfFourFild {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    padding: 15px;
+}
+
+.detailsOfFourFild>div {
+    /* border: 1px solid green; */
+    padding: 25px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.detailsOfFourFild h2 {
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modalbody input {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.53);
+    margin: 5px 0px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.addProductContainer {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.addProductContainer>input,
+select {
+    border: 1px solid gray;
+    height: 35px;
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 3px;
+}
+
+.addProductContainer select {
+    color: #718096;
+    cursor: pointer;
+    padding-left: 8px;
+}
+
+.sizeChat {
+    /* width: 50%; */
+    text-align: left;
+    border: 1px solid gray;
+    height: 35px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #718096;
+    border-radius: 3px;
+}
+
+.addproductBtn {
+    width: 100%;
+    background-color: green;
+    color: white;
+    display: block;
+    margin: auto;
+    padding: 8px;
+    margin-top: 20px;
+}
+
+.sizeContainer {
+    /* border: 1px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.sizeContainer label {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: right;
+    /* border: 1px solid red; */
+    margin: 3px;
+}
+
+.IVtablerow {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.IVtablerow img {
+    height: 50px;
+}
+
+.IVtablerow td {
+    /* border: 1px solid lawngreen; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #DCDCDC;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.Ctable {
+    /* border: 1px solid hotpink; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.Ctable td {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #DCDCDC;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+#loading{
+    cursor: progress;
+}
+@media (max-width:1000px) {
+    .ADoptions button {
+        font-size: 17px;
+        padding: 10px 10px;
+        gap: 7px;
+    }
+
+}
+
+@media (max-width:800px) {
+    .ADdashboard {
+        flex-direction: column;
+    }
+
+    .ADoptions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 0px;
+    }
+
+    .ADoptions button {
+        margin-left: 0px;
+        border-radius: 0px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding-bottom: 10px;
+    }
+
+    .ADresult {
+        width: 100%;
+    }
+
+    .detailsOfFourFild {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detailsOfFourFild>div {
+        padding: 20px;
+    }
+
+    .detailsOfFourFild {
+        padding: 20px 50px;
+    }
+
+    .detailsOfFourFild>div {
+        padding: 10px;
+    }
+
+    .IVtablerow {
+        font-size: 14px;
+    }
+
+    .Ctable {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:600px) {
+    .ADoptions span {
+        display: none;
+    }
+
+    .ADoptions button {
+        font-size: 25px;
+    }
+
+    .detailsOfFourFild {
+        padding: 20px 30px;
+    }
+
+    .IVtablerow {
+        font-size: 12px;
+    }
+
+    .Ctable {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:500px) {
+    .Ctable {
+        font-size: 10px;
+    }
+
+    .addProductContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width:400px) {
+    .detailsOfFourFild {
+        padding: 20px;
+    }
+
+    .detailsOfFourFild h2 {
+        font-size: 17px;
+    }
+
+    .IVtablerow {
+        font-size: 10px;
+    }
+
+    .Ctable {
+        font-size: 8px;
+    }
+
+}

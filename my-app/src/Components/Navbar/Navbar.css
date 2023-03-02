@@ -4,14 +4,17 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     z-index: 9;
 }
-.wholeNavbar p{
+
+.wholeNavbar p {
     cursor: pointer;
 }
-.logoutBtn{
+
+.logoutBtn {
     position: absolute;
     top: 43px;
     /* border: 1px solid red; */
 }
+
 .navbarTopSection {
     /* border: 1px solid green; */
     display: flex;
@@ -19,7 +22,7 @@
     gap: 10px;
     color: #333333;
     background-color: #f3f3f3;
-    padding: 10px;
+    padding: 6px 10px;
 }
 
 .navbarTopSection p {
@@ -42,7 +45,7 @@
     display: flex;
     gap: 28px;
     align-items: center;
-    
+
 }
 
 .twoBtn {
@@ -354,7 +357,8 @@
     width: 30px;
     margin: 0px;
 }
-.twoBtn #cartValue{
+
+.twoBtn #cartValue {
     font-size: 11px;
     right: 11px;
     position: absolute;
@@ -370,8 +374,9 @@
         display: flex;
     }
 }
-@media (max-width:800px) {
-    .navbarTopSection span{
+
+@media (max-width:500px) {
+    .displaunoteSection {
         display: none;
     }
 }

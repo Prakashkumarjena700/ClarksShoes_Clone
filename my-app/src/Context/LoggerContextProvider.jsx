@@ -19,6 +19,6 @@ export default function LoggerContextProvider({ children }) {
 
 
     return (
-        <LoggerContext.Provider value={{ userType, user, setUser, setUserType, isAuth, setIsAuth, usermail, setusermail ,userImg, setuserImg}} >{children}</LoggerContext.Provider>
+        <LoggerContext.Provider value={{ userType, user, setUser, setUserType, isAuth, setIsAuth, usermail, setusermail, userImg, setuserImg }} >{children}</LoggerContext.Provider>
     )
 }

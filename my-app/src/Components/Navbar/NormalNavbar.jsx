@@ -58,35 +58,37 @@ export default function NormalNavbar() {
 
     const Navigate = useNavigate()
 
-    const { userType, user, setUser, setUserType, setIsAuth, usermail, userImg } = useContext(LoggerContext)
+    const { userType, user, setUser, setUserType, setIsAuth, isAuth, usermail, userImg, setuserImg, setusermail } = useContext(LoggerContext)
 
     const logoutFn = () => {
         localStorage.removeItem('user')
         localStorage.removeItem('userType')
         localStorage.removeItem('isAuth')
+        localStorage.removeItem('usermail')
+        localStorage.removeItem('userImg')
         setShowLogout(false)
         setUser('')
         setIsAuth(false)
         setUserType('user')
+        setuserImg('')
+        setusermail('')
     }
-
     return (
         <div className='wholeNavbar' >
             <div className='navbarTopSection' >
-                <p><BsTruck color='#666666' />Track Order</p>
-                <p><CiLocationOn color='#666666' /><span>Store Locator</span></p>
-                {/* <p><HiOutlineUserCircle color='#666666' />{user === '' ? <Link to='/login'>Log in / Register</Link> : <p onClick={() => setShowLogout(!showLogout)} >{user}</p>}</p>
-                {showLogout && <p onClick={logoutFn} className='logoutBtn' >Logout</p>} */}
+                <p><BsTruck color='#666666' /><span className='displaunoteSection' >Track Order</span></p>
+                <p><CiLocationOn color='#666666' /><span className='displaunoteSection' >Store Locator</span></p>
                 <Menu  >
                     <MenuButton as={Button} size="sm" >
-                        <p><HiOutlineUserCircle color='#666666' />{user === '' ? 'Login' : <p  >{user}</p>}</p>
+                        <p><HiOutlineUserCircle color='#666666' />{user === '' ? 'Login/Register' : <p >{user}</p>}</p>
                     </MenuButton>
                     <MenuList>
-                        <MenuItem> <Avatar size='2xl' m="auto" src={userImg} />{' '}</MenuItem>
+                        <MenuItem> {userImg !== '' && <Avatar size='2xl' m="auto" src={userImg} />}</MenuItem>
+                        <MenuItem>{user}</MenuItem>
                         <MenuItem>{usermail}</MenuItem>
-                        <MenuItem></MenuItem>
-                        <MenuItem>Delete</MenuItem>
-                        <MenuItem onClick={logoutFn} >Logout</MenuItem>
+                        {userType == 'admin' && isAuth && <MenuItem onClick={() => Navigate("/admindashboard")} >Admin Dashboard</MenuItem>}
+                        <MenuItem onClick={() => Navigate("/register")} >Register</MenuItem>
+                        {user !== '' && <MenuItem onClick={logoutFn} >Logout</MenuItem>}
                         <MenuItem onClick={() => Navigate("/login")} >Login</MenuItem>
                     </MenuList>
                 </Menu>
@@ -180,7 +182,7 @@ export default function NormalNavbar() {
                     }
                 </div>
                 <div className='twoBtn' >
-                    <button><Link to='/admindashboard' >{userType === 'admin' && <FcMultipleInputs />}</Link></button>
+                    {/* <button><Link to='/admindashboard' >{userType === 'admin' && <FcMultipleInputs />}</Link></button> */}
                     <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
                     <button><Link to='/cart'><SlHandbag /></Link> </button>
                     <p id='cartValue' > <Link to='/cart' >{cartValue}</Link> </p>
