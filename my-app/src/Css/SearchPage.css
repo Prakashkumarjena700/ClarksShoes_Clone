@@ -56,20 +56,13 @@
 }
 
 .searchCard img:nth-child(1) {
-    /* border: 1px solid darkcyan; */
-    margin-left: 78%;
-    height: 60px;
-
-}
-
-.searchCard img:nth-child(2) {
     width: 80%;
     margin: auto;
     position: relative;
     /* border: 1px solid darkblue; */
 }
 
-.searchCard img:nth-child(3) {
+.searchCard img:nth-child(2) {
     /* border: 1px solid firebrick; */
     width: 70px;
     position: relative;
@@ -81,8 +74,9 @@
     justify-content: space-between;
     /* border: 1px solid darkblue; */
     color: #727272;
-    line-height: 16px;
     margin-top: 10px;
+    line-height: 20px;
+    font-weight: 500;
 }
 
 .searchCard div:first-child p:first-child {
@@ -93,7 +87,7 @@
 }
 
 .searchCard div p:first-child {
-    color: red;
+    /* color: red; */
     font-size: 20px;
 }
 

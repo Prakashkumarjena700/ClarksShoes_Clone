@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Women, Men, Kids, Originals, Accessories, Sale, Sustainability } from './NavbarItem'
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ProductPageContext } from '../../Context/ProductPageContext';
+
+
 
 export const WomenDropDown = () => {
+    const { setGender } = useContext(ProductPageContext)
+
+    const navigate = useNavigate()
+
     const [dropDown, setDropdown] = React.useState(false)
+
+    const setPageforWomen = () => {
+        setGender('Women')
+        navigate("/productspage")
+    }
     return (
         <div id='womenSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Women.map((ele) => <Link to='/womenssearch' ><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}>{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
+                Women.map((ele) => <p onClick={setPageforWomen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.title}>{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
             <div className='womennavbarpic' >
                 <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/AW22WATLTrailUpWPOnsiteBannerMobile705?wid=286&fmt=pjpeg" alt="" />
@@ -20,10 +32,18 @@ export const WomenDropDown = () => {
 }
 export const MenDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
+    const { setGender } = useContext(ProductPageContext)
+
+    const navigate = useNavigate()
+
+    const setPageforMen = () => {
+        setGender('Men')
+        navigate("/productspage")
+    }
     return (
         <div id='menSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Men.map((ele) => <Link to='/menssearch' ><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  > {ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
+                Men.map((ele) => <p onClick={setPageforMen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  > {ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
             <div className='mennavbarpic' >
                 <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/AW22MATLTrailUpWPOnsiteBannerMobile705?wid=286&fmt=pjpeg" alt="" />
@@ -61,7 +81,7 @@ export const AccessoriesDropDown = () => {
     return (
         <div id='accessoriesSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Accessories.map((ele) =><Link to={ele.path}><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link> )
+                Accessories.map((ele) => <Link to={ele.path}><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
             }
         </div>
     )

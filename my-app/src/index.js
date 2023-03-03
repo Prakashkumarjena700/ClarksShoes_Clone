@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { store } from './Redux/store'
 import { Provider } from 'react-redux'
 import LoggerContextProvider from './Context/LoggerContextProvider';
+import ProductPageContextProvider from './Context/ProductPageContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,9 +16,11 @@ root.render(
   <Provider store={store} >
     <BrowserRouter>
       <ChakraProvider>
-        <LoggerContextProvider>
-          <App />
-        </LoggerContextProvider>
+        <ProductPageContextProvider>
+          <LoggerContextProvider>
+            <App />
+          </LoggerContextProvider>
+        </ProductPageContextProvider>
       </ChakraProvider>
     </BrowserRouter>
   </Provider>

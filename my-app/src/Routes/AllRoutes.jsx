@@ -19,6 +19,7 @@ import Origin from '../Pages/Origin'
 import Original from '../Pages/Original'
 import Originals from '../Pages/Originals'
 import OriginalsSeven from '../Pages/OriginalsSeven'
+import ProductsPage from '../Pages/ProductsPage'
 import Register from '../Pages/Register'
 import SeeDetails from '../Pages/SeeDetails'
 import SeeDetails60Persent from '../Pages/SeeDetails60Persent'
@@ -32,7 +33,6 @@ import SignleWomenPage from '../Pages/SingleWomenPage'
 import TriNativ from '../Pages/TriNativ'
 import WomensAccessories from '../Pages/WomensAccessories'
 import WomensPage from '../Pages/WomensPage'
-import WomensSearch from '../Pages/WomensSearch'
 
 import PrivateRoute from "./PrivateRoute"
 
@@ -46,8 +46,8 @@ export default function AllRoutes() {
             <Route path='/menspage' element={<MensPage />} ></Route>
             <Route path='/originals' element={<Originals />} ></Route>
             <Route path='/kidspage' element={<KindPage />} ></Route>
-            <Route path='/womenssearch' element={<WomensSearch />} ></Route>
-            <Route path='/womenssearch/:id' element={<SignleWomenPage />} ></Route>
+            <Route path='/productspage' element={<ProductsPage />} ></Route>
+            <Route path='/productspage/:id' element={<SignleWomenPage />} ></Route>
             <Route path='/menssearch' element={<MensSearchPage />} ></Route>
             <Route path='/menssearch/:id' element={<SignleMenPage />} ></Route>
             <Route path='/kidssearch' element={<KidsSearch />} ></Route>
@@ -71,6 +71,7 @@ export default function AllRoutes() {
             <Route path='/admindashboard' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} ></Route>
             <Route path='/addproduct' element={<AddProduct />} ></Route>
             <Route path='/editproduct' element={<EditProduct />} ></Route>
+           
         </Routes>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SixtyPersentSale from '../Components/SixtyPersentSale'
 import { Link } from 'react-router-dom'
 import {
@@ -10,39 +10,42 @@ import {
     DrawerContent,
     DrawerCloseButton,
     useDisclosure
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react'
 
 import "../Css/WomenSearch.css"
 
 import axios from 'axios'
 import { useState } from 'react'
 import LoadingContainer from '../Components/LoadingContainer'
+import { ProductPageContext } from '../Context/ProductPageContext'
 
 const getData = (url) => {
     return axios.get(url)
 }
 
 
-export default function WomensSearch() {
+export default function ProductsPage() {
     const [loading, setLoading] = useState(false)
-    const [menArr, setMenArr] = useState([])
     const [query, setQuery] = useState('')
+    const { gender, setGender } = useContext(ProductPageContext)
+
+    const [dataArr, setDataArr] = useState([])
 
     useEffect(() => {
         setLoading(true)
-        getData(`https://prakash-vercel-database.vercel.app/clarkshoeWomen?q=${query}`)
+        getData(`https://witty-loafers-elk.cyclic.app/data/?gender=${gender}`)
             .then((res) => {
-                setMenArr(res.data)
+                setDataArr(res.data)
                 setLoading(false)
             })
-    }, [query])
+    }, [gender])
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-  
+
     const filterdrowser = () => {
-      onClose()
-      setQuery("")
+        onClose()
+        setQuery("")
     }
 
     return (
@@ -231,19 +234,18 @@ export default function WomensSearch() {
                 {
                     loading ? <LoadingContainer className='loadingContainer' /> : <div className='resultContainer' >
                         {
-                            menArr && menArr.map((ele) =>
-                                <Link to={`/womenssearch/${ele.id}`} className='searchCard' >
-                                    <img src="https://s7g10.scene7.com/is/image/Pangaea2Build/AW22_285_E%201_12ClearancePhase3_Badge_V2?fmt=jpg&wid=90&hei=90" alt="" />
+                            dataArr && dataArr.map((ele) =>
+                                <Link to={`/productspage/${ele._id}`} className='searchCard' >
                                     <img src={ele.img1} alt="" />
-                                    <img src={ele.img5} alt="" />
+                                    <img src={ele.img3} alt="" />
                                     <div>
                                         <div>
-                                            <p>{ele.name}</p>
-                                            <p>{ele.whom}</p>
-                                            <p>{ele.dis}</p>
+                                            <p>{ele.name.substring(0, 20)}..</p>
+                                            <p>{ele.color} {ele.type}</p>
+                                            <p>{ele.gender}</p>
                                         </div>
                                         <div>
-                                            <p>${ele.saleprice}</p>
+                                            <p>${ele.price}</p>
                                             <p>{ele.prePrice1}</p>
                                         </div>
                                     </div>
