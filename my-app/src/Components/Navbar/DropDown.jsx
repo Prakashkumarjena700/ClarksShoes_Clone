@@ -54,20 +54,36 @@ export const MenDropDown = () => {
 }
 export const KidsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
+    const { setGender } = useContext(ProductPageContext)
+
+    const navigate = useNavigate()
+
+    const setPageforKids = () => {
+        setGender('Kids')
+        navigate("/productspage")
+    }
     return (
         <div id='kidsSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Kids.map((ele) => <Link to='/kidssearch' ><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
+                Kids.map((ele) => <p onClick={setPageforKids} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
         </div>
     )
 }
 export const OriginalsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
+    const { setGender } = useContext(ProductPageContext)
+
+    const navigate = useNavigate()
+
+    const setPageforOriginal = () => {
+        setGender(undefined)
+        navigate("/productspage")
+    }
     return (
         <div id='originalsSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Originals.map((ele) => <Link to='/shopall' ><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />} {ele.title}</p></Link>)
+                Originals.map((ele) => <p onClick={setPageforOriginal} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />} {ele.title}</p>)
             }
             <div className='womennavbarpic' >
                 <img src="https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner_8thSt_70505?wid=286&fmt=pjpeg" alt="" />

@@ -19,10 +19,6 @@ import { useState } from 'react'
 import LoadingContainer from '../Components/LoadingContainer'
 import { ProductPageContext } from '../Context/ProductPageContext'
 
-const getData = (url) => {
-    return axios.get(url)
-}
-
 
 export default function ProductsPage() {
     const [loading, setLoading] = useState(false)
@@ -30,6 +26,7 @@ export default function ProductsPage() {
     const { gender, setGender } = useContext(ProductPageContext)
 
     const [dataArr, setDataArr] = useState([])
+
 
     useEffect(() => {
         setLoading(true)
@@ -39,6 +36,14 @@ export default function ProductsPage() {
                 setLoading(false)
             })
     }, [gender])
+
+    const getData = async () => {
+        try{
+
+        }catch(err){
+            
+        }
+    }
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
