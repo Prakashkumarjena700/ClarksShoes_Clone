@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeProducet, checkOut } from "../Redux/action"
@@ -9,56 +9,21 @@ import { TbTruck } from 'react-icons/tb'
 import '../Css/CartPage.css'
 
 export default function CartPage() {
-    const cartArr = useSelector((stor) => stor.cart.cart)
-    const dispatch = useDispatch()
-    const navigate=useNavigate()
 
-    const [bagArr, setBagArr] = useState(cartArr)
+    const navigate = useNavigate()
 
-    const totalCart = (arr) => {
-        let sum = 0
-        for (let i = 0; i < arr.length; i++) {
-            sum += arr[i].saleprice * arr[i].quentity
-        }
-        return sum
-    }
-
-
-    const Increment = (id) => {
-        let ans = bagArr.map((ele, i) => {
-            if (i === id) {
-                ele.quentity++
-            }
-            return ele
-        })
-
-        setBagArr(ans)
-    }
-
-    const Decrement = (id) => {
-        let ans = bagArr.map((ele, i) => {
-            if (i === id && ele.quentity !== 0) {
-                ele.quentity--
-            }
-            return ele
-        })
-
-        setBagArr(ans)
-    }
-
-    const RemoveProcuct = (id) => {
-        let ans = bagArr.filter((ele) => {
-            return ele.id !== id
-        })
-        setBagArr(ans)
-        dispatch(removeProducet(id))
-    }
+    const [cartData, setCartData]=useState([])
 
     const CheckOut = () => {
-        setBagArr([])
-        dispatch(checkOut())
         alert("Order Placed Successfully")
-        navigate("/")
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
+    
+    const getData = async() => {
+       console.log("Hello")
     }
 
     return (
@@ -84,30 +49,12 @@ export default function CartPage() {
             </div>
             <div className='cartPageContainer' >
                 <div className='cartList' >
-                    {
-                        bagArr && bagArr.map((ele, i) =>
-                            <div className='cartListCard'>
-                                <div>
-                                    <img src={ele.img1} alt="" />
-                                </div>
-                                <div>
-                                    <p><span style={{ fontSize: "20px" }} >{ele.name} </span>&nbsp; &nbsp; &nbsp;<span style={{ textDecoration: "line-through", fontWeight: '500' }} >{ele.prePrice1}</span> <span style={{ fontWeight: "500", color: "red" }} >${ele.saleprice}</span> </p>
-                                    <p style={{ color: "gray" }} >{ele.color}</p>
-                                    <p style={{ color: "gray" }} >Size : Medium</p>
-                                    <div className='quentityBtns' >
-                                        <button onClick={() => Decrement(i)} >-</button>
-                                        <button>{ele.quentity}</button>
-                                        <button onClick={() => Increment(i)} >+</button>
-                                    </div>
-                                    <button style={{ color: "#0579d0", textDecoration: "underline" }} onClick={() => RemoveProcuct(ele.id)} >Remove</button>
-                                </div>
-                            </div>)
-                    }
+                 
                 </div>
                 <div className='checkoutContainer' >
-                    <p><span>Subtotal</span><span>${totalCart(bagArr)}</span> </p>
+                    <p><span>Subtotal</span><span>$</span> </p>
                     <p><span>Taxes</span><span>$0.00</span></p>
-                    <p><span>Estimated total</span><span style={{ color: "black" }} >${totalCart(bagArr)}</span></p>
+                    <p><span>Estimated total</span><span style={{ color: "black" }} >$</span></p>
                     <h3>Nurses, Medical Professionals, Military, First Responders, and Airline Employees receive a discount with ID.me</h3>
                     <img id='verifyId' src="https://s3.amazonaws.com/idme/buttons/v4/verify-with-idme.png" alt="" />
                     <button onClick={CheckOut} >CHECKOUT NOW</button>

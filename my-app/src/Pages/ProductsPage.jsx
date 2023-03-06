@@ -23,25 +23,40 @@ import { ProductPageContext } from '../Context/ProductPageContext'
 export default function ProductsPage() {
     const [loading, setLoading] = useState(false)
     const [query, setQuery] = useState('')
-    const { gender, setGender } = useContext(ProductPageContext)
+
+    const { gender, setGender, type, setType } = useContext(ProductPageContext)
 
     const [dataArr, setDataArr] = useState([])
 
 
     useEffect(() => {
-        setLoading(true)
-        getData(`https://witty-loafers-elk.cyclic.app/data/?gender=${gender}`)
-            .then((res) => {
-                setDataArr(res.data)
-                setLoading(false)
-            })
+        getData()
+
     }, [gender])
 
-    const getData = async () => {
-        try{
 
-        }catch(err){
-            
+
+    const getData = async () => {
+        let URL;
+
+
+        if (type !== '') {
+            URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}&type=Accessories`
+        } else {
+            URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}`
+
+        }
+        setLoading(true)
+        try {
+            await fetch(URL)
+                .then(res => res.json())
+                .then(res => {
+                    setDataArr(res)
+                    setLoading(false)
+                })
+        } catch (err) {
+            setLoading(false)
+            console.log(err)
         }
     }
 

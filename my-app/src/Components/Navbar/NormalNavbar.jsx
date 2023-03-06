@@ -176,7 +176,7 @@ export default function NormalNavbar() {
                                 )
                             }
                             return (
-                                <div key={ele.id} >{ele.title}</div>
+                                <div key={ele.key} >{ele.title}</div>
                             )
                         })
                     }

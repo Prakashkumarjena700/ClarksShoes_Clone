@@ -163,7 +163,7 @@ export default function AddProduct() {
           <option value="Flat Sandals">Flat Sandals</option>
           <option value="Ankle Boot">Ankle Boot</option>
           <option value="Sandal">Sandal</option>
-          <option value="Belt">Belt</option>
+          <option value="Accessories">Accessories</option>
         </select>
         <input type="url" placeholder='Image1' value={img1} onChange={(e) => setimg1(e.target.value)} />
         <input type="url" placeholder='Image2' value={img2} onChange={(e) => setimg2(e.target.value)} />

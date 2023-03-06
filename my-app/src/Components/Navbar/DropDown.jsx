@@ -8,7 +8,7 @@ import { ProductPageContext } from '../../Context/ProductPageContext';
 
 
 export const WomenDropDown = () => {
-    const { setGender } = useContext(ProductPageContext)
+    const { setGender, setType, type } = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
@@ -16,12 +16,18 @@ export const WomenDropDown = () => {
 
     const setPageforWomen = () => {
         setGender('Women')
+        setType('')
+
+        localStorage.setItem('gender', 'Women')
+        localStorage.setItem('type', '')
+
         navigate("/productspage")
     }
+    console.log(type)
     return (
         <div id='womenSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Women.map((ele) => <p onClick={setPageforWomen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.title}>{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
+                Women.map((ele) => <p onClick={setPageforWomen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}>{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
             <div className='womennavbarpic' >
                 <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/AW22WATLTrailUpWPOnsiteBannerMobile705?wid=286&fmt=pjpeg" alt="" />
@@ -32,18 +38,23 @@ export const WomenDropDown = () => {
 }
 export const MenDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
-    const { setGender } = useContext(ProductPageContext)
+    const { setGender, setType } = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
     const setPageforMen = () => {
         setGender('Men')
+        setType('')
+
+        localStorage.setItem('gender', 'Men')
+        localStorage.setItem('type', '')
+
         navigate("/productspage")
     }
     return (
         <div id='menSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Men.map((ele) => <p onClick={setPageforMen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  > {ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
+                Men.map((ele) => <p onClick={setPageforMen} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}  > {ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
             <div className='mennavbarpic' >
                 <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/AW22MATLTrailUpWPOnsiteBannerMobile705?wid=286&fmt=pjpeg" alt="" />
@@ -54,36 +65,46 @@ export const MenDropDown = () => {
 }
 export const KidsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
-    const { setGender } = useContext(ProductPageContext)
+    const { setGender, setType } = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
-    const setPageforKids = () => {
-        setGender('Kids')
+    const setPageforKids = (path) => {
+        setGender(path)
+        setType('')
+
+        localStorage.setItem('gender', path)
+        localStorage.setItem('type', '')
+
         navigate("/productspage")
     }
     return (
         <div id='kidsSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Kids.map((ele) => <p onClick={setPageforKids} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
+                Kids.map((ele) => <p onClick={() => setPageforKids(ele.path)} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
         </div>
     )
 }
 export const OriginalsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
-    const { setGender } = useContext(ProductPageContext)
+    const { setGender, setType } = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
-    const setPageforOriginal = () => {
-        setGender(undefined)
+    const setPageforOriginal = (path) => {
+        setGender(path)
+        setType('')
+
+        localStorage.setItem('gender', path)
+        localStorage.setItem('type', '')
+
         navigate("/productspage")
     }
     return (
         <div id='originalsSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Originals.map((ele) => <p onClick={setPageforOriginal} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />} {ele.title}</p>)
+                Originals.map((ele) => <p onClick={() => setPageforOriginal(ele.path)} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}  >{ele.id === 2 && <AiOutlineArrowRight />} {ele.title}</p>)
             }
             <div className='womennavbarpic' >
                 <img src="https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner_8thSt_70505?wid=286&fmt=pjpeg" alt="" />
@@ -93,21 +114,53 @@ export const OriginalsDropDown = () => {
     )
 }
 export const AccessoriesDropDown = () => {
+
+    const { type, setType, setGender } = useContext(ProductPageContext)
+
     const [dropDown, setDropdown] = React.useState(false)
+
+    const navigate = useNavigate()
+
+    const setProductPage = (path) => {
+        setType("Accessories")
+        setGender(path)
+
+        localStorage.setItem('gender', path)
+        localStorage.setItem('type', 'Accessories')
+
+        navigate("/productspage")
+    }
+
     return (
         <div id='accessoriesSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Accessories.map((ele) => <Link to={ele.path}><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
+                Accessories.map((ele) => <p onClick={() => setProductPage(ele.path)} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
         </div>
     )
 }
 export const SaleDropDown = () => {
+
+    const { type, setType, setGender } = useContext(ProductPageContext)
+
     const [dropDown, setDropdown] = React.useState(false)
+
+    const navigate = useNavigate()
+
+    const setProductPage = (path) => {
+        setType('')
+        setGender(path)
+
+        localStorage.setItem('gender', path)
+        localStorage.setItem('type', '')
+
+        navigate("/productspage")
+    }
+
     return (
         <div id='saleSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
-                Sale.map((ele) => <Link to={ele.path} ><p className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.id}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p></Link>)
+                Sale.map((ele) => <p onClick={() => setProductPage(ele.path)} className={ele.id === 2 ? 'heading' : 'normal'} id={ele.id === 3 ? 'subheading' : 'normal'} key={ele.key}  >{ele.id === 2 && <AiOutlineArrowRight />}{ele.title}</p>)
             }
         </div>
     )

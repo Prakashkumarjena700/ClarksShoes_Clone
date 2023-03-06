@@ -29,23 +29,17 @@
 }
 
 .productDetailsContainer>p:nth-child(2) {
-    text-decoration: line-through;
-    color: gray;
+    font-size: 22px;
+    color: #86384D;
 }
 
 .productDetailsContainer>p:nth-child(3) {
-    font-size: 22px;
-    color: #d21c29;
-    font-weight: 700;
-}
-
-.productDetailsContainer>p:nth-child(4) {
     font-size: 22px;
     color: #483b35;
     font-weight: 700;
 }
 
-.productDetailsContainer>p:nth-child(5) {
+.productDetailsContainer>p:nth-child(3) {
     display: flex;
     margin-bottom: 10px;
 }
@@ -58,6 +52,7 @@
     padding-right: 40px;
     margin-top: 10px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .productDetailsContainer div p {
@@ -66,7 +61,7 @@
     border: 1px solid rgba(0, 0, 0, 0.559);
 }
 
-.productDetailsContainer button:nth-child(11) {
+.productDetailsContainer button:nth-child(9) {
     border: 1.5px solid #0570c1;
     background-color: #e6f0f9;
     display: block;
@@ -74,7 +69,8 @@
     border-radius: 10px;
     margin: 10px 0px;
 }
-.productDetailsContainer button:nth-child(12){
+
+.productDetailsContainer button:nth-child(10) {
     border: 1px solid #0570c1;
     width: 90%;
     background-color: #0570c1;
@@ -83,15 +79,137 @@
     border-radius: 5px;
     margin-top: 30px;
 }
-.productDetailsContainer button:nth-child(12):hover{
+
+.productDetailsContainer button:nth-child(10):hover {
     transition: all 700ms;
-    background-color:#666666 ;
+    background-color: #666666;
 }
-.productDetailsContainer button:nth-child(13){
+
+.productDetailsContainer button:nth-child(11) {
     background-color: #fcb3c7;
     display: flex;
     align-items: center;
-    border-radius: 5px;
     margin-top: 20px;
-    padding: 5px 0px;
+    padding: 5px;
+}
+
+.productDiscription {
+    /* border: 1px solid navy; */
+    display: flex;
+    background-color: #F3F3F3;
+    color: #333333;
+    padding: 20px;
+    justify-content: space-between;
+    margin: 40px 0px;
+}
+
+.productDiscription>div:nth-child(1) {
+    width: 60%;
+}
+
+.productDiscription>div:nth-child(1)>h2 {
+    font-size: 30px;
+    padding-bottom: 15px;
+}
+
+.productDiscription>div:nth-child(2) {
+    width: 35%;
+    /* border: 1px solid blue; */
+}
+
+.productDiscription>div:nth-child(2)>div {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.productDiscription>div:nth-child(2)>div>div {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    gap: 5px 20px;
+    padding: 30px 20px;
+}
+
+.productDiscription>div:nth-child(2) h3 {
+    top: 10px;
+    background-color: #F3F3F3;
+    display: inline-block;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 55%;
+    position: relative;
+    top: 10px;
+    font-weight: 700;
+}
+
+.productDiscription>div:nth-child(2) h4 {
+    padding: 0px 20px 10px 20px;
+}
+
+.productDiscription>div:nth-child(2)>div span {
+    font-weight: 700;
+}
+
+.productDetailsContainer div p.sizeBackground {
+    background-color: #E6F0F9;
+    border: 1px solid #0570c1;
+}
+
+@media (max-width:800px) {
+    .showProductContainer {
+        flex-direction: column;
+    }
+
+    .showProductContainer>div:nth-child(1) {
+        width: 100%;
+    }
+
+    .showProductContainer>div:nth-child(2) {
+        padding: 0px 50px;
+    }
+
+    .showProductContainer>div {
+        /* border: 1px solid lawngreen; */
+        width: 100%;
+    }
+
+    .productDetailsContainer button:nth-child(10) {
+        width: 100%;
+    }
+
+    .productDetailsContainer button:nth-child(11) {
+        width: 100%;
+        padding-left: 5%;
+    }
+
+    .productDiscription {
+        flex-direction: column;
+    }
+
+    .productDiscription>div:nth-child(1) {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .productDiscription>div:nth-child(2) {
+        width: 100%;
+    }
+
+    .productDetailsContainer div {
+        padding-right: 0px;
+    }
+}
+
+@media (max-width:600px) {
+    .productDetailsContainer button:nth-child(11) {
+        padding-left: 0px;
+        text-align: left;
+        gap: 10px;
+    }
+}
+
+@media (max-width:500px) {
+    .firstSlider {
+        width: 85%;
+    }
 }
