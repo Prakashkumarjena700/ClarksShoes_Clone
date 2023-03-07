@@ -39,7 +39,6 @@ export default function ProductsPage() {
     const getData = async () => {
         let URL;
 
-
         if (type !== '') {
             URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}&type=Accessories`
         } else {

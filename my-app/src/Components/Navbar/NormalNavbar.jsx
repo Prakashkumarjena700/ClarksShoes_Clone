@@ -66,12 +66,14 @@ export default function NormalNavbar() {
         localStorage.removeItem('isAuth')
         localStorage.removeItem('usermail')
         localStorage.removeItem('userImg')
+        localStorage.removeItem('token')
         setShowLogout(false)
         setUser('')
         setIsAuth(false)
         setUserType('user')
         setuserImg('')
         setusermail('')
+        Navigate("/login")
     }
     return (
         <div className='wholeNavbar' >

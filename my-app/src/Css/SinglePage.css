@@ -154,7 +154,9 @@
     background-color: #E6F0F9;
     border: 1px solid #0570c1;
 }
-
+.loading{
+    cursor: progress;
+}
 @media (max-width:800px) {
     .showProductContainer {
         flex-direction: column;

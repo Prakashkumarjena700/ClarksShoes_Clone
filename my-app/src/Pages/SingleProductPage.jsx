@@ -8,6 +8,8 @@ import '../Css/SinglePage.css'
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../Redux/action'
 
+import { useToast } from '@chakra-ui/react'
+
 import { MdStar } from "react-icons/md";
 
 const getData = (url) => {
@@ -18,6 +20,9 @@ export default function SignleProductPage() {
     const { id } = useParams()
     const [obj, setobj] = useState({})
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
+
+    const toast = useToast()
 
     const [size, setSize] = useState('')
     const [showSizealert, setshowSizealert] = useState(false)
@@ -30,6 +35,7 @@ export default function SignleProductPage() {
     }, [id])
 
     const AddtoCart = () => {
+        setLoading(true)
         let cartPayload = {
             name: obj.name,
             price: obj.price,
@@ -42,6 +48,7 @@ export default function SignleProductPage() {
         }
         if (size == '') {
             setshowSizealert(true)
+            setLoading(false)
         } else {
             setshowSizealert(false)
             fetch(`https://witty-loafers-elk.cyclic.app/cart/add`, {
@@ -52,8 +59,32 @@ export default function SignleProductPage() {
                 },
                 body: JSON.stringify(cartPayload)
             })
-            .then(res => res.json())
-            .then(res=> console.log(res))
+                .then(res => res.json())
+                .then(res => {
+                    setLoading(false)
+                    if (res.msg === 'Product has been added to cart') {
+                        toast({
+                            position: 'top',
+                            variant: 'top-accent',
+                            title: 'Added Sucessful',
+                            description: "Product has been added into cart",
+                            status: 'success',
+                            duration: 5000,
+                            isClosable: true
+                        })
+                    } else {
+                        toast({
+                            position: 'top',
+                            variant: 'top-accent',
+                            title: 'Something went wrong',
+                            description: `Login to add product`,
+                            status: 'error',
+                            duration: 5000,
+                            isClosable: true
+                        })
+                        setLoading(false)
+                    }
+                }).catch(err => setLoading(false))
         }
     }
 
@@ -84,7 +115,7 @@ export default function SignleProductPage() {
                     </div>
                     <p>SELECT WIDTH</p>
                     <button>Medium</button>
-                    <button onClick={AddtoCart} >Add to shopping bag</button>
+                    <button onClick={AddtoCart} className={loading && 'loading'} disabled={loading && true} >Add to shopping bag</button>
                     <button> <img width='60px' src="https://clarks.scene7.com/is/content/Pangaea2Build/IC_klarnaLogo" alt="" /> 4 interest-free payments of $36.24. Learn More</button>
                 </div>
             </div>
