@@ -6,7 +6,6 @@ import axios from 'axios'
 import ViewProdect from '../Components/ViewProdect'
 import '../Css/SinglePage.css'
 import { useDispatch } from 'react-redux'
-import { addProduct } from '../Redux/action'
 
 import { useToast } from '@chakra-ui/react'
 
@@ -43,7 +42,7 @@ export default function SignleProductPage() {
             size,
             gender: obj.gender,
             type: obj.type,
-            quentity: 1,
+            quentity: 1, 
             img1: obj.img1,
         }
         if (size == '') {
@@ -110,7 +109,7 @@ export default function SignleProductPage() {
                     <p>{showSizealert ? <p style={{ color: 'red' }} >Please select a size</p> : 'SELECT SIZE'}</p>
                     <div>
                         {
-                            obj.size && obj.size.map((ele) => <p className={ele == size && 'sizeBackground'} onClick={() => setSize(ele)} >{ele}</p>)
+                            obj.size && obj.size.map((ele) => <p className={ele == size && 'sizeBackground'} key={ele}  onClick={() => setSize(ele)} >{ele}</p>)
                         }
                     </div>
                     <p>SELECT WIDTH</p>

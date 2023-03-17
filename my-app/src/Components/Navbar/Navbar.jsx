@@ -6,8 +6,8 @@ import NormalNavbar from './NormalNavbar'
 export default function Navbar() {
   return (
     <div>
-        <NormalNavbar/>
-        <HamburgerNavbar/>
+      <NormalNavbar />
+      <HamburgerNavbar />
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { AiOutlineEdit } from "react-icons/ai"
+import { BsSortAlphaDown, BsSortAlphaUpAlt, BsSortNumericDown, BsSortNumericUpAlt } from "react-icons/bs"
 import Skelitonforadmin from './Skelitonforadmin'
 
 export default function Inventory() {
@@ -22,18 +23,23 @@ export default function Inventory() {
     const [img1, setImg1] = useState('')
 
     const [loading, setLoading] = useState(false)
+    const [skip, setSkip] = useState(0)
+    const [page, setPage] = useState(1)
+
+    const [sort, setSort] = useState('')
+    const [order, setOrder] = useState('')
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const toast = useToast()
 
     useEffect(() => {
         getProductData()
-    }, [])
+    }, [skip, sort, order])
 
     const getProductData = async () => {
         setLoading(true)
         try {
-            await fetch("https://witty-loafers-elk.cyclic.app/data")
+            await fetch(`https://witty-loafers-elk.cyclic.app/data/?limit=5&skip=${skip}&sort=${sort}&order=${order}`)
                 .then(res => res.json())
                 .then(res => setDataArr(res))
             setLoading(false)
@@ -107,33 +113,33 @@ export default function Inventory() {
                     "Content-type": "application/json"
                 }
             }).then(res => res.json())
-            .then(res => {
-                if(res.msg==="Product has been Deleted"){
-                    setLoading(false)
-                    getProductData()
-                    toast({
-                        position: 'top',
-                        variant: 'top-accent',
-                        title: 'Data has been Deleted',
-                        description: 'You can see the result at the same time',
-                        status: 'success',
-                        duration: 5000,
-                        isClosable: true
-                    })
-                }else{
-                    toast({
-                        position: 'top',
-                        variant: 'top-accent',
-                        title: 'Not Deleted',
-                        description: `Something went wrong`,
-                        status: 'error',
-                        duration: 5000,
-                        isClosable: true
-                    })
-                    setLoading(false)
-                }
+                .then(res => {
+                    if (res.msg === "Product has been Deleted") {
+                        setLoading(false)
+                        getProductData()
+                        toast({
+                            position: 'top',
+                            variant: 'top-accent',
+                            title: 'Data has been Deleted',
+                            description: 'You can see the result at the same time',
+                            status: 'success',
+                            duration: 5000,
+                            isClosable: true
+                        })
+                    } else {
+                        toast({
+                            position: 'top',
+                            variant: 'top-accent',
+                            title: 'Not Deleted',
+                            description: `Something went wrong`,
+                            status: 'error',
+                            duration: 5000,
+                            isClosable: true
+                        })
+                        setLoading(false)
+                    }
 
-            })
+                })
         } catch (err) {
             toast({
                 position: 'top',
@@ -148,56 +154,108 @@ export default function Inventory() {
         }
     }
     return (
-        <div >
-            <div style={{backgroundColor:'#F3F3F3'}} className='IVtablerow' >
-                <td>Image</td>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Gender</td>
-                <td>Color</td>
-                <td>Price</td>
-                <td>Rating</td>
-                <td>Edit</td>
-                <td>Delete</td>
-            </div>
-            {loading ? <Skelitonforadmin/> : dataArr.map((ele) =>
-                <div  className='IVtablerow' key={ele._id} >
-                    <td><img src={ele.img1} alt="" /></td>
-                    <td>{ele.name.substring(0, 10)}..</td>
-                    <td>{ele.type}</td>
-                    <td>{ele.gender}</td>
-                    <td>{ele.color}</td>
-                    <td>${ele.price}</td>
-                    <td>{ele.rating}</td>
-                    <td>
-                        <AiOutlineEdit style={{ fontSize: "20px", cursor: 'pointer' }} onClick={() => setupdateAndopenmodel(ele._id, ele)} />
-                        <Modal isOpen={isOpen} onClose={onClose} >
-                            {/* <ModalOverlay  /> */}
-                            <ModalContent  >
-                                <ModalHeader>New Data</ModalHeader>
-                                <ModalCloseButton />
-                                <ModalBody className='modalbody' >
-                                    <input type="text" onChange={(e) => setName(e.target.value)} placeholder={'Name : ' + obj.name} />
-                                    <input type="text" onChange={(e) => setType(e.target.value)} placeholder={'Type :' + obj.type} />
-                                    <input type="text" onChange={(e) => setGender(e.target.value)} placeholder={'Gender :' + obj.gender} />
-                                    <input type="text" onChange={(e) => setColor(e.target.value)} placeholder={'Color :' + obj.color} />
-                                    <input type="text" onChange={(e) => setPrice(e.target.value)} placeholder={'Price :' + obj.price} />
-                                    <input type="text" onChange={(e) => setRating(e.target.value)} placeholder={'Rating :' + obj.rating} />
-                                    <input type="text" onChange={(e) => setImg1(e.target.value)} placeholder={'Image :' + obj.img1} />
-                                </ModalBody>
-                                <ModalFooter>
-                                    <Button colorScheme='blue' mr={3} onClick={() => updateAndCloseFN(update)}>
-                                        Save
-                                    </Button>
-                                    <Button variant='ghost' onClick={onClose} >Cancel</Button>
-                                </ModalFooter>
-                            </ModalContent>
-                        </Modal>
-                    </td>
-                    <td><RiDeleteBinLine onClick={() => DeleteFN(ele._id)} style={{ fontSize: "20px", cursor: 'pointer' }} /></td>
+        <>
+            <div >
+                <div style={{ backgroundColor: '#F3F3F3' }} className='IVtablerow' >
+                    <td>Image</td>
+                    <td><BsSortAlphaDown onClick={() => {
+                        setSort('name')
+                        setOrder(1)
+                    }} style={{ cursor: 'pointer' }} />&nbsp;Name&nbsp;<BsSortAlphaUpAlt style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSort('name')
+                            setOrder(-1)
+                        }} /></td>
+                    <td>Type</td>
+                    <td>Gender</td>
+                    <td>Color</td>
+                    <td><BsSortNumericDown style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSort('price')
+                            setOrder(1)
+                        }}
+                    />&nbsp;Price&nbsp;<BsSortNumericUpAlt style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSort('price')
+                            setOrder(-1)
+                        }}
+                        /></td>
+                    <td><BsSortNumericDown style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSort('rating')
+                            setOrder(1)
+                        }}
+                    />&nbsp;Rating&nbsp;<BsSortNumericUpAlt style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSort('rating')
+                            setOrder(-1)
+                        }}
+                        /></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </div>
-            )
-            }
-        </div>
+                {loading ? <Skelitonforadmin /> : dataArr.map((ele) =>
+                    <div className='IVtablerow' key={ele._id} >
+                        <td><img src={ele.img1} alt="" /></td>
+                        <td>{ele.name.substring(0, 10)}..</td>
+                        <td>{ele.type}</td>
+                        <td>{ele.gender}</td>
+                        <td>{ele.color}</td>
+                        <td>${ele.price}</td>
+                        <td>{ele.rating}</td>
+                        <td>
+                            <AiOutlineEdit style={{ fontSize: "20px", cursor: 'pointer' }} onClick={() => setupdateAndopenmodel(ele._id, ele)} />
+                            <Modal isOpen={isOpen} onClose={onClose} >
+                                {/* <ModalOverlay  /> */}
+                                <ModalContent  >
+                                    <ModalHeader>New Data</ModalHeader>
+                                    <ModalCloseButton />
+                                    <ModalBody className='modalbody' >
+                                        <input type="text" onChange={(e) => setName(e.target.value)} placeholder={'Name : ' + obj.name} />
+                                        <input type="text" onChange={(e) => setType(e.target.value)} placeholder={'Type :' + obj.type} />
+                                        <input type="text" onChange={(e) => setGender(e.target.value)} placeholder={'Gender :' + obj.gender} />
+                                        <input type="text" onChange={(e) => setColor(e.target.value)} placeholder={'Color :' + obj.color} />
+                                        <input type="text" onChange={(e) => setPrice(e.target.value)} placeholder={'Price :' + obj.price} />
+                                        <input type="text" onChange={(e) => setRating(e.target.value)} placeholder={'Rating :' + obj.rating} />
+                                        <input type="text" onChange={(e) => setImg1(e.target.value)} placeholder={'Image :' + obj.img1} />
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button colorScheme='blue' mr={3} onClick={() => updateAndCloseFN(update)}>
+                                            Save
+                                        </Button>
+                                        <Button variant='ghost' onClick={onClose} >Cancel</Button>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
+                        </td>
+                        <td><RiDeleteBinLine onClick={() => DeleteFN(ele._id)} style={{ fontSize: "20px", cursor: 'pointer' }} /></td>
+                    </div>
+                )
+                }
+            </div>
+            <div style={{ margin: '20px 0px' }} className='paginationContainer' >
+                <button disabled={page == 1} onClick={() => {
+                    setSkip(skip - 9)
+                    setPage(page - 1)
+                }} >Prev</button>
+                <button disabled={page == 1} onClick={() => {
+                    setPage(page - 1)
+                    setSkip(skip - 9)
+                }
+                } >{page - 1}</button>
+                <button>{page}</button>
+                <button
+                    onClick={() => {
+                        setPage(page + 1)
+                        setSkip(skip + 9)
+                    }
+                    }
+                >{page + 1}</button>
+                <button onClick={() => {
+                    setPage(page + 1)
+                    setSkip(skip + 9)
+                }} >Next</button>
+            </div>
+        </>
     )
 }

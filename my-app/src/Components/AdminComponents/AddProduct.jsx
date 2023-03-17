@@ -100,7 +100,7 @@ export default function AddProduct() {
     <div>
       <div className='addProductContainer' >
         <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="text" placeholder='Dis' value={dis} onChange={(e) => setDis(e.target.value)} />
+        <input type="text" placeholder='Description' value={dis} onChange={(e) => setDis(e.target.value)} />
         <input type="number" placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)} />
         <input type="text" placeholder='Discount' value={discount} onChange={(e) => setDiscount(e.target.value)} />
         <input type="number" placeholder='Rating' value={rating} onChange={(e) => setRating(e.target.value)} />
@@ -145,7 +145,7 @@ export default function AddProduct() {
         </Popover>
 
         <select onChange={(e) => setGender(e.target.value)} value={gender} >
-          <option value="">Select</option>
+          <option value="">Gender</option>
           <option value="Boy">Boy</option>
           <option value="Girl">Girl</option>
           <option value="Men">Men</option>
@@ -154,7 +154,7 @@ export default function AddProduct() {
         </select>
 
         <select onChange={(e) => setType(e.target.value)} value={type} >
-          <option value="">Select</option>
+          <option value="">Type</option>
           <option value="Boot">Boot</option>
           <option value="Shoe">Shoe</option>
           <option value="Canvas">Canvas</option>

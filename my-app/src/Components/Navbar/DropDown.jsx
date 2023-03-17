@@ -6,9 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ProductPageContext } from '../../Context/ProductPageContext';
 
 
-
 export const WomenDropDown = () => {
-    const { setGender, setType, type } = useContext(ProductPageContext)
+    const { setGender ,setType} = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
@@ -16,14 +15,12 @@ export const WomenDropDown = () => {
 
     const setPageforWomen = () => {
         setGender('Women')
-        setType('')
-
+        setType(' ')
         localStorage.setItem('gender', 'Women')
-        localStorage.setItem('type', '')
+        localStorage.setItem('type', ' ')
 
         navigate("/productspage")
     }
-    console.log(type)
     return (
         <div id='womenSubmenue' onClick={() => setDropdown(!dropDown)} >
             {
@@ -38,17 +35,15 @@ export const WomenDropDown = () => {
 }
 export const MenDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
-    const { setGender, setType } = useContext(ProductPageContext)
+    const { setGender, setType} = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
     const setPageforMen = () => {
         setGender('Men')
-        setType('')
-
+        setType(' ')
         localStorage.setItem('gender', 'Men')
-        localStorage.setItem('type', '')
-
+        localStorage.setItem('type', ' ')
         navigate("/productspage")
     }
     return (
@@ -71,11 +66,9 @@ export const KidsDropDown = () => {
 
     const setPageforKids = (path) => {
         setGender(path)
-        setType('')
-
+        setType(' ')
         localStorage.setItem('gender', path)
-        localStorage.setItem('type', '')
-
+        localStorage.setItem('type', ' ')
         navigate("/productspage")
     }
     return (
@@ -88,17 +81,15 @@ export const KidsDropDown = () => {
 }
 export const OriginalsDropDown = () => {
     const [dropDown, setDropdown] = React.useState(false)
-    const { setGender, setType } = useContext(ProductPageContext)
+    const { setGender , setType} = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
     const setPageforOriginal = (path) => {
         setGender(path)
-        setType('')
-
+        setType(' ')
         localStorage.setItem('gender', path)
-        localStorage.setItem('type', '')
-
+        localStorage.setItem('type', ' ')
         navigate("/productspage")
     }
     return (
@@ -115,7 +106,7 @@ export const OriginalsDropDown = () => {
 }
 export const AccessoriesDropDown = () => {
 
-    const { type, setType, setGender } = useContext(ProductPageContext)
+    const { setType, setGender } = useContext(ProductPageContext)
 
     const [dropDown, setDropdown] = React.useState(false)
 
@@ -141,18 +132,18 @@ export const AccessoriesDropDown = () => {
 }
 export const SaleDropDown = () => {
 
-    const { type, setType, setGender } = useContext(ProductPageContext)
+    const {setType, setGender } = useContext(ProductPageContext)
 
     const [dropDown, setDropdown] = React.useState(false)
 
     const navigate = useNavigate()
 
     const setProductPage = (path) => {
-        setType('')
+        setType(' ')
         setGender(path)
 
         localStorage.setItem('gender', path)
-        localStorage.setItem('type', '')
+        localStorage.setItem('type', ' ')
 
         navigate("/productspage")
     }

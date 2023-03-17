@@ -15,66 +15,87 @@ export default function Register() {
   const [firstname, setFirstName] = useState("")
   const [lastname, setLastName] = useState("")
   const [password, setPassword] = useState("")
-  const [type, setType] = useState("")
   const [loading, setLoading] = useState(false)
 
-  const handelregister = () => {
+  const handelregister = async () => {
     const payload = {
       email,
       firstname,
       lastname,
-      password,
-      type
+      password
     }
 
-    console.log(payload)
+    if (email === "" || firstname === "" || lastname === "" || password === "") {
+      toast({
+        position: 'top',
+        variant: 'top-accent',
+        title: 'Missing information',
+        description: `Please enter all mandatory fields`,
+        status: 'warning',
+        duration: 5000,
+        isClosable: true
+      })
+    } else {
+      setLoading(true)
+      await fetch(`https://witty-loafers-elk.cyclic.app/users/register`, {
+        method: 'POST',
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }).then(res => res.json())
+        .then(res => {
+          setLoading(false)
+          if (res.msg == 'new user has been register') {
+            toast({
+              position: 'top',
+              variant: 'top-accent',
+              title: 'Register successful',
+              description: `${payload.firstname}`,
+              status: 'success',
+              duration: 5000,
+              isClosable: true
+            })
+            Navigate("/login")
+          } else if (res.msg == 'Already have an account please login') {
+            toast({
+              position: 'top',
+              variant: 'top-accent',
+              title: 'Already user existing',
+              description: `Already have an account please login`,
+              status: 'warning',
+              duration: 5000,
+              isClosable: true
+            })
+            Navigate("/login")
+          }
+          else {
+            toast({
+              position: 'top',
+              variant: 'top-accent',
+              title: 'Error',
+              description: `Something went wrong`,
+              status: 'error',
+              duration: 5000,
+              isClosable: true
+            })
 
-    // if (email === "" || firstname === "" || lastname === "" || password === "" || type === "") {
-    //   toast({
-    //     position: 'top',
-    //     variant: 'top-accent',
-    //     title: 'Missing information',
-    //     description: `Please enter all mandatory fields`,
-    //     status: 'warning',
-    //     duration: 5000,
-    //     isClosable: true
-    //   })
-    // } else {
-    //   try {
-    //     setLoading(true)
-    //     fetch(`https://worrisome-leggings-goat.cyclic.app/users/register`, {
-    //       method: "POST",
-    //       body: JSON.stringify(payload),
-    //       headers: {
-    //         "Content-type": "application/json"
-    //       }
-    //     }).then((res) => res.json())
-    //     toast({
-    //       position: 'top',
-    //       variant: 'top-accent',
-    //       title: 'Register successful',
-    //       description: `Your account has been created ${firstname}`,
-    //       status: 'success',
-    //       duration: 5000,
-    //       isClosable: true
-    //     })
-    //     Navigate('/login')
-    //     setLoading(false)
-    //   } catch (err) {
-    //     console.log(err)
-    //     setLoading(false)
-    //     toast({
-    //       position: 'top',
-    //       variant: 'top-accent',
-    //       title: 'Error',
-    //       description: 'Something went wrong please try again',
-    //       status: 'error',
-    //       duration: 5000,
-    //       isClosable: true
-    //     })
-    //   }
-    // }
-
+          }
+        })
+        .catch(err => {
+          setLoading(false)
+          toast({
+            position: 'top',
+            variant: 'top-accent',
+            title: 'Error',
+            description: `Something went wrong`,
+            status: 'error',
+            duration: 5000,
+            isClosable: true
+          })
+          console.log(err)
+        })
+    }
   }
 
   return (
@@ -90,11 +111,6 @@ export default function Register() {
           <input type="text" onChange={(e) => setLastName(e.target.value)} />
           <label >Create Your Password </label>
           <input type="password" onChange={(e) => setPassword(e.target.value)} />
-          <select onChange={(e) => setType(e.target.value)} >
-            <option value="">Register as</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
           <div>
             <input type="checkbox" /> <p>Remember Me</p></div>
           <button className={loading && 'fetchinginProcess'} onClick={handelregister} >CREATE ACCOUNT</button>

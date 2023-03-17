@@ -2,19 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import SixtyPersentSale from '../Components/SixtyPersentSale'
 import { Link } from 'react-router-dom'
 import {
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    useDisclosure
+    Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure
 } from '@chakra-ui/react'
 
 import "../Css/WomenSearch.css"
 
-import axios from 'axios'
 import { useState } from 'react'
 import LoadingContainer from '../Components/LoadingContainer'
 import { ProductPageContext } from '../Context/ProductPageContext'
@@ -22,29 +14,29 @@ import { ProductPageContext } from '../Context/ProductPageContext'
 
 export default function ProductsPage() {
     const [loading, setLoading] = useState(false)
-    const [query, setQuery] = useState('')
+    const [skip, setSkip] = useState(0)
+    const [page, setPage] = useState(1)
+    const [sort, setSort] = useState('')
+    const [order, setOrder] = useState('')
 
-    const { gender, setGender, type, setType } = useContext(ProductPageContext)
+    const { gender, setGender, type, setType, size, setSize, color, setColor, rating, setRating } = useContext(ProductPageContext)
 
     const [dataArr, setDataArr] = useState([])
+
+    const genderFronLS = localStorage.getItem('gender')
+    const typeFromLS = localStorage.getItem('type')
 
 
     useEffect(() => {
         getData()
 
-    }, [gender])
+    }, [gender, type, size, color, rating, skip, sort, order])
 
 
 
     const getData = async () => {
-        let URL;
+        let URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}&type=${type}&size=${size}&color=${color}&rating=${rating}&limit=9&skip=${skip}&sort=${sort}&order=${order}`
 
-        if (type !== '') {
-            URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}&type=Accessories`
-        } else {
-            URL = `https://witty-loafers-elk.cyclic.app/data/?gender=${gender}`
-
-        }
         setLoading(true)
         try {
             await fetch(URL)
@@ -64,8 +56,39 @@ export default function ProductsPage() {
 
     const filterdrowser = () => {
         onClose()
-        setQuery("")
     }
+
+    const resetFilter = () => {
+        setGender(genderFronLS)
+        setType(typeFromLS)
+        setColor(' ')
+        setSize(' ')
+    }
+
+    const sortingFunction = (e) => {
+        let val = e.target.value
+
+        if (val == 'atz') {
+            setSort('name')
+            setOrder(1)
+        } else if (val == 'zta') {
+            setSort('name')
+            setOrder(-1)
+        } else if (val == 'rhtl') {
+            setSort('rating')
+            setOrder(-1)
+        } else if (val == 'plth') {
+            setSort('price')
+            setOrder(1)
+        } else if (val == 'phtl') {
+            setSort('price')
+            setOrder(-1)
+        } else if (val == '') {
+            setSort('')
+            setOrder('')
+        }
+    }
+
 
     return (
         <div>
@@ -95,75 +118,58 @@ export default function ProductsPage() {
                             <DrawerBody className='drawerBody' >
                                 <details>
                                     <summary>GENDER</summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('boys')} />BOYS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('girls')} />GIRLS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('kids')} />KIDS UNISEX</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('mens')} />MENS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('WOMENS')} />WOMENS</label>
+                                    <label ><input type="checkbox" onChange={() => setGender('Boy')} />BOYS</label>
+                                    <label ><input type="checkbox" onChange={() => setGender('Girl')} />GIRLS</label>
+                                    <label ><input type="checkbox" onChange={() => setGender('Men')} />MENS</label>
+                                    <label ><input type="checkbox" onChange={() => setGender('Women')} />WOMENS</label>
+                                    <label ><input type="checkbox" onChange={() => setGender('Unisex')} />UNISEX</label>
                                 </details>
                                 <details>
                                     <summary>PRODUCET TYPE</summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('boots')} />BOOTS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('sandels')} />SANDELS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('shoes')} />SHOES</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Boot')} />BOOTS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Sandal')} />SANDALS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Shoe')} />SHOES</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Sneaker')} />SNEAKERS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Desert Boot')} />DESERT BOOTS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Flat Sandals')} />FLAT SANDALS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Ankle Boot')} />ANKLE BOOTS</label>
+                                    <label ><input type="checkbox" onChange={() => setType('Accessories')} />ACCESSORIES</label>
                                 </details>
                                 <details>
-                                    <summary>PRODUCT TYPE</summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('boots')} />BOOTS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('sandals')} />SANDALS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('shoes')} />SHOES</label>
+                                    <summary>SIZE </summary>
+                                    <div className='SizeOptionDiv' >
+                                        <label ><input type="checkbox" onChange={() => setSize('1')} />1</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('1.5')} />1½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('2')} />2</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('2.5')} />2½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('3')} />3</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('3.5')} />3½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('4')} />4</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('4.5')} />4½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('5')} />5</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('5.5')} />5½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('6')} />6</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('6.5')} />6½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('7')} />7</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('7.5')} />7½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('8')} />8</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('8.5')} />8½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('9')} />9</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('9.5')} />9½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('10')} />10</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('10.5')} />10½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('11')} />11</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('11.5')} />11½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('12')} />12</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('12.5')} />12½</label>
+                                        <label ><input type="checkbox" onChange={() => setSize('12')} />13</label>
+                                    </div>
                                 </details>
                                 <details>
                                     <summary>COLOR</summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />BEIGR</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />BLACK</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />BLUE</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />GREEN</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />GREY</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />RED</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />WHITE</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('black')} />YELLOW</label>
-                                </details>
-                                <details>
-                                    <summary>PRICE </summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$30')} />$30-$39.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$50')} />$50-$59.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$60')} />$60-$69.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$70')} />$70-$79.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$80')} />$80-$89.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$90')} />$90-$99.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$100')} />$100-$109.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$110')} />$110-$119.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$120')} />$120-$129.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$130')} />$130-$139.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$140')} />$140-$149.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$150')} />$150-$159.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$160')} />$160-$169.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$170')} />$170-$179.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$180')} />$180-$189.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$190')} />$190-$199.99</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('$200')} />$200-$209.99</label>
-                                </details>
-                                <details>
-                                    <summary>STYLE</summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('ankel')} />ANKLE BOOTS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('chelsea')} />CHELSE BOOTS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('derby')} />DERBY SHOE</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('desert')} />DESERT BOOTS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('flat')} />FLAT SANDALS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('lace')} />LACE UP</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('loafers')} />LOAFERS & SLIP ONS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('slip')} />SLIP ONS</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('sneakers')} />SNEAKERS</label>
-                                </details>
-                                <details>
-                                    <summary>MATERIAL </summary>
-                                    <label ><input type="checkbox" onChange={() => setQuery('leather')} />LEATHER</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('nubuck')} />NUBUCK</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('suede')} />DUEDE</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('textile')} />TEXTILE</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('waxy')} />WAXY LEATHER</label>
-                                    <label ><input type="checkbox" onChange={() => setQuery('waxy')} />SUEDE</label>
+                                    <label ><input type="checkbox" onChange={() => setColor('Black')} />BLACK</label>
+                                    <label ><input type="checkbox" onChange={() => setColor('Gray')} />GRAY</label>
+                                    <label ><input type="checkbox" onChange={() => setColor('White')} />WHITE</label>
                                 </details>
                             </DrawerBody>
 
@@ -175,15 +181,13 @@ export default function ProductsPage() {
                     </Drawer>
                 </div>
                 <div>
-                    <select>
+                    <select onChange={sortingFunction} >
                         <option value="">Sort by</option>
-                        <option value="">Relevance</option>
-                        <option value="">Newest</option>
-                        <option value="">Highest Rated</option>
-                        <option value="">A-Z</option>
-                        <option value="">Z-A</option>
-                        <option value="">Price(Low-High)</option>
-                        <option value="">Price(High-Low)</option>
+                        <option value="rhtl">Highest Rated</option>
+                        <option value="atz">A-Z</option>
+                        <option value="zta">Z-A</option>
+                        <option value="plth">Price(Low-High)</option>
+                        <option value="phtl">Price(High-Low)</option>
                     </select>
                 </div>
             </div>
@@ -192,69 +196,67 @@ export default function ProductsPage() {
                     <p>FILTER BY:</p>
                     <details>
                         <summary>PRODUCT TYPE <span>{'>'}</span></summary>
-                        <label ><input type="checkbox" onChange={() => setQuery('boots')} />BOOTS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('sandals')} />SANDALS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('shoes')} />SHOES</label>
+                        <label ><input type="checkbox" onChange={() => setType('Boot')} />BOOTS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Sandal')} />SANDALS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Shoe')} />SHOES</label>
+                        <label ><input type="checkbox" onChange={() => setType('Sneaker')} />SNEAKERS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Desert Boot')} />DESERT BOOTS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Flat Sandals')} />FLAT SANDALS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Ankle Boot')} />ANKLE BOOTS</label>
+                        <label ><input type="checkbox" onChange={() => setType('Accessories')} />ACCESSORIES</label>
+                    </details>
+                    <details>
+                        <summary>GENDER<span>{'>'}</span></summary>
+                        <label ><input type="checkbox" onChange={() => setGender('Boy')} />BOYS</label>
+                        <label ><input type="checkbox" onChange={() => setGender('Girl')} />GIRLS</label>
+                        <label ><input type="checkbox" onChange={() => setGender('Men')} />MENS</label>
+                        <label ><input type="checkbox" onChange={() => setGender('Women')} />WOMENS</label>
+                        <label ><input type="checkbox" onChange={() => setGender('Unisex')} />UNISEX</label>
+
+                    </details>
+                    <details >
+                        <summary>SIZE  <span>{'>'}</span> </summary>
+                        <div className='SizeOptionDiv' >
+                            <label ><input type="checkbox" onChange={() => setSize('1')} />1</label>
+                            <label ><input type="checkbox" onChange={() => setSize('1.5')} />1½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('2')} />2</label>
+                            <label ><input type="checkbox" onChange={() => setSize('2.5')} />2½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('3')} />3</label>
+                            <label ><input type="checkbox" onChange={() => setSize('3.5')} />3½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('4')} />4</label>
+                            <label ><input type="checkbox" onChange={() => setSize('4.5')} />4½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('5')} />5</label>
+                            <label ><input type="checkbox" onChange={() => setSize('5.5')} />5½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('6')} />6</label>
+                            <label ><input type="checkbox" onChange={() => setSize('6.5')} />6½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('7')} />7</label>
+                            <label ><input type="checkbox" onChange={() => setSize('7.5')} />7½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('8')} />8</label>
+                            <label ><input type="checkbox" onChange={() => setSize('8.5')} />8½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('9')} />9</label>
+                            <label ><input type="checkbox" onChange={() => setSize('9.5')} />9½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('10')} />10</label>
+                            <label ><input type="checkbox" onChange={() => setSize('10.5')} />10½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('11')} />11</label>
+                            <label ><input type="checkbox" onChange={() => setSize('11.5')} />11½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('12')} />12</label>
+                            <label ><input type="checkbox" onChange={() => setSize('12.5')} />12½</label>
+                            <label ><input type="checkbox" onChange={() => setSize('12')} />13</label>
+                        </div>
                     </details>
                     <details>
                         <summary>COLOR  <span>{'>'}</span> </summary>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />BEIGR</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />BLACK</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />BLUE</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />GREEN</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />GREY</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />RED</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />WHITE</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('black')} />YELLOW</label>
+                        <label ><input type="checkbox" onChange={() => setColor('Black')} />BLACK</label>
+                        <label ><input type="checkbox" onChange={() => setColor('Gray')} />GRAY</label>
+                        <label ><input type="checkbox" onChange={() => setColor('White')} />WHITE</label>
                     </details>
-                    <details>
-                        <summary>PRICE  <span>{'>'}</span> </summary>
-                        <label ><input type="checkbox" onChange={() => setQuery('$30')} />$30-$39.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$50')} />$50-$59.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$60')} />$60-$69.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$70')} />$70-$79.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$80')} />$80-$89.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$90')} />$90-$99.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$100')} />$100-$109.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$110')} />$110-$119.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$120')} />$120-$129.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$130')} />$130-$139.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$140')} />$140-$149.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$150')} />$150-$159.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$160')} />$160-$169.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$170')} />$170-$179.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$180')} />$180-$189.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$190')} />$190-$199.99</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('$200')} />$200-$209.99</label>
-                    </details>
-                    <details>
-                        <summary>STYLE  <span>{'>'}</span> </summary>
-                        <label ><input type="checkbox" onChange={() => setQuery('ankel')} />ANKLE BOOTS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('chelsea')} />CHELSE BOOTS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('derby')} />DERBY SHOE</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('desert')} />DESERT BOOTS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('flat')} />FLAT SANDALS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('lace')} />LACE UP</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('loafers')} />LOAFERS & SLIP ONS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('slip')} />SLIP ONS</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('sneakers')} />SNEAKERS</label>
-                    </details>
-                    <details>
-                        <summary>MATERIAL  <span>{'>'}</span> </summary>
-                        <label ><input type="checkbox" onChange={() => setQuery('leather')} />LEATHER</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('nubuck')} />NUBUCK</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('suede')} />DUEDE</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('textile')} />TEXTILE</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('waxy')} />WAXY LEATHER</label>
-                        <label ><input type="checkbox" onChange={() => setQuery('waxy')} />SUEDE</label>
-                    </details>
-                    <button onClick={() => setQuery("")} >RESET FILTER</button>
+                    <button onClick={resetFilter} >RESET FILTER</button>
                 </div>
                 {
                     loading ? <LoadingContainer className='loadingContainer' /> : <div className='resultContainer' >
                         {
                             dataArr && dataArr.map((ele) =>
-                                <Link to={`/productspage/${ele._id}`} className='searchCard' >
+                                <Link to={`/productspage/${ele._id}`} key={ele._id} className='searchCard' >
                                     <img src={ele.img1} alt="" />
                                     <img src={ele.img3} alt="" />
                                     <div>
@@ -274,6 +276,29 @@ export default function ProductsPage() {
                     </div>
                 }
             </div>
-        </div>
+            <div className='paginationContainer' >
+                <button disabled={page == 1} onClick={() => {
+                    setSkip(skip - 9)
+                    setPage(page - 1)
+                }} >Prev</button>
+                <button disabled={page == 1} onClick={() => {
+                    setPage(page - 1)
+                    setSkip(skip - 9)
+                }
+                } >{page - 1}</button>
+                <button>{page}</button>
+                <button
+                    onClick={() => {
+                        setPage(page + 1)
+                        setSkip(skip + 9)
+                    }
+                    }
+                >{page + 1}</button>
+                <button onClick={() => {
+                    setPage(page + 1)
+                    setSkip(skip + 9)
+                }} >Next</button>
+            </div>
+        </div >
     )
 }
