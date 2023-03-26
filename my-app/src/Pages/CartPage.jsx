@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeProducet, checkOut } from "../Redux/action"
@@ -9,8 +9,11 @@ import { useToast } from '@chakra-ui/react'
 import { TbTruck } from 'react-icons/tb'
 
 import '../Css/CartPage.css'
+import { ProductPageContext } from '../Context/ProductPageContext'
 
 export default function CartPage() {
+
+    const { cartCount, setCartCount } = useContext(ProductPageContext)
 
     const navigate = useNavigate()
 
@@ -159,6 +162,8 @@ export default function CartPage() {
                 setLoading(false)
                 console.log(err)
             })
+        setCartCount(cartCount - 1)
+
     }
 
     const getTotal = (arr) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { useToast } from '@chakra-ui/react'
 
 import { MdStar } from "react-icons/md";
+import { ProductPageContext } from '../Context/ProductPageContext'
 
 const getData = (url) => {
     return axios.get(url)
@@ -25,6 +26,8 @@ export default function SignleProductPage() {
 
     const [size, setSize] = useState('')
     const [showSizealert, setshowSizealert] = useState(false)
+
+    const {cartCount,setCartCount} =useContext(ProductPageContext)
 
 
 
@@ -50,6 +53,7 @@ export default function SignleProductPage() {
             setLoading(false)
         } else {
             setshowSizealert(false)
+            setCartCount(cartCount+1)
             fetch(`https://witty-loafers-elk.cyclic.app/cart/add`, {
                 method: "POST",
                 headers: {

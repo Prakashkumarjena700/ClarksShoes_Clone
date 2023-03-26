@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {
@@ -6,10 +6,6 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
     Button,
     Avatar
 } from '@chakra-ui/react'
@@ -21,8 +17,6 @@ import { HiOutlineUserCircle } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
 import { SlHandbag } from 'react-icons/sl'
 import { RxCross1 } from 'react-icons/rx'
-import { FcMultipleInputs } from 'react-icons/fc'
-
 
 
 
@@ -33,6 +27,7 @@ import logo from "../Photos/logo.png"
 import { Input } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { LoggerContext } from '../../Context/LoggerContextProvider';
+import { ProductPageContext } from '../../Context/ProductPageContext';
 
 
 export default function NormalNavbar() {
@@ -44,9 +39,16 @@ export default function NormalNavbar() {
     const [saleDropDown, setSaleDropDown] = useState(false)
     const [sustainabilityDropDown, setSustainabilityDropDown] = useState(false)
 
+    const [displayResult, setDisplayResult] = useState(false)
+
     const [showLogout, setShowLogout] = useState(false)
 
-    const cartValue = useSelector((store) => store.cart.cart.length)
+    const [query, setQuery] = useState(null)
+
+
+
+
+
 
     const [showSearchBtn, setShowSearchBtn] = useState(false)
     const [showSearchbar, setShowSearchbar] = useState(false)
@@ -54,9 +56,13 @@ export default function NormalNavbar() {
     const showSearch = () => {
         setShowSearchBtn(!showSearchBtn)
         setShowSearchbar(!showSearchbar)
+        setDisplayResult(!displayResult)
+
     }
 
     const Navigate = useNavigate()
+
+    const { cartCount } = useContext(ProductPageContext)
 
     const { userType, user, setUser, setUserType, setIsAuth, isAuth, usermail, userImg, setuserImg, setusermail } = useContext(LoggerContext)
 
@@ -96,7 +102,7 @@ export default function NormalNavbar() {
                 </Menu>
             </div>
             <div className='navbarContainer' >
-                <Link to='/' ><img width='170px' src={logo} alt="" /></Link>
+                <Link style={{ zIndex: "21" }} to='/' ><img width='170px' src={logo} alt="" /></Link>
                 <div className='navbar' >
                     {
                         mainItem.map((ele) => {
@@ -185,21 +191,16 @@ export default function NormalNavbar() {
                 </div>
                 <div className='twoBtn' >
                     {/* <button><Link to='/admindashboard' >{userType === 'admin' && <FcMultipleInputs />}</Link></button> */}
-                    <button onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
-                    <button><Link to='/cart'><SlHandbag /></Link> </button>
-                    <p id='cartValue' > <Link to='/cart' >{cartValue}</Link> </p>
+                    <button style={{ zIndex: "21" }} onClick={showSearch} >{showSearchBtn ? <RxCross1   /> : <FiSearch />}</button>
+                    <button style={{ zIndex: "21" }} ><Link to='/cart' ><SlHandbag   /></Link> </button>
+                    <p id='cartValue'  style={{ zIndex: "21" }} > <Link to='/cart' >{cartCount}</Link> </p>
                 </div>
             </div>
             {showSearchbar && <div className='searchBar' >
-                <Input focusBorderColor="blue.500" type="text" placeholder='Search' />
+                {query !== -1 && <RxCross1 onClick={() => setQuery(null)} className='inputClearCross' />}
+                <Input focusBorderColor="blue.500" pl='20' fontSize='25px' onChange={(e) => setQuery(e.target.value)} type="text" placeholder='Search' />
             </div>}
-            {/* <div className='searchResult'>
-                <div style={{ border: '1px solid red', height: '100px' }} ></div>
-                <div style={{ border: '1px solid red', height: '100px' }} ></div>
-                <div style={{ border: '1px solid red', height: '100px' }} ></div>
-                <div style={{ border: '1px solid red', height: '100px' }} ></div>
-                <div style={{ border: '1px solid red', height: '100px' }} ></div>
-            </div> */}
+           
         </div>
     )
 }

@@ -78,10 +78,6 @@
     margin-bottom: 10px;
 }
 
-.cartCard div:nth-child(2) button:nth-child(5) {
-    cursor: text;
-}
-
 .cartCard div:nth-child(2) #loadingCurser {
     cursor: progress;
 }

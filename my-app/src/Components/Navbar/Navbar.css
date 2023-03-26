@@ -41,9 +41,10 @@
 }
 
 .navbar {
-    /* border: 1px solid red; */
-    display: flex;
-    gap: 28px;
+    /* border: 1px solid rgb(0, 255, 42); */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* gap: 28px; */
     align-items: center;
 
 }
@@ -110,6 +111,7 @@
     width: 100%;
     padding: 30px 40px 100px 40px;
     font-size: 15px;
+    z-index: 20;
 }
 
 #womenSubmenue p:hover {
@@ -146,6 +148,7 @@
     padding: 30px 40px 100px 40px;
     font-size: 15px;
     column-gap: 20px;
+    z-index: 20;
 }
 
 .mennavbarpic {
@@ -182,6 +185,7 @@
     font-size: 15px;
     column-gap: 20px;
     border-bottom: 3px solid #0669b5bc;
+    z-index: 20;
 }
 
 #kidsSubmenue p:hover {
@@ -200,6 +204,7 @@
     padding: 30px 40px 100px 40px;
     font-size: 15px;
     column-gap: 20px;
+    z-index: 20;
     border-bottom: 3px solid #0669b5bc;
 }
 
@@ -221,6 +226,7 @@
     padding: 30px 40px;
     width: 100%;
     padding-right: 50%;
+    z-index: 20;
 
 }
 
@@ -242,6 +248,7 @@
     padding: 30px 40px;
     width: 100%;
     padding-right: 25%;
+    z-index: 20;
 }
 
 #saleSubmenue p:hover {
@@ -262,6 +269,7 @@
     padding: 30px 40px;
     width: 100%;
     padding-right: 75%;
+    z-index: 20;
 }
 
 #sustainabilitySubmenue p:hover {
@@ -289,6 +297,53 @@
 .searchResult {
     border: 1px solid red;
     display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    gap: 20px;
+    padding: 0px 20px;
+}
+
+.searchResult img {
+    width: 250px;
+    margin: auto;
+}
+
+.searchResult>div {
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.36);
+    margin-bottom: 25px;
+}
+
+.searchResult h2 {
+    font-weight: 700;
+}
+
+.searchResult h3 {
+    position: relative;
+    bottom: 25px;
+    right: 5px;
+    font-size: 20px;
+    color: black;
+}
+
+.searchResult div>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchResult p {
+    color: gray;
+
+}
+
+.inputClearCross {
+    /* border: 1px solid lawngreen; */
+    font-size: 30px;
+    position: absolute;
+    top: 127px;
+    left: 20px;
+    z-index: 2;
+    color: gray;
+    cursor: pointer;
 }
 
 .hanmburgerBody {
@@ -373,6 +428,8 @@
     position: absolute;
     top: 10px;
 }
+
+@media (max-width:1100px) {}
 
 @media(max-width:1000px) {
     .navbar {

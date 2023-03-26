@@ -9,6 +9,7 @@
 
 .homeFirstDiv span {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .homeFirstDiv span:hover {
@@ -247,14 +248,16 @@
     gap: 25px;
     padding: 20px;
 }
-.homeFourGrid div img{
+
+.homeFourGrid div img {
     border: 2px solid white;
 }
-.homeFourGrid div img:active{
+
+.homeFourGrid div img:active {
     border: 2px solid #045c9e;
 }
 
-.homeFourGrid p{
+.homeFourGrid p {
     /* border: 1px solid rosybrown; */
     display: inline-block;
     padding: 10px;
@@ -267,7 +270,8 @@
 .homeFourGrid p:hover {
     text-decoration: underline;
 }
-.klarnaDiv{
+
+.klarnaDiv {
     border: 1px solid pink;
     display: flex;
     justify-content: center;
@@ -276,33 +280,38 @@
     background-color: #fcb3c7;
     padding: 10px 0px;
 }
-.klarnaDiv div:nth-child(1){
+
+.klarnaDiv div:nth-child(1) {
     display: flex;
     align-items: center;
     font-size: 18px;
     font-weight: 700;
 }
-.klarnaDiv div:last-child{
+
+.klarnaDiv div:last-child {
     text-decoration: underline;
 }
-.klarnaDiv div:last-child:hover{
+
+.klarnaDiv div:last-child:hover {
     text-decoration: none;
 }
-.scrollTopContainer{
+
+.scrollTopContainer {
     border: 1px solid rgba(0, 0, 0, 0.429);
     display: flex;
     justify-content: space-between;
     padding: 15px;
     margin-top: 20px;
     background-color: white;
-   
+
 }
-.scrollTopContainer div:first-child{
+
+.scrollTopContainer div:first-child {
     display: flex;
     gap: 15px;
 }
 
-.scrollTopContainer div:last-child input{
+.scrollTopContainer div:last-child input {
     border: 1px solid black;
     margin-left: 10px;
     padding: 5px;
@@ -310,21 +319,59 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
-.scrollTopContainer div:last-child{
+
+.scrollTopContainer div:last-child {
     color: #676666;
 }
-.scrollTopContainer div:last-child button:last-child{
+
+.scrollTopContainer div:last-child button:last-child {
     border: 1px solid rgba(0, 0, 0, 0.4);
     padding: 5px 10px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     background-color: #f3f3f3;
 }
+
+.BREEZEContainer {
+    /* border: 1px solid red; */
+    text-align: center;
+    background-color: #AAB3EC;
+    padding-bottom: 40px;
+    margin-top: 10px;
+}
+
+.BREEZEContainer h2 {
+    font-size: 35px;
+    font-weight: 700;
+    color: #241571;
+}
+
+.BREEZEContainer p {
+    width: 50%;
+    font-size: 20px;
+    margin: 20px auto;
+    color: #241571;
+}
+
+.BREEZEContainer button {
+    /* border: 1px solid red; */
+    margin: 0px 10px;
+    padding: 5px 30px;
+    background-color: white;
+    border-radius: 3px;
+}
+.breezeimg2{
+    display: none;
+}
 @media screen and (max-width:1200px) {
     .winter-clearnce .container {
         width: 80%;
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .BREEZEContainer p {
+        width: 70%;
     }
 }
 
@@ -372,8 +419,9 @@
         gap: 0px;
         text-align: center;
     }
-    .scrollTopContainer{
-       display: none;
+
+    .scrollTopContainer {
+        display: none;
     }
 
 }
@@ -381,6 +429,19 @@
 @media screen and (max-width:700px) {
     .homeFourGrid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .BREEZEContainer p {
+        width: 90%;
+    }
+    .BREEZEContainer button{
+        width: 90%;
+        margin: 5px 0px;
+    }
+    .breezeimg1{
+        display: none;
+    }
+    .breezeimg2{
+        display: flex;
     }
 }
 
@@ -432,7 +493,8 @@
         margin: 5px 0px;
         width: 90%;
     }
-    .klarnaDiv{
+
+    .klarnaDiv {
         flex-direction: column;
     }
 }
@@ -455,10 +517,12 @@
     .eighthStreet {
         background-image: url('https://clarks.scene7.com/is/image/Pangaea2Build/ClarksHomepageBanner8thSt705x705?fmt=webp&wid=426');
     }
-    .klarnaDiv div:first-child p{
+
+    .klarnaDiv div:first-child p {
         font-size: 15px;
     }
-    .klarnaDiv div:first-child img{
+
+    .klarnaDiv div:first-child img {
         width: 70px;
     }
 }

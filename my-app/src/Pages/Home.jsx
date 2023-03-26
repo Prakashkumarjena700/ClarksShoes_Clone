@@ -11,7 +11,7 @@ export default function Home() {
         <p>|</p>
         <p><span>FREE RETURNS</span> EVERYDAY</p>
       </div>
-      <div className='winter-clearnce' >
+      {/* <div className='winter-clearnce' >
         <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51MBootsSaleDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />
         <div className='container' >
           <p>WINTER CLEARANCE</p>
@@ -26,6 +26,20 @@ export default function Home() {
             <p><Link to='/shopall' >Shop All</Link></p>
           </div>
           <p>For more details see the terms & conditions</p>
+        </div>
+      </div> */}
+      <div className='BREEZEContainer' >
+        <div>
+          <img className='breezeimg1' src="https://clarks.scene7.com/is/content/Pangaea2Build/SS23BreezePageLiberateYourFeetGroupDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />
+          <img className='breezeimg2' src="https://clarks.scene7.com/is/content/Pangaea2Build/SS2BreezePageLiberateYourFeetGroupTabletBanner705x395px_GIF?fmt=webp&wid=768" alt="" />
+        </div>
+        <div>
+          <h2>JOIN THE BREEZE COMFORT REVOLUTION!</h2>
+          <p>Get that better-than-barefoot feeling, in slip-ons and sandals crafted with signature Clarks comfort – setting you free to embrace the best of warm weather.</p>
+          <div>
+            <button>Explore Breeze Collection</button>
+            <button>Shop Breeze Collection</button>
+          </div>
         </div>
       </div>
       <div className='winterRebootimg' >
