@@ -1,19 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import "./Components.css"
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function SixtyPersentSale() {
+    // const { setGender, setType } = useContext(ProductPageContext)
+
+    // const navigate = useNavigate()
+
+    // const setPageforSearch = (gen) => {
+    //     setGender('Women')
+    //     setType(' ')
+    //     localStorage.setItem('gender', 'Women')
+    //     localStorage.setItem('type', ' ')
+
+    //     navigate("/productspage")
+    // }
+
     return (
         <div className='sixtypersentoffSale' >
-            <h1>WINTER CLEARANCE UP TO 60% OFF SALE*</h1>
+            <h1>SUMMER CLEARANCE UP TO 60% OFF SALE*</h1>
             <p>Take an extra 40% off Clearance. Use code: EXTRA40 at checkout for savings off select styles.</p>
             <div>
-                <button><Link to='/womenssearch' >Shop Womens</Link></button>
-                <button><Link to='/menssearch'>Shop Mens</Link></button>
-                <button><Link to='/kidssearch' >Shop Kids</Link></button>
-                <button><Link to='/seedetails' >See Details</Link></button>
+                <button>Shop Womens</button>
+                <button>Shop Mens</button>
+                <button>Shop Kids</button>
+                <button>See Details</button>
             </div>
         </div>
     )
