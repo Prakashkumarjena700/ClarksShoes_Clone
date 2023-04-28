@@ -48,20 +48,6 @@ export default function NormalNavbar() {
     const [query, setQuery] = useState(null)
 
 
-
-
-
-
-    const [showSearchBtn, setShowSearchBtn] = useState(false)
-    const [showSearchbar, setShowSearchbar] = useState(false)
-
-    const showSearch = () => {
-        setShowSearchBtn(!showSearchBtn)
-        setShowSearchbar(!showSearchbar)
-        setDisplayResult(!displayResult)
-
-    }
-
     const Navigate = useNavigate()
 
     const { cartCount } = useContext(ProductPageContext)
@@ -105,7 +91,7 @@ export default function NormalNavbar() {
                 </Menu>
             </div>
             <div className='navbarContainer' >
-                <Link style={{ zIndex: "21" ,marginRight:'30px'}} to='/' ><img width='100px'  src='https://1000logos.net/wp-content/uploads/2021/05/Clarks-logo.png' alt="" /></Link>
+                <Link style={{ zIndex: "21", marginRight: '30px' }} to='/' ><img width='100px' className='logoinNav' src='https://1000logos.net/wp-content/uploads/2021/05/Clarks-logo.png' alt="" /></Link>
                 <div className='navbar' >
                     {
                         mainItem.map((ele) => {
@@ -193,16 +179,11 @@ export default function NormalNavbar() {
                     }
                 </div>
                 <div className='twoBtn' >
-                    {/* <button><Link to='/admindashboard' >{userType === 'admin' && <FcMultipleInputs />}</Link></button> */}
-                    <button style={{ zIndex: "21" }} onClick={showSearch} >{showSearchBtn ? <RxCross1 /> : <FiSearch />}</button>
                     <button style={{ zIndex: "21" }} ><Link to='/cart' ><SlHandbag /></Link> </button>
                     <p id='cartValue' style={{ zIndex: "21" }} > <Link to='/cart' >{cartCount}</Link> </p>
                 </div>
             </div>
-            {showSearchbar && <div className='searchBar' >
-                {query !== -1 && <RxCross1 onClick={() => setQuery(null)} className='inputClearCross' />}
-                <Input focusBorderColor="blue.500" pl='20' fontSize='25px' onChange={(e) => setQuery(e.target.value)} type="text" placeholder='Search' />
-            </div>}
+
 
         </div>
     )

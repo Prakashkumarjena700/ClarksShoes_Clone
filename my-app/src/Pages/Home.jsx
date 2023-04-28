@@ -1,33 +1,79 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Css/Home.css'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Input } from '@chakra-ui/react'
+
+import { RiSearch2Line } from 'react-icons/ri'
+import { RxCross1 } from 'react-icons/rx'
+import { AiTwotoneStar } from 'react-icons/ai'
 
 export default function Home() {
+
+  const [showSearch, setShowSearch] = useState(false)
+  const [que, setQue] = useState(-1)
+  const [arr, setArr] = useState([])
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getData()
+  }, [que])
+
+  const getData = async () => {
+    await fetch(`https://witty-loafers-elk.cyclic.app/data/?q=${que}&limit=4`)
+      .then(res => res.json())
+      .then(res => setArr(res))
+      .catch(err => console.log(err))
+  }
+
+  console.log(arr)
+
   return (
     <div>
+      <button onClick={() => {
+        setArr([])
+        setShowSearch(!showSearch)
+      }} className='searchBtn' >
+        {showSearch ? <RxCross1 /> : <RiSearch2Line />}
+      </button>
+      {showSearch && <Input type="text" p='7' fontSize='3xl' onChange={(e) => setQue(e.target.value)} className='searchInputBox' placeholder='Search' />}
+
+      <div className='searchContainer'  >
+        {
+          arr && arr.map((ele) =>
+            <div style={arr && {padding:'20px'}} onClick={() => navigate(`/productspage/${ele._id}`)} className='searchCardHp' >
+              <div>
+                <img width='200px' src={ele.img1} alt="" />
+              </div>
+              <div>
+                <div>
+                  <p>{ele.name.substring(0, 20)}...</p>
+                  <p>{ele.gender} {ele.type}</p>
+                  <p>{ele.color}</p>
+                  <p>
+                    <AiTwotoneStar color='#0092FF' />
+                    <AiTwotoneStar color='#0092FF' />
+                    <AiTwotoneStar color='#0092FF' />
+                    <AiTwotoneStar color='#0092FF' />
+                    <AiTwotoneStar color='#0092FF' />
+                  </p>
+                </div>
+                <div>
+                  <p>${ele.price}.00</p>
+                </div>
+              </div>
+
+            </div>
+          )
+        }
+
+      </div>
       <div className='homeFirstDiv' >
         <p><span>FREE SHIPPINGON</span> ORDERS OVER $75</p>
         <p>|</p>
         <p><span>FREE RETURNS</span> EVERYDAY</p>
       </div>
-      {/* <div className='winter-clearnce' >
-        <img width='100%' src="https://clarks.scene7.com/is/image/Pangaea2Build/BANWKS50and51MBootsSaleDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />
-        <div className='container' >
-          <p>WINTER CLEARANCE</p>
-          <p>SAVE UP TO</p>
-          <p>50% OFF*</p>
-          <p>TAKE AN EXTRA 30% OFF MARKDOWNS</p>
-          <p>USE CODE: EXTRA</p>
-          <div>
-            <p><Link to='/womenssearch' >Shop Womens</Link></p>
-            <p><Link to='/menssearch'>Shop Mens</Link></p>
-            <p><Link to='/kidssearch' >Shop Kids</Link></p>
-            <p><Link to='/shopall' >Shop All</Link></p>
-          </div>
-          <p>For more details see the terms & conditions</p>
-        </div>
-      </div> */}
       <div className='BREEZEContainer' >
         <div>
           <img className='breezeimg1' src="https://clarks.scene7.com/is/content/Pangaea2Build/SS23BreezePageLiberateYourFeetGroupDesktopBanner1500x500px?fmt=webp&wid=1500" alt="" />

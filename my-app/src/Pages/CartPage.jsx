@@ -25,6 +25,7 @@ export default function CartPage() {
 
     const CheckOut = () => {
         alert("Order Placed Successfully")
+
     }
 
     useEffect(() => {

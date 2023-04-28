@@ -27,12 +27,12 @@ export default function AllRoutes() {
             <Route path='/' element={<Home />} ></Route>
             <Route path='/login' element={<Login />} ></Route>
             <Route path='/register' element={<Register />} ></Route>
-            
+
             <Route path='/womenspage' element={<WomensPage />} />
             <Route path='/menspage' element={<MensPage />} ></Route>
             <Route path='/kidspage' element={<KindPage />} ></Route>
             <Route path='/originals' element={<Originals />} ></Route>
-          
+
             <Route path='/everyMovematters' element={<EveryMoveMatters />} ></Route>
             <Route path='/earthday' element={<EarthDay />} ></Route>
             <Route path='/origin' element={<Origin />} ></Route>
@@ -40,16 +40,20 @@ export default function AllRoutes() {
             <Route path='/original' element={<Original />} ></Route>
             <Route path='/originalsseven' element={<OriginalsSeven />} ></Route>
             <Route path='/trinativ' element={<TriNativ />} ></Route>
-          
+
             <Route path='/productspage' element={<ProductsPage />} ></Route>
             <Route path='/productspage/:id' element={<SignleProductPage />} ></Route>
-            
-            <Route path='/cart' element={<CartPage />} ></Route>
-           
+
+            <Route path='/cart' element={
+                <PrivateRoute>
+                    <CartPage />
+                </PrivateRoute>
+            } ></Route>
+
             <Route path='/seedetails' element={<SeeDetails />} ></Route>
-            
+
             <Route path='/admindashboard' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} ></Route>
 
-           </Routes>
+        </Routes>
     )
 }

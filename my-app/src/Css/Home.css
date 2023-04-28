@@ -360,9 +360,60 @@
     background-color: white;
     border-radius: 3px;
 }
-.breezeimg2{
+
+.breezeimg2 {
     display: none;
 }
+
+.searchBtn {
+    /* border: 1px solid red; */
+    font-size: 30px;
+    position: absolute;
+    right: 100px;
+    top: 70px;
+    z-index: 20;
+    position: fixed;
+    color: #666666;
+}
+
+.searchContainer {
+    /* border: 1px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.searchCardHp {
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+.searchCardHp>div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+}
+
+.searchCardHp>div:nth-child(2) {
+    /* border: 1px solid maroon; */
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+
+.searchCardHp>div:nth-child(2) div:nth-child(2) {
+    display: flex;
+    align-items: flex-end;
+}
+
+.searchCardHp>div:nth-child(2) p:nth-child(4) {
+    display: flex;
+}
+
+.searchCardHp div p:nth-child(1) {
+    font-size: larger;
+    color: black;
+}
+
 @media screen and (max-width:1200px) {
     .winter-clearnce .container {
         width: 80%;
@@ -374,7 +425,11 @@
         width: 70%;
     }
 }
-
+@media (max-width:1000px) {
+    .searchContainer{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
 @media screen and (max-width:900px) {
     .winter-clearnce .container {
         width: 90%;
@@ -430,17 +485,21 @@
     .homeFourGrid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .BREEZEContainer p {
         width: 90%;
     }
-    .BREEZEContainer button{
+
+    .BREEZEContainer button {
         width: 90%;
         margin: 5px 0px;
     }
-    .breezeimg1{
+
+    .breezeimg1 {
         display: none;
     }
-    .breezeimg2{
+
+    .breezeimg2 {
         display: flex;
     }
 }
@@ -498,7 +557,11 @@
         flex-direction: column;
     }
 }
-
+@media (max-width:500px) {
+    .searchContainer{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
 @media screen and (max-width:400px) {
     .homeFirstDiv {
         font-size: 12px;

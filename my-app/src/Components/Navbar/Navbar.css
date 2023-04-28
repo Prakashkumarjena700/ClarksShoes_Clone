@@ -439,6 +439,10 @@
     .hamburgerMenu {
         display: flex;
     }
+    .logoinNav{
+        /* border: 1px solid red; */
+        margin-left: 30px;
+    }
 }
 
 @media (max-width:500px) {

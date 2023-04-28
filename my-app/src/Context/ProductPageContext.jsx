@@ -5,8 +5,6 @@ export const ProductPageContext = createContext()
 
 export default function ProductPageContextProvider({ children }) {
 
-
-
     const [cartCount, setCartCount] = useState(0)
 
 
