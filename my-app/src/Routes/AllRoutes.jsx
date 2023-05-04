@@ -20,6 +20,7 @@ import SignleProductPage from '../Pages/SingleProductPage'
 import TriNativ from '../Pages/TriNativ'
 import WomensPage from '../Pages/WomensPage'
 import PrivateRoute from "./PrivateRoute"
+import Orders from '../Pages/Orders'
 
 export default function AllRoutes() {
     return (
@@ -53,6 +54,7 @@ export default function AllRoutes() {
             <Route path='/seedetails' element={<SeeDetails />} ></Route>
 
             <Route path='/admindashboard' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} ></Route>
+            <Route path='/order' element={<PrivateRoute><Orders /></PrivateRoute>} ></Route>
 
         </Routes>
     )
