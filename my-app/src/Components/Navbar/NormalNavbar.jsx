@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button,
-    Avatar
-} from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList, MenuItem, Button, Avatar } from '@chakra-ui/react'
 
 
 import { BsTruck } from 'react-icons/bs';
@@ -85,6 +78,7 @@ export default function NormalNavbar() {
                         <MenuItem>{usermail}</MenuItem>
                         {userType == 'admin' && isAuth && <MenuItem onClick={() => Navigate("/admindashboard")} >Admin Dashboard</MenuItem>}
                         <MenuItem onClick={() => Navigate("/register")} >Register</MenuItem>
+                        <MenuItem onClick={() => Navigate("/order")} >My Orders</MenuItem>
                         {user !== '' && <MenuItem onClick={logoutFn} >Logout</MenuItem>}
                         <MenuItem onClick={() => Navigate("/login")} >Login</MenuItem>
                     </MenuList>

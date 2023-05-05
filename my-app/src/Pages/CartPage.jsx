@@ -1,10 +1,20 @@
 import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { removeProducet, checkOut } from "../Redux/action"
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useToast } from '@chakra-ui/react'
+
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Button,
+    useDisclosure
+} from '@chakra-ui/react'
 
 import { TbTruck } from 'react-icons/tb'
 
@@ -17,14 +27,20 @@ export default function CartPage() {
 
     const navigate = useNavigate()
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+
     const [cartData, setCartData] = useState([])
     const [loading, setLoading] = useState(false)
     const [total, setTotal] = useState(0)
+    const [showPyment, setShowPyment] = useState(false)
 
     const toast = useToast()
 
     const CheckOut = () => {
-        alert("Order Placed Successfully")
+        let checkouts = cartData.map((ele) => { return ele._id })
+
+
 
     }
 
@@ -174,6 +190,14 @@ export default function CartPage() {
         return totalAmount
     }
 
+    const confromAddress = () => {
+
+    }
+
+    const confromPment = () => {
+        
+    }
+
     return (
         <div>
             <div className='homeFirstDiv' >
@@ -189,7 +213,7 @@ export default function CartPage() {
                 <div>
                     <p>Bag ID:679810249</p>
                     <p>Need help?</p>
-                    <button onClick={CheckOut} >CHECKOUT NOW</button>
+                    <button onClick={onOpen} >CHECKOUT NOW</button>
                 </div>
             </div>
             <div className='freeShipping' >
@@ -225,7 +249,30 @@ export default function CartPage() {
                     <p><span>Estimated total</span><span style={{ color: "black" }} >${total}.00</span></p>
                     <h3>Nurses, Medical Professionals, Military, First Responders, and Airline Employees receive a discount with ID.me</h3>
                     <img id='verifyId' src="https://s3.amazonaws.com/idme/buttons/v4/verify-with-idme.png" alt="" />
-                    <button onClick={CheckOut} >CHECKOUT NOW</button>
+                    {/* <button onClick={CheckOut} ></button> */}
+                    <button onClick={onOpen}>CHECKOUT NOW</button>
+
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>Modal Title</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                                {
+                                    showPyment ?
+                                        <div>
+                                            <h1>Address</h1>
+                                            <button onClick={confromAddress} >Confirm Address</button>
+                                        </div> :
+                                        <div>
+                                            <h1>Pyment</h1>
+                                            <button onClick={confromPment} >Confirm pyment</button>
+                                        </div>
+                                }
+                            </ModalBody>
+
+                        </ModalContent>
+                    </Modal>
                     <span className='acptPtm' >Accepted Payment Methods</span>
                     <div>
                         <img src="https://s7g10.scene7.com/is/content/Pangaea2Build/abCFooterPaypal" alt="" />
