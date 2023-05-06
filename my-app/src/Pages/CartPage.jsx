@@ -4,17 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useToast } from '@chakra-ui/react'
 
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    Button,
-    useDisclosure
-} from '@chakra-ui/react'
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, useDisclosure, Input } from '@chakra-ui/react'
 
 import { TbTruck } from 'react-icons/tb'
 
@@ -34,15 +24,14 @@ export default function CartPage() {
     const [loading, setLoading] = useState(false)
     const [total, setTotal] = useState(0)
     const [showPyment, setShowPyment] = useState(false)
+    const [houseName, setHouseName] = useState('')
+    const [state, setState] = useState('')
+    const [pin, setPin] = useState('')
+    const [mobil, setMobil] = useState('')
+    const [payment, setPayment] = useState('')
+    console.log(payment)
 
     const toast = useToast()
-
-    const CheckOut = () => {
-        let checkouts = cartData.map((ele) => { return ele._id })
-
-
-
-    }
 
     useEffect(() => {
         getData()
@@ -78,7 +67,7 @@ export default function CartPage() {
                     toast({
                         position: 'top',
                         variant: 'top-accent',
-                        title: ' quantity decreased successfully',
+                        title: 'Quantity decreased successfully',
                         description: "Quantity has been decreased in your cart",
                         status: 'success',
                         duration: 5000,
@@ -117,7 +106,7 @@ export default function CartPage() {
                     toast({
                         position: 'top',
                         variant: 'top-accent',
-                        title: ' quantity increased successfully',
+                        title: 'Quantity increased successfully',
                         description: "Quantity has been increased in your cart",
                         status: 'success',
                         duration: 5000,
@@ -190,12 +179,29 @@ export default function CartPage() {
         return totalAmount
     }
 
-    const confromAddress = () => {
 
+    const confromAddress = () => {
+        if (houseName === '' || state === '' || pin === '' || mobil === '') {
+            toast({
+                position: 'top',
+                variant: 'top-accent',
+                title: 'Missing info',
+                description: "Please fill all the information",
+                status: 'info',
+                duration: 5000,
+                isClosable: true
+            })
+        } else {
+            setShowPyment(true)
+        }
     }
 
     const confromPment = () => {
-        
+        let checkouts = cartData.map((ele) => { return ele._id })
+
+        // const { payment, user } = req.body
+        let address = houseName, state, pin
+        let phone = mobil
     }
 
     return (
@@ -255,18 +261,23 @@ export default function CartPage() {
                     <Modal isOpen={isOpen} onClose={onClose}>
                         <ModalOverlay />
                         <ModalContent>
-                            <ModalHeader>Modal Title</ModalHeader>
                             <ModalCloseButton />
                             <ModalBody>
                                 {
                                     showPyment ?
-                                        <div>
-                                            <h1>Address</h1>
-                                            <button onClick={confromAddress} >Confirm Address</button>
-                                        </div> :
-                                        <div>
-                                            <h1>Pyment</h1>
+                                        <div className='checkoutModal' >
+                                            <h2>Pyment</h2>
+                                            <span style={payment === 'Card' ? { backgroundColor: 'gray' } : { backgroundColor: 'red' }} onClick={() => setPayment('Card')} >Credit / Debit Card</span>
+                                            <span style={payment === 'COD' ? { backgroundColor: 'gray' } : { backgroundColor: 'red' }} onClick={() => setPayment('COD')} >COD</span>
                                             <button onClick={confromPment} >Confirm pyment</button>
+                                        </div> :
+                                        <div className='checkoutModal' >
+                                            <h2>Address</h2>
+                                            <Input mb='2' placeholder='House name / Street name' onChange={(e) => setHouseName(e.target.value)} />
+                                            <Input mb='2' placeholder='State' onChange={(e) => setState(e.target.value)} />
+                                            <Input mb='2' placeholder='Pin' onChange={(e) => setPin(e.target.value)} />
+                                            <Input mb='2' placeholder='Mobile' onChange={(e) => setMobil(e.target.value)} />
+                                            <button onClick={confromAddress} >CONFIRM ADDRESS</button>
                                         </div>
                                 }
                             </ModalBody>

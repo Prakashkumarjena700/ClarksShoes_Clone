@@ -173,6 +173,34 @@
     display: none;
 }
 
+.checkoutModal h2 {
+    font-size: x-large;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.checkoutModal button {
+    background-color: #0579D0;
+    color: white;
+    width: 100%;
+    padding: 5px 0px;
+    border-radius: 2px;
+}
+
+.checkoutModal button:hover {
+    background-color: gray;
+    transition: all 700ms;
+}
+
+.checkoutModal span {
+    border: 1px solid red;
+    padding: 3px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    color: white;
+    margin-right: 10px;
+}
+
 @media (max-width:1000px) {
     .acptPtm {
         font-size: 12px;
