@@ -29,7 +29,10 @@ export default function CartPage() {
     const [pin, setPin] = useState('')
     const [mobil, setMobil] = useState('')
     const [payment, setPayment] = useState('')
-    console.log(payment)
+
+    const [Cn, setCn] = useState('')
+    const [CVn, setCvn] = useState('')
+    const [Chn, setChn] = useState('')
 
     const toast = useToast()
 
@@ -179,7 +182,6 @@ export default function CartPage() {
         return totalAmount
     }
 
-
     const confromAddress = () => {
         if (houseName === '' || state === '' || pin === '' || mobil === '') {
             toast({
@@ -196,12 +198,97 @@ export default function CartPage() {
         }
     }
 
-    const confromPment = () => {
-        let checkouts = cartData.map((ele) => { return ele._id })
+    const checkoutSucess = async (id, obj) => {
+        await fetch(`https://witty-loafers-elk.cyclic.app/checkout/add/${id}`, {
+            method: 'POST',
+            headers: {
+                "Authorization": localStorage.getItem("token"),
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        }).then(res => res.json())
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
 
-        // const { payment, user } = req.body
-        let address = houseName, state, pin
-        let phone = mobil
+    const confromPment = () => {
+        if (payment === '') {
+            toast({
+                position: 'top',
+                variant: 'top-accent',
+                title: 'Missing info',
+                description: "Please fill choos payment method",
+                status: 'info',
+                duration: 5000,
+                isClosable: true
+            })
+        } else {
+            if (payment === 'COD') {
+                let checkouts = cartData.map((ele) => { return ele._id })
+
+                // const { payment, user } = req.body
+                let address = houseName + ', ' + state + ', ' + pin
+                let phone = mobil
+
+                let obj = {
+                    address,
+                    phone,
+                    payment
+                }
+
+                checkouts.map((ele) =>
+                    checkoutSucess(ele, obj)
+                )
+                setCartCount(0)
+                toast({
+                    title: 'Checkout Sucessful',
+                    description: "You can see those product in your order section",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                    position: 'top'
+                })
+                navigate('/')
+            } else {
+                if (Cn == '' || CVn == '' || Chn == '') {
+                    toast({
+                        position: 'top',
+                        variant: 'top-accent',
+                        title: 'Missing info',
+                        description: "Please fill all the information",
+                        status: 'info',
+                        duration: 5000,
+                        isClosable: true
+                    })
+                } else {
+                    let checkouts = cartData.map((ele) => { return ele._id })
+
+                    // const { payment, user } = req.body
+                    let address = houseName + ', ' + state + ', ' + pin
+                    let phone = mobil
+
+                    let obj = {
+                        address,
+                        phone,
+                        payment
+                    }
+
+                    checkouts.map((ele) =>
+                        checkoutSucess(ele, obj)
+                    )
+                    setCartCount(0)
+                    toast({
+                        title: 'Checkout Sucessful',
+                        description: "You can see those product in your order section",
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                        position: 'top'
+                    })
+                    navigate('/')
+                }
+            }
+        }
     }
 
     return (
@@ -267,8 +354,16 @@ export default function CartPage() {
                                     showPyment ?
                                         <div className='checkoutModal' >
                                             <h2>Pyment</h2>
-                                            <span style={payment === 'Card' ? { backgroundColor: 'gray' } : { backgroundColor: 'red' }} onClick={() => setPayment('Card')} >Credit / Debit Card</span>
-                                            <span style={payment === 'COD' ? { backgroundColor: 'gray' } : { backgroundColor: 'red' }} onClick={() => setPayment('COD')} >COD</span>
+                                            <span style={payment === 'Card' ? { backgroundColor: 'red' } : { backgroundColor: 'gray' }} onClick={() => setPayment('Card')} >Credit / Debit Card</span>
+                                            <span style={payment === 'COD' ? { backgroundColor: 'red' } : { backgroundColor: 'gray' }} onClick={() => setPayment('COD')} >COD</span>
+                                            {
+                                                payment === 'Card' &&
+                                                <div>
+                                                    <Input onChange={(e) => setCn(e.target.value)} mt='2' mb='2' type="number" placeholder='Card Number' />
+                                                    <Input onChange={(e) => setCvn(e.target.value)} mb='2' type="number" placeholder='CVV Numver' />
+                                                    <Input onChange={(e) => setChn(e.target.value)} mb='2' type="text" placeholder='Card Holder Name' />
+                                                </div>
+                                            }
                                             <button onClick={confromPment} >Confirm pyment</button>
                                         </div> :
                                         <div className='checkoutModal' >
