@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import '../Css/Order.css'
 import { Link } from 'react-router-dom'
 
+import '../Css/Order.css'
+
 import { TbTruck } from 'react-icons/tb'
 
 export default function Orders() {
+
+  const [userOrder, setUserOrder] = useState([])
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     getData()
@@ -18,13 +23,22 @@ export default function Orders() {
       }
     }).then(res => res.json())
       .then(res => {
-        // setCartData(res)
-        // let total = getTotal(res)
-        // setTotal(total)
-        console.log(res)
+        let total = getTotal(res)
+        setTotal(total)
+        setUserOrder(res)
       })
       .catch(err => console.log(err))
   }
+
+
+  const getTotal = (arr) => {
+    const totalAmount = arr.reduce((accumulator, item) => {
+      return accumulator + item.price * item.quentity
+    }, 0)
+    return totalAmount
+  }
+
+  console.log(userOrder)
 
   return (
     <div>
@@ -46,6 +60,40 @@ export default function Orders() {
       </div>
       <div className='freeShipping' >
         <TbTruck color='#c0c8c2' fontSize='40px' /> <p>FREE SHIPPING ON ALL $50+ ORDERS + FREE RETURNS EVERYDAY</p>
+      </div>
+      <div className='cartPageContainer' >
+        <div className='cartList' >
+          {
+            userOrder && userOrder.map((ele) =>
+              <div id='OrderCard' className='cartCard' >
+                <div>
+                  <img src={ele.img1} alt="" />
+                </div>
+                <div>
+                  <b>{ele.name}</b>
+                  <p>Gender : {ele.gender}</p>
+                  <p>Color : {ele.color}</p>
+
+                  <p>Price : ${ele.price}.00</p>
+                  <p>Quentity : {ele.quentity}</p>
+                  <p>Method of Payment : {ele.payment}</p>
+                  <p>Size : {ele.size}</p>
+
+                  <p>Total price : ${ele.price * ele.quentity}.00</p>
+                 
+                </div>
+
+              </div>)
+          }
+        </div>
+        <div className='checkoutContainer'  >
+          <p><span>Subtotal</span><span>${total}.00</span> </p>
+          <p><span>Taxes</span><span>$0.00</span></p>
+          <p><span>Estimated total</span><span style={{ color: "black" }} >${total}.00</span></p>
+          <h3>Nurses, Medical Professionals, Military, First Responders, and Airline Employees receive a discount with ID.me</h3>
+          <img id='verifyId' src="https://s3.amazonaws.com/idme/buttons/v4/verify-with-idme.png" alt="" />
+
+        </div>
       </div>
     </div>
   )

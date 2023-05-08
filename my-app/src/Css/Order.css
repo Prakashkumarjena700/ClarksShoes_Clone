@@ -1,0 +1,7 @@
+.cartList #OrderCard {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartList #OrderCard img {
+    width: 80%;
+}
