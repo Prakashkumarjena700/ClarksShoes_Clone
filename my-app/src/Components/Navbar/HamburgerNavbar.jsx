@@ -29,7 +29,7 @@ export default function HamburgerNavbar() {
         <DrawerContent>
           <DrawerCloseButton color='white' />
           <DrawerBody className='hanmburgerBody' id='hamburger' >
-            <img src={logo} alt="" />
+            <img src="https://clarks.scene7.com/is/image/Pangaea2Build/IC_Clarks_logo_white?$Original$" alt="" />
             <p onClick={onClose} ><Link to='/login' >LONG IN / REGISTER</Link></p>
             <details color='white' >
               <summary>WOMEN</summary>

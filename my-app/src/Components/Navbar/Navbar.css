@@ -392,11 +392,18 @@
 
 #hamburger summary {
     list-style: none;
-    border: 1px solid rgba(255, 255, 255, 0.208);
+    /* border: 1px solid rgba(255, 255, 255, 0.208); */
 }
 
 #hamburger h2 {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    color: white;
+    background-color: #242424;
+    padding: 10px 0px;
+}
+summary{
+    color: white;
+    padding: 10px 0px;
 }
 
 .hanmburgerBody p:nth-child(16) {
