@@ -69,7 +69,7 @@ export default function NormalNavbar() {
                 <p><BsTruck color='#666666' /><span className='displaunoteSection' >Track Order</span></p>
                 <p><CiLocationOn color='#666666' /><span className='displaunoteSection' >Store Locator</span></p>
                 <Menu  >
-                    <MenuButton as={Button} size="sm" >
+                    <MenuButton  mb='2' >
                         <p><HiOutlineUserCircle color='#666666' />{user === '' ? 'Login/Register' : <p >{user}</p>}</p>
                     </MenuButton>
                     <MenuList>
