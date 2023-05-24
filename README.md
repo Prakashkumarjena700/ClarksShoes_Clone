@@ -9,10 +9,9 @@ Clarks is a reputable brand of shoes that is known for being affordable, comfort
 <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-3628858-3029998.png?w=256&f=avif" width='80' alt="JavaScript"/>
 <img src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png?w=256&f=avif" width='80' alt="REACT" />
 <img src="https://www.happylifecreators.com/wp/wp-content/uploads/2022/06/chakra-ui_title2-400x400.png" width='80' alt="Chakra UI" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png" width='80' alt="Node js" />
-<img src="https://skillshack.blob.core.windows.net/uploads/express.webp" width='80' alt="Express js" />
-<img src="https://www.tekskills.in/img/services-home/mongodb-logo.png" width='80' alt="Mongo DB" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png" width='80' alt="Redux" />  
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png" width='80' alt="Node js" /> 
+   <img src="https://www.dbi-services.com/wp-content/uploads/2022/01/Logo-Mongodb-carre.png" width='80' alt="Mongo DB" />
+ <img src="https://adware-technologies.s3.amazonaws.com/uploads/technology/thumbnail/20/express-js.png" width='80' alt="Express js" />
 </p>
 <br/>
 <h2>Functionality</h2>
