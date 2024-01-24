@@ -13,16 +13,17 @@ Clarks is a reputable brand of shoes that is known for being affordable, comfort
    <img src="https://www.dbi-services.com/wp-content/uploads/2022/01/Logo-Mongodb-carre.png" width='80' alt="Mongo DB" />
  <img src="https://adware-technologies.s3.amazonaws.com/uploads/technology/thumbnail/20/express-js.png" width='80' alt="Express js" />
 </p>
-<br/>
-<h2>Functionality</h2>
-<p>
-<img src="https://www.aranifoods.com/register-login-add-on.png" width="100" alt="Register and Login" />
-<img src="https://www.freepnglogos.com/uploads/logo-finder-png/logo-finder-symbol-png-1.png" width='100' alt="Searching"/>
-<img src="https://cdn.iconscout.com/icon/free/png-256/filter-1648758-1401167.png" width='80' alt="Filtering"/>
-</p>
+
 <h2>Deployment</h2>
 <p>
 <img src="https://www.cyclic.sh/og/summary_large_image.png" width='100' alt="Cyclic"/>
 <img src="https://miro.medium.com/max/1400/1*Rv6kW7EnWmShq7DKEb9-_A@2x.jpeg" width='150' alt="Vercel"/>
 </p>
 
+<p>
+   <img src="https://res.cloudinary.com/dkwrlyeva/image/upload/v1706079736/Screenshot_2024-01-24_122346_kunyhs.png" />
+   <img src="https://res.cloudinary.com/dkwrlyeva/image/upload/v1706079710/Screenshot_2024-01-24_122422_vbowzo.png" />
+   <img src="https://res.cloudinary.com/dkwrlyeva/image/upload/v1706079725/Screenshot_2024-01-24_122507_mplfed.png" />
+   <img src="https://res.cloudinary.com/dkwrlyeva/image/upload/v1706079737/Screenshot_2024-01-24_122910_uveqr6.png" />
+   <img src="https://res.cloudinary.com/dkwrlyeva/image/upload/v1706079705/Screenshot_2024-01-24_122251_sx3lzl.png" />
+</p>
